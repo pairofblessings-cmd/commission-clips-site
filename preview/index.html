@@ -1,0 +1,261 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Commission Clips — every sermon, shared all week</title>
+<meta name="description" content="Commission Clips finds the complete teaching moments in your sermon and turns them into captioned Shorts. Upload every sermon — only finished Shorts count. Start free.">
+<link rel="icon" href="img/logo-ink.svg" type="image/svg+xml"><link rel="icon" href="img/favicon-32.png" sizes="32x32"><link rel="apple-touch-icon" href="img/apple-touch-icon.png">
+<meta property="og:type" content="website"><meta property="og:site_name" content="Commission Clips">
+<meta property="og:title" content="Commission Clips — every sermon, shared all week"><meta property="og:description" content="Commission Clips finds the complete teaching moments in your sermon and turns them into captioned Shorts. Upload every sermon — only finished Shorts count. Start free.">
+<meta property="og:url" content="https://commissionclips.com/"><meta property="og:image" content="https://commissionclips.com/img/og.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="theme-color" content="#f3f2ee">
+<link rel="stylesheet" href="site.css">
+<style>
+.hero { position: relative; isolation: isolate; overflow: hidden; padding: 64px 0 88px; }
+.hero::before { content: ""; position: absolute; z-index: -1; right: -180px; top: -140px; width: 900px; height: 720px;
+  background: radial-gradient(closest-side, color-mix(in srgb, var(--accent) 22%, transparent), transparent); }
+.hero .wrap { display: grid; grid-template-columns: 1.05fr .95fr; gap: 56px; align-items: center; }
+.hero h1 { font-size: clamp(42px, 5.8vw, 72px); line-height: 1.02; margin: 18px 0 20px; }
+.hero h1 em { font-style: normal; color: var(--accent); }
+.hero .lead { font-size: 20px; color: var(--soft); max-width: 560px; }
+.hero .ctas { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 30px; }
+.promises { display: flex; flex-wrap: wrap; gap: 10px 22px; margin-top: 28px; font-size: 15px; color: var(--soft); }
+.promises span { display: inline-flex; align-items: center; gap: 8px; }
+.promises span::before { content: ""; width: 18px; height: 18px; border-radius: 50%; background: var(--accent-soft) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Cpath d='M4 8.4l2.6 2.6L12 5.6' fill='none' stroke='%232962c9' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E") center/12px no-repeat; }
+.stage { position: relative; height: 600px; }
+.phone { position: absolute; left: 50%; top: 0; transform: translateX(-38%); width: 300px; aspect-ratio: 9 / 16; border-radius: 38px;
+  background: #000; border: 9px solid #18181b; overflow: hidden; box-shadow: var(--shadow-lg), 0 0 0 1px rgba(0,0,0,.06); }
+.phone video, .phone img { width: 100%; height: 100%; object-fit: cover; }
+.float { position: absolute; left: -10px; bottom: 26px; width: 330px; border-radius: 14px; overflow: hidden; background: var(--panel);
+  border: 1px solid var(--line); box-shadow: var(--shadow-lg); }
+.float .bar { display: flex; align-items: center; gap: 8px; padding: 10px 14px; border-bottom: 1px solid var(--line); font-size: 13px; color: var(--muted); }
+.float .bar img { width: 14px; height: 18px; }
+.chip-live { position: absolute; right: 8px; top: 64px; background: var(--panel); border: 1px solid var(--line); box-shadow: var(--shadow);
+  border-radius: var(--radius-pill); padding: 8px 14px; font-size: 13.5px; font-weight: 600; color: var(--text); display: flex; gap: 8px; align-items: center; }
+.chip-live b { color: var(--accent); }
+.bento { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 16px; }
+.tile { padding: 28px; display: flex; flex-direction: column; gap: 10px; min-width: 0; }
+.tile h3 { font-size: 21px; line-height: 1.2; } .tile p { color: var(--muted); font-size: 15.5px; }
+.t-points { grid-column: span 2; }
+.t-team { grid-column: span 2; }
+.transcript { margin-top: 8px; padding: 18px 20px; border-radius: 12px; background: var(--bg); border: 1px solid var(--line); font-size: 15.5px; line-height: 1.75; }
+.transcript .ctx { color: var(--muted); }
+.transcript .kept { color: var(--text); background: var(--accent-soft); box-shadow: 0 0 0 4px var(--accent-soft); border-radius: 4px; }
+.transcript .mark { display: inline-block; font-size: 11.5px; font-weight: 600; letter-spacing: .04em; text-transform: uppercase; color: var(--accent-on);
+  background: var(--accent); border-radius: 999px; padding: 1px 9px; margin: 0 6px; vertical-align: 2px; font-variant-numeric: tabular-nums; }
+.meter { margin: 8px 0 0; display: grid; gap: 8px; }
+.meter div { display: flex; justify-content: space-between; gap: 12px; padding: 10px 14px; border-radius: 10px; background: var(--bg); border: 1px solid var(--line); font-size: 14.5px; }
+.meter dt { color: var(--soft); } .meter dd { margin: 0; font-weight: 600; color: var(--text); }
+.meter div:last-child dd { color: var(--accent); }
+.chips { list-style: none; margin: 8px 0 0; padding: 0; display: flex; flex-wrap: wrap; gap: 8px; }
+.chips li { padding: 7px 13px; border-radius: 999px; background: var(--bg); border: 1px solid var(--line); font-size: 14px; color: var(--text); }
+.flow { list-style: none; margin: 8px 0 0; padding: 0; display: flex; flex-wrap: wrap; align-items: center; gap: 8px; counter-reset: f; }
+.flow li { counter-increment: f; display: flex; align-items: center; gap: 8px; padding: 8px 14px 8px 8px; border-radius: 999px; background: var(--bg); border: 1px solid var(--line); font-size: 14.5px; color: var(--text); }
+.flow li::before { content: counter(f); width: 22px; height: 22px; border-radius: 50%; display: grid; place-items: center; background: var(--accent); color: var(--accent-on); font-size: 12px; font-weight: 600; }
+/* gentle reveal on scroll: content is visible at rest; only items below the first screen start lowered, and only with motion allowed */
+.pre { opacity: 0; transform: translateY(14px); }
+.reveal { transition: opacity .6s ease, transform .6s ease; }
+.sound { position: absolute; left: 50%; bottom: 14px; transform: translateX(-50%); z-index: 2; display: inline-flex; align-items: center; gap: 8px;
+  padding: 8px 14px; border: 0; border-radius: 999px; background: rgba(255,255,255,.92); color: #18181b; font: 600 13.5px var(--font); cursor: pointer; box-shadow: 0 6px 18px rgba(0,0,0,.25); }
+.sound svg { width: 16px; height: 16px; }
+.sound:focus-visible { outline: 3px solid var(--accent); outline-offset: 2px; }
+.reassure { text-align: center; color: var(--muted); font-size: 14.5px; margin-top: 18px; }
+.steps { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+.step { padding: 0; overflow: hidden; display: flex; flex-direction: column; }
+.step .shot { aspect-ratio: 16 / 10; background: var(--raised); border-bottom: 1px solid var(--line); overflow: hidden; }
+.step .shot img { width: 100%; height: 100%; object-fit: cover; object-position: top left; }
+.step .shot.phoneish { display: grid; place-items: center; background: linear-gradient(160deg, #e7ecf8, var(--raised)); }
+.step .shot.phoneish img { width: 120px; height: auto; aspect-ratio: 9/16; border-radius: 14px; border: 4px solid #18181b; object-fit: cover; }
+.step .body { padding: 24px; }
+.step .n { display: inline-grid; place-items: center; width: 30px; height: 30px; border-radius: 50%; background: var(--accent); color: #fff; font-weight: 600; font-size: 14px; }
+.step h3 { font-size: 20px; margin: 14px 0 6px; }
+.step p { color: var(--muted); font-size: 15.5px; }
+.gallery { display: grid; grid-template-columns: repeat(auto-fill, minmax(230px, 1fr)); gap: 32px 22px; }
+figure.tpl { margin: 0; }
+.tpl .frame { aspect-ratio: 9 / 16; border-radius: 16px; overflow: hidden; background: #000; box-shadow: var(--shadow); position: relative; }
+.tpl .frame img, .tpl .frame video { width: 100%; height: 100%; object-fit: cover; }
+.tpl .frame { cursor: pointer; padding: 0; border: 0; display: block; width: 100%; }
+.tpl .frame video { position: absolute; inset: 0; opacity: 0; transition: opacity .25s; }
+.tpl.playing .frame video { opacity: 1; }
+.tpl .play { position: absolute; right: 10px; bottom: 10px; width: 38px; height: 38px; border-radius: 50%; display: grid; place-items: center;
+  background: rgba(255,255,255,.92); color: #18181b; box-shadow: 0 6px 18px rgba(0,0,0,.25); transition: opacity .2s; pointer-events: none; }
+.tpl .play svg { width: 16px; height: 16px; margin-left: 2px; }
+.tpl.playing .play { opacity: 0; }
+.tpl .frame:focus-visible { outline: 3px solid var(--accent); outline-offset: 3px; }
+.tpl figcaption { margin-top: 10px; font-weight: 600; color: var(--text); font-size: 15px; }
+.tpl figcaption span { display: block; font-weight: 400; color: var(--muted); font-size: 13.5px; }
+.choose { display: grid; grid-template-columns: .9fr 1.1fr; gap: 56px; align-items: center; }
+.choose h2 { font-size: clamp(30px, 3.6vw, 44px); line-height: 1.1; margin: 14px 0 14px; }
+.choose .shot { border-radius: 16px; overflow: hidden; border: 1px solid var(--line); box-shadow: var(--shadow-lg); }
+.plans-teaser { max-width: 940px; margin: 0 auto; }
+@media (max-width: 960px) {
+  .bento { grid-template-columns: 1fr 1fr; } .t-points, .t-team { grid-column: span 2; }
+  .hero .wrap, .choose { grid-template-columns: 1fr; }
+  .stage { height: 560px; } .phone { transform: translateX(-50%); width: 270px; }
+  .float { width: 260px; left: 0; bottom: 0; } .chip-live { right: 0; }
+   .steps { grid-template-columns: 1fr; }
+}
+@media (max-width: 560px) { .bento { grid-template-columns: 1fr; } .t-points, .t-team { grid-column: auto; } .float { display: none; }
+  .gallery { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 20px 12px; } .tpl figcaption { font-size: 14px; } .tpl .play { width: 32px; height: 32px; right: 8px; bottom: 8px; } }
+</style></head>
+<body>
+<div style="background:#18181b;color:#fff;text-align:center;font:600 13px system-ui,sans-serif;padding:8px 12px">Preview of the new design — not live yet</div>
+<header class="top"><div class="wrap">
+  <a class="brand" href="index.html"><img src="img/logo-ink.svg" alt="">Commission Clips</a>
+  <nav aria-label="Main"><a href="#how">How it works</a><a href="#templates">Templates</a><a href="plans.html">Plans</a><a href="#faq">FAQ</a></nav>
+  <div class="actions"><a class="btn accent sm" href="#download">Download</a></div>
+</div></header>
+
+<main>
+<section class="hero"><div class="wrap">
+  <div>
+    <span class="eyebrow">Sermon Shorts for churches</span>
+    <h1>Every sermon, <em>shared all week.</em></h1>
+    <p class="lead">Commission Clips finds the complete teaching moments in your sermon and turns them into captioned Shorts for YouTube, TikTok, Instagram and Facebook.</p>
+    <div class="ctas">
+      <a class="btn accent is-soon" href="#download">Download for Windows <span class="soon">Coming soon</span></a>
+      <a class="btn" href="plans.html">See plans</a>
+    </div>
+    <div class="promises"><span>Upload every sermon</span><span>Only finished Shorts count</span><span>Start free, no card</span></div>
+  </div>
+  <div class="stage">
+    <div class="phone"><video src="img/hero.mp4" poster="img/hero.jpg" autoplay muted loop playsinline></video><button type="button" class="sound" id="sound" aria-pressed="false"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M11 5 6 9H3v6h3l5 4z"/><path d="M16 9a4 4 0 0 1 0 6M19 6a8 8 0 0 1 0 12"/></svg><span>Tap for sound</span></button></div>
+    <div class="chip-live" aria-hidden="true">✓ <b>Complete point</b> · 0:12</div>
+    <div class="float" aria-hidden="true"><div class="bar"><img src="img/logo-ink.svg" alt="">Proposed moments</div><img src="img/app-moments.png" alt=""></div>
+  </div>
+</div></section>
+
+<section class="band" id="why"><div class="wrap">
+  <div class="head"><span class="eyebrow">Why churches choose it</span><h2>Short enough to watch. Whole enough to matter.</h2></div>
+  <div class="bento">
+    <article class="card tile t-points">
+      <h3>Complete points, not fragments</h3>
+      <p>Each moment starts at the setup and ends after the point resolves, so viewers hear the whole thought.</p>
+      <div class="transcript" aria-label="Transcript example from Discerning Of Spirits, 13:41">
+        <span class="ctx">…some of you are like, that&#39;s not the way I was taught.</span>
+        <span class="mark">Start 13:41</span>
+        <span class="kept">The gifts of the Holy Spirit belong to the Holy Spirit and are activated at his behest, not ours.</span>
+        <span class="mark">End 13:55</span>
+        <span class="ctx">I said that slow so you get it, okay?</span>
+      </div>
+    </article>
+    <article class="card tile t-upload">
+      <h3>Upload every sermon</h3>
+      <p>No upload limits. Your plan only counts the Shorts you finish.</p>
+      <dl class="meter"><div><dt>Sermons uploaded</dt><dd>No limit</dd></div><div><dt>Drafts and previews</dt><dd>No limit</dd></div><div><dt>Finished Shorts</dt><dd>Counted</dd></div></dl>
+    </article>
+    <article class="card tile t-feeds">
+      <h3>Ready for every feed</h3>
+      <p>Vertical 1080p Shorts with word-by-word captions.</p>
+      <ul class="chips" aria-label="Made for"><li>YouTube Shorts</li><li>TikTok</li><li>Instagram Reels</li><li>Facebook Reels</li></ul>
+    </article>
+    <article class="card tile t-team">
+      <h3>Built for church teams</h3>
+      <p>No editing experience needed. Four choices and the Short is ready.</p>
+      <ol class="flow"><li>Pick a moment</li><li>Write the hook</li><li>Choose a look</li><li>Export</li></ol>
+    </article>
+  </div>
+</div></section>
+
+<section class="band" id="how"><div class="wrap">
+  <div class="head"><span class="eyebrow">How it works</span><h2>From the pulpit to people's phones in three steps.</h2></div>
+  <div class="steps">
+    <div class="card step"><div class="shot"><img src="img/app-library.png" alt="The Commission Clips Library"></div>
+      <div class="body"><span class="n">1</span><h3>Bring in the sermon</h3><p>Choose a video or audio file, or paste a link to a public sermon.</p></div></div>
+    <div class="card step"><div class="shot"><img src="img/app-moments.png" alt="Proposed moments"></div>
+      <div class="body"><span class="n">2</span><h3>Review the moments</h3><p>Commission Clips transcribes it and proposes complete moments. Listen, read, and approve the ones that fit.</p></div></div>
+    <div class="card step"><div class="shot phoneish"><img src="img/tpl-headline.jpg" alt=""></div>
+      <div class="body"><span class="n">3</span><h3>Finish and share</h3><p>Write the hook card, choose a template, preview it, and export a 1080p Short.</p></div></div>
+  </div>
+</div></section>
+
+<section class="band" id="templates"><div class="wrap">
+  <div class="head"><span class="eyebrow">Templates</span><h2>A look that fits your church.</h2><p>Every template, on every plan — or make your own. Shown here on a real sermon from No Excuses Ministries.</p></div>
+  <div class="gallery" id="gallery"></div>
+</div></section>
+
+<section class="band"><div class="wrap choose">
+  <div>
+    <span class="eyebrow">You stay in charge</span>
+    <h2>It proposes. You choose.</h2>
+    <p class="muted" style="font-size:18px">Read every word of a moment before you approve it. Nothing is shared until you say so.</p>
+    <ul class="ticks" style="margin-top:22px"><li>See exactly where each moment starts and ends</li><li>Trim, preview and adjust as much as you like</li><li>Unlimited drafts and previews on every plan</li></ul>
+  </div>
+  <div class="shot"><img src="img/app-moments.png" alt="Proposed moments in Commission Clips"></div>
+</div></section>
+
+<section class="band" id="plans"><div class="wrap">
+  <div class="head center"><span class="eyebrow">Plans</span><h2>Start free. Share more when you're ready.</h2><p>Every plan has every feature. The only difference is how many finished Shorts you make each month.</p></div>
+  <div class="plans plans-teaser">
+    <div class="card plan"><div class="plan-top"><h3>Foundation</h3></div><p class="lead">Start sharing something meaningful.</p>
+      <div class="price">$0<span> / forever</span></div><p class="billing">No card required.</p>
+      <div class="quota"><strong>1 finished Short</strong> every month</div>
+      <ul class="ticks"><li>Every template and design feature</li><li>1080p Shorts, no watermark</li><li>Upload every sermon</li></ul>
+      <a class="btn" href="#download">Start free</a></div>
+    <div class="card plan featured"><div class="plan-top"><h3>Cornerstone</h3><span class="tag">More room to share</span></div><p class="lead">Keep your message reaching people.</p>
+      <div class="price">$20<span> / month</span></div><p class="billing">Or $200 a year — save $40.</p>
+      <div class="quota"><strong>10 finished Shorts</strong> every month</div>
+      <ul class="ticks"><li>Every template and design feature</li><li>1080p Shorts, no watermark</li><li>Upload every sermon</li></ul>
+      <a class="btn accent" href="plans.html?plan=cornerstone">Choose Cornerstone</a></div>
+  </div>
+  <p class="reassure">Cancel anytime. Full refund within 14 days of your first Cornerstone purchase.</p>
+</div></section>
+
+<section class="band" id="faq"><div class="wrap">
+  <div class="head"><span class="eyebrow">FAQ</span><h2>Questions churches ask.</h2></div>
+  <div class="faq">
+    <details><summary>What counts as a finished Short?</summary><p>A Short counts when you export the final 1080p video. Uploading sermons, reviewing moments, drafts and previews never count.</p></details>
+    <details><summary>Does it work with audio-only sermons?</summary><p>Yes. Bring in .mp3, .wav or .m4a files and use the Audio Message template.</p></details>
+    <details><summary>What do I need to run it?</summary><p>A Windows 11 computer. Transcription and video work happen on your computer.</p></details>
+    <details><summary>Can I cancel anytime?</summary><p>Yes. Cancelling stops future charges, and you keep access until the end of the period you paid for.</p></details>
+  </div>
+</div></section>
+
+<section class="band" id="download"><div class="wrap">
+  <div class="brand-band">
+    <img class="mark" src="img/logo.svg" alt="">
+    <h2>Let Sunday keep speaking.</h2>
+    <p>Commission Clips for Windows 11. Start free — no card required.</p>
+    <span class="btn accent is-soon">Download for Windows <span class="soon">Coming soon</span></span>
+  </div>
+</div></section>
+</main>
+
+<footer><div class="wrap">
+  <a class="brand" href="index.html"><img src="img/logo-ink.svg" alt="">Commission Clips</a>
+  <span>© 2026 Commission Clips</span>
+  <nav aria-label="Footer"><a href="plans.html">Plans</a><a href="support.html">Support</a><a href="privacy.html">Privacy</a><a href="terms.html">Terms</a></nav>
+</div></footer>
+<script>
+const T = [["pulpit","Pulpit","Underlined captions"],["headline","Headline","Bold title, no card"],["bold-highlight","Bold Highlight","Big, high-contrast"],
+  ["foundation","Foundation","Clean and modern"],["clear-conviction","Clear Conviction","Classic serif card"],["quiet","Quiet","Soft and simple"],
+  ["verse-split","Verse Split","Room for the verse"],["audio-message","Audio Message","For audio-only sermons"]];
+document.getElementById("gallery").innerHTML = T.map(([id, name, sub]) =>
+  `<figure class="tpl"><button type="button" class="frame" aria-label="Play a preview of the ${name} template" data-id="${id}">
+     <img src="img/tpl-${id}.jpg" alt="" loading="lazy"><video muted loop playsinline preload="none" aria-hidden="true"></video>
+     <span class="play" aria-hidden="true"><svg viewBox="0 0 16 16"><path d="M4 2.5v11l9-5.5z" fill="currentColor"/></svg></span></button>
+   <figcaption>${name}<span>${sub}</span></figcaption></figure>`).join("");
+// Respect "reduce motion": the hero Short stays on its still frame until someone presses play.
+if (matchMedia("(prefers-reduced-motion: reduce)").matches) { const hv = document.querySelector(".phone video"); hv.removeAttribute("autoplay"); hv.pause(); hv.controls = true; }
+const hv = document.querySelector(".phone video"), sb = document.getElementById("sound");
+sb.addEventListener("click", () => { hv.muted = !hv.muted; if (!hv.muted) { hv.currentTime = 0; hv.play().catch(() => {}); }
+  sb.setAttribute("aria-pressed", String(!hv.muted)); sb.querySelector("span").textContent = hv.muted ? "Tap for sound" : "Sound on"; });
+// Gentle reveal: only items below the first screen start lowered; nothing is hidden without motion or script.
+if ("IntersectionObserver" in window && !matchMedia("(prefers-reduced-motion: reduce)").matches) {
+  const items = [...document.querySelectorAll(".band .head, .tile, .step, .tpl, .plan, .faq details, .choose > *, .brand-band")];
+  const io = new IntersectionObserver(es => es.forEach(e => { if (e.isIntersecting) { e.target.classList.remove("pre"); io.unobserve(e.target); } }), { rootMargin: "0px 0px -8% 0px" });
+  items.forEach((el, i) => { if (el.getBoundingClientRect().top > innerHeight) { el.classList.add("reveal", "pre"); el.style.transitionDelay = `${(i % 4) * 70}ms`; io.observe(el); } });
+}
+// Hover (or tap / keyboard) plays a short real render; nothing downloads until someone asks for it.
+const calm = matchMedia("(prefers-reduced-motion: reduce)").matches;
+function play(btn) { const v = btn.querySelector("video"), fig = btn.closest(".tpl");
+  if (!v.src) v.src = `img/tpl-${btn.dataset.id}.mp4`;
+  v.play().then(() => fig.classList.add("playing")).catch(() => {}); }
+function stop(btn) { const v = btn.querySelector("video"); v.pause(); v.currentTime = 0; btn.closest(".tpl").classList.remove("playing"); }
+document.querySelectorAll(".tpl .frame").forEach(btn => {
+  if (!calm) { btn.addEventListener("mouseenter", () => play(btn)); btn.addEventListener("mouseleave", () => stop(btn)); }
+  btn.addEventListener("click", () => btn.closest(".tpl").classList.contains("playing") ? stop(btn) : play(btn));
+  btn.addEventListener("blur", () => stop(btn));
+});
+</script>
+</body></html>
