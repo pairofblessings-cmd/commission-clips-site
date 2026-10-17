@@ -16,6 +16,32 @@
   --shadow: 0 18px 48px rgba(24, 24, 32, .10); --shadow-lg: 0 30px 80px rgba(24, 24, 32, .16);
   --highlight: inset 0 1px 0 rgba(255, 255, 255, .8);
   --dark: #0b0b0c; --dark-panel: #151517;
+  --tick: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Cpath d='M4 8.4l2.6 2.6L12 5.6' fill='none' stroke='%232962c9' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+  --feat-bg: linear-gradient(160deg, #2f6be0 0%, #2557b2 55%, #1b3f86 100%); --feat-line: #1b3f86;
+}
+@media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) {
+  color-scheme: dark;
+  --bg: #0b0b0c; --panel: #151517; --raised: #1e1e21; --line: #2c2c30; --hover-line: #44444b;
+  --text: #ffffff; --soft: #d4d4d8; --muted: #a6a6ad;
+  --accent: #4c8dff; --accent-hover: #6ba1ff; --accent-on: #04122b; --accent-soft: #15233f;
+  --card-edge: #2f4f8f; --top-line: #2c2c30; --band: linear-gradient(180deg, #0f1522, #0b0b0c);
+  --good: #3ecf8e;
+  --shadow: 0 18px 48px rgba(0, 0, 0, .5); --shadow-lg: 0 30px 80px rgba(0, 0, 0, .6);
+  --highlight: inset 0 1px 0 rgba(255, 255, 255, .04);
+  --tick: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Cpath d='M4 8.4l2.6 2.6L12 5.6' fill='none' stroke='%238fb6ff' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+  --feat-bg: linear-gradient(160deg, #1d4fae 0%, #12357a 55%, #0d2557 100%); --feat-line: #4c8dff;
+} }
+:root[data-theme="dark"] {
+  color-scheme: dark;
+  --bg: #0b0b0c; --panel: #151517; --raised: #1e1e21; --line: #2c2c30; --hover-line: #44444b;
+  --text: #ffffff; --soft: #d4d4d8; --muted: #a6a6ad;
+  --accent: #4c8dff; --accent-hover: #6ba1ff; --accent-on: #04122b; --accent-soft: #15233f;
+  --card-edge: #2f4f8f; --top-line: #2c2c30; --band: linear-gradient(180deg, #0f1522, #0b0b0c);
+  --good: #3ecf8e;
+  --shadow: 0 18px 48px rgba(0, 0, 0, .5); --shadow-lg: 0 30px 80px rgba(0, 0, 0, .6);
+  --highlight: inset 0 1px 0 rgba(255, 255, 255, .04);
+  --tick: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Cpath d='M4 8.4l2.6 2.6L12 5.6' fill='none' stroke='%238fb6ff' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+  --feat-bg: linear-gradient(160deg, #1d4fae 0%, #12357a 55%, #0d2557 100%); --feat-line: #4c8dff;
 }
 * { box-sizing: border-box; }
 html { scroll-behavior: smooth; }
@@ -76,7 +102,7 @@ section.band:nth-of-type(even) { background: var(--band); }   /* concept D: sapp
 .ticks { list-style: none; margin: 0; padding: 0; display: grid; gap: 10px; }
 .ticks li { position: relative; padding-left: 30px; }
 .ticks li::before { content: ""; position: absolute; left: 0; top: 4px; width: 18px; height: 18px; border-radius: 50%;
-  background: var(--accent-soft) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Cpath d='M4 8.4l2.6 2.6L12 5.6' fill='none' stroke='%232962c9' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E") center/12px no-repeat; }
+  background: var(--accent-soft) var(--tick) center/12px no-repeat; }
 
 /* plans — same cards as the app's Plans page */
 .billing-toggle { display: inline-flex; border: 1px solid var(--line); border-radius: var(--radius-pill); padding: 4px; background: var(--panel); }
@@ -144,3 +170,35 @@ footer a:hover { color: var(--text); }
 .steps-list li::before { counter-increment: s; content: counter(s); position: absolute; left: 0; top: 0; width: 32px; height: 32px; border-radius: 50%;
   background: var(--accent); color: var(--accent-on); font-weight: 600; display: grid; place-items: center; font-size: 14px; }
 @media (max-width: 700px) { .legal table, .legal thead, .legal tbody, .legal tr, .legal th, .legal td { display: block; } .legal thead { display: none; } }
+
+/* Dark mode: the dark logo ink turns white (the SVG itself also follows the device setting) */
+:root[data-theme="dark"] img[src$="logo-ink.svg"] { content: url("img/logo.svg"); }
+@media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) img[src$="logo-ink.svg"] { content: url("img/logo.svg"); } }
+.brand-band { box-shadow: 0 0 0 1px var(--line); }
+/* Theme button in the header */
+.theme-btn { width: 38px; height: 38px; border-radius: 50%; border: 1px solid var(--line); background: var(--panel); color: var(--text);
+  display: inline-grid; place-items: center; cursor: pointer; padding: 0; }
+.theme-btn:hover { border-color: var(--hover-line); }
+.theme-btn:focus-visible { outline: 3px solid var(--accent); outline-offset: 2px; }
+.theme-btn svg { width: 18px; height: 18px; fill: none; stroke: currentColor; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
+.theme-btn .i-moon { fill: currentColor; stroke: none; }
+.theme-btn .i-sun { display: none; }
+:root[data-theme="dark"] .theme-btn .i-sun { display: block; } :root[data-theme="dark"] .theme-btn .i-moon { display: none; }
+@media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) .theme-btn .i-sun { display: block; } :root:not([data-theme="light"]) .theme-btn .i-moon { display: none; } }
+header.top .actions { display: flex; align-items: center; gap: 10px; }
+/* Cornerstone stands apart: a sapphire card, white type, white button */
+.plan.featured { background: var(--feat-bg); border: 1px solid var(--feat-line); color: #dfe8fb; position: relative; overflow: hidden; isolation: isolate;
+  box-shadow: 0 30px 70px color-mix(in srgb, #2962c9 35%, transparent), inset 0 1px 0 rgba(255, 255, 255, .18); }
+.plan.featured::before { content: ""; position: absolute; z-index: -1; right: -120px; top: -140px; width: 360px; height: 360px; border-radius: 50%;
+  background: radial-gradient(closest-side, rgba(255, 255, 255, .22), transparent); }
+.plan.featured h2, .plan.featured h3, .plan.featured .price, .plan.featured strong, .plan.featured b { color: #ffffff; }
+.plan.featured .lead, .plan.featured .billing, .plan.featured .price span { color: #c9d8f7; }
+.plan.featured .tag { background: rgba(255, 255, 255, .16); color: #ffffff; }
+.plan.featured hr, .plan.featured .rule { border-color: rgba(255, 255, 255, .22); }
+.plan.featured .ticks li { color: #eef3fd; }
+.plan.featured .ticks li::before { background: rgba(255, 255, 255, .18) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Cpath d='M4 8.4l2.6 2.6L12 5.6' fill='none' stroke='%23ffffff' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E") center/12px no-repeat; }
+.plan.featured .btn.accent { background: #ffffff; border-color: #ffffff; color: #1b3f86; box-shadow: 0 10px 24px rgba(0, 0, 0, .18); }
+.plan.featured .btn.accent:hover { background: #eef3fd; }
+.plan.featured .btn .soon { background: #e2eafb; color: #1b3f86; }
+.plan.featured .per { align-self: flex-start; display: inline-block; margin-top: 12px; padding: 5px 12px; border-radius: var(--radius-pill); background: rgba(255, 255, 255, .14); color: #ffffff; font-size: 13.5px; font-weight: 600; }
+@media (min-width: 901px) { .plans .plan.featured { transform: translateY(-8px); } }
