@@ -1,33 +1,31 @@
 <!doctype html>
-<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name="robots" content="noindex, nofollow">
+<html lang="en"><head><meta charset="utf-8"><meta name="robots" content="noindex, nofollow"><meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Commission Clips — every sermon, shared all week</title>
-<meta name="description" content="Commission Clips finds the complete teaching moments in your sermon and turns them into captioned Shorts. Upload every sermon — only finished Shorts count. Start free.">
+<meta name="description" content="Commission Clips finds the complete teaching moments in your sermon and turns them into captioned Shorts. Start free, no card.">
+<link rel="canonical" href="https://commissionclips.com/">
 <link rel="icon" href="img/logo-ink.svg" type="image/svg+xml"><link rel="icon" href="img/favicon-32.png" sizes="32x32"><link rel="apple-touch-icon" href="img/apple-touch-icon.png">
 <meta property="og:type" content="website"><meta property="og:site_name" content="Commission Clips">
-<meta property="og:title" content="Commission Clips — every sermon, shared all week"><meta property="og:description" content="Commission Clips finds the complete teaching moments in your sermon and turns them into captioned Shorts. Upload every sermon — only finished Shorts count. Start free.">
+<meta property="og:title" content="Commission Clips — every sermon, shared all week"><meta property="og:description" content="Commission Clips finds the complete teaching moments in your sermon and turns them into captioned Shorts. Start free, no card.">
 <meta property="og:url" content="https://commissionclips.com/"><meta property="og:image" content="https://commissionclips.com/img/og.png">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="theme-color" content="#f3f2ee" media="(prefers-color-scheme: light)"><meta name="theme-color" content="#0b0b0c" media="(prefers-color-scheme: dark)">
 <script src="theme.js"></script>
 <link rel="stylesheet" href="site.css">
 <style>
-.hero { position: relative; isolation: isolate; overflow: hidden; padding: 64px 0 88px; }
-.hero::before { content: ""; position: absolute; z-index: -1; right: -180px; top: -140px; width: 900px; height: 720px;
-  background: radial-gradient(closest-side, color-mix(in srgb, var(--accent) 22%, transparent), transparent); }
-.hero .wrap { display: grid; grid-template-columns: 1.05fr .95fr; gap: 56px; align-items: center; }
-.hero h1 { font-size: clamp(42px, 5.8vw, 72px); line-height: 1.02; margin: 18px 0 20px; }
+.hero { position: relative; overflow: hidden; padding: 72px 0 104px; }
+.hero .wrap { display: grid; grid-template-columns: 1.1fr .9fr; gap: 64px; align-items: center; }
+.hero h1 { font-size: clamp(44px, 5.2vw, 70px); line-height: 1; letter-spacing: -.045em; margin: 20px 0 24px; }
 .hero h1 em { font-style: normal; color: var(--accent); }
-.hero .lead { font-size: 20px; color: var(--soft); max-width: 560px; }
-.hero .ctas { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 30px; }
-.promises { display: flex; flex-wrap: wrap; gap: 10px 22px; margin-top: 28px; font-size: 15px; color: var(--soft); }
-.promises span { display: inline-flex; align-items: center; gap: 8px; }
-.promises span::before { content: ""; width: 18px; height: 18px; border-radius: 50%; background: var(--accent-soft) var(--tick) center/12px no-repeat; }
+.hero .lead { font-size: 20px; line-height: 1.6; color: var(--muted); max-width: 540px; }
+.hero .ctas { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 36px; }
+.promises { display: flex; flex-wrap: wrap; gap: 8px 20px; margin-top: 28px; font-size: 14.5px; color: var(--muted); }
+.promises span { display: inline-flex; align-items: center; gap: 7px; }
+.promises span::before { content: ""; width: 16px; height: 16px; background: var(--tick) center/16px no-repeat; }
 .stage { position: relative; height: 600px; }
-.phone { position: absolute; left: 50%; top: 0; transform: translateX(-38%); width: 300px; aspect-ratio: 9 / 16; border-radius: 38px;
-  background: #000; border: 9px solid #18181b; overflow: hidden; box-shadow: var(--shadow-lg), 0 0 0 1px rgba(0,0,0,.06); }
+.phone { position: absolute; left: 50%; top: 0; transform: translateX(-38%); width: 300px; aspect-ratio: 9 / 16; border-radius: 40px;
+  background: #000; border: 7px solid #0d0e12; overflow: hidden; box-shadow: var(--shadow-lg), 0 0 0 1px var(--line); }
 .phone video, .phone img { width: 100%; height: 100%; object-fit: cover; }
-.float { position: absolute; left: -36px; bottom: 18px; width: 268px; border-radius: 14px; overflow: hidden; background: var(--panel);
+.float { position: absolute; left: -36px; bottom: 28px; width: 268px; border-radius: 14px; overflow: hidden; background: var(--panel);
   border: 1px solid var(--line); box-shadow: var(--shadow-lg); }
 .float .bar { display: flex; align-items: center; gap: 8px; padding: 10px 14px; border-bottom: 1px solid var(--line); font-size: 13px; color: var(--muted); }
 .float .bar img { width: 14px; height: 18px; }
@@ -36,30 +34,79 @@
 .mo-meta { color: var(--muted); font-size: 13px; font-variant-numeric: tabular-nums; }
 .ticks { list-style: none; margin: 0; padding: 0; display: grid; gap: 6px; }
 .ticks li { display: flex; align-items: center; gap: 8px; font-size: 14px; color: var(--soft); }
-.ticks li::before, .free li::before { content: ""; flex: none; width: 18px; height: 18px; border-radius: 50%; background: var(--accent-soft) var(--tick) center/12px no-repeat; }
+.ticks li::before, .free li::before { content: ""; flex: none; width: 16px; height: 16px; background: var(--tick) center/16px no-repeat; }
 .mo-actions { display: flex; gap: 8px; margin-top: 4px; }
-.mini { padding: 6px 14px; border-radius: var(--radius-pill); border: 1px solid var(--line); font-size: 13px; font-weight: 600; color: var(--text); background: var(--panel); }
+.mini { padding: 6px 12px; border-radius: 8px; border: 1px solid var(--line); font-size: 13px; font-weight: 600; color: var(--text); background: var(--panel); }
 .mini.primary { background: var(--accent); border-color: var(--accent); color: var(--accent-on); }
 .bento { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 16px; }
 .tile { padding: 28px; display: flex; flex-direction: column; gap: 10px; min-width: 0; }
-.tile h3 { font-size: 21px; line-height: 1.2; } .tile p { color: var(--muted); font-size: 15.5px; }
-.ai { margin-top: 8px; display: grid; grid-template-columns: 1fr 1fr; gap: 16px; padding: 18px 20px; border-radius: 12px; background: var(--bg); border: 1px solid var(--line); }
+.tile h3 { font-size: 21px; line-height: 1.25; letter-spacing: -.02em; } .tile p { color: var(--muted); font-size: 15.5px; }
+.ai { margin-top: 8px; display: grid; grid-template-columns: 1fr 1fr; gap: 16px; padding: 18px 20px; border-radius: 12px; background: var(--surface); border: 1px solid var(--line); }
 .ai > div { display: grid; gap: 10px; align-content: start; min-width: 0; }
-.ai-label { font-size: 12px; font-weight: 600; letter-spacing: .06em; text-transform: uppercase; color: var(--accent); }
+.ai-label { font-size: 12px; font-weight: 600; letter-spacing: .08em; text-transform: uppercase; color: var(--muted); }
 .ai .chips { margin: 0; } .ai .chips li { background: var(--panel); }
 .free { list-style: none; margin: 4px 0 0; padding: 0; display: grid; gap: 8px; }
 .free li { display: flex; align-items: center; gap: 10px; font-size: 15px; color: var(--text); }
-.counts { margin-top: 6px; display: flex; justify-content: space-between; gap: 12px; padding: 10px 14px; border-radius: 10px; background: var(--accent-soft); font-size: 14.5px; color: var(--text); }
-.counts b { color: var(--accent); }
-.stat { margin-top: 2px; } .tile .stat { color: var(--text); font-size: 16px; } .stat b { display: block; font-family: var(--font-display); font-weight: 800; font-size: 40px; line-height: 1.05; color: var(--accent); letter-spacing: -.02em; }
+.counts { margin-top: 6px; display: flex; justify-content: space-between; gap: 12px; padding: 12px 14px; border-radius: 10px; background: var(--surface); border: 1px solid var(--line); font-size: 14.5px; color: var(--text); }
+.counts b { color: var(--accent-ink); }
+.more { margin-top: auto; padding-top: 6px; font-size: 14px; font-weight: 600; color: var(--accent-ink); }
+.more:hover { text-decoration: underline; text-underline-offset: 3px; }
+.stat { margin-top: 2px; } .tile .stat { color: var(--text); font-size: 16px; } .stat b { display: block; font-family: var(--font-display); font-weight: 800; font-size: 40px; line-height: 1.05; color: var(--text); letter-spacing: -.04em; }
 .tile .src { font-size: 13px; } .src a { text-decoration: underline; text-underline-offset: 2px; }
 .t-points { grid-column: span 2; }
 .t-team { grid-column: span 2; }
  .chips { list-style: none; margin: 8px 0 0; padding: 0; display: flex; flex-wrap: wrap; gap: 8px; }
-.chips li { padding: 7px 13px; border-radius: 999px; background: var(--bg); border: 1px solid var(--line); font-size: 14px; color: var(--text); }
+.chips li { padding: 6px 12px; border-radius: 8px; background: var(--surface); border: 1px solid var(--line); font-size: 14px; color: var(--text); }
 .flow { list-style: none; margin: 8px 0 0; padding: 0; display: flex; flex-wrap: wrap; align-items: center; gap: 8px; counter-reset: f; }
-.flow li { counter-increment: f; display: flex; align-items: center; gap: 8px; padding: 8px 14px 8px 8px; border-radius: 999px; background: var(--bg); border: 1px solid var(--line); font-size: 14.5px; color: var(--text); }
-.flow li::before { content: counter(f); width: 22px; height: 22px; border-radius: 50%; display: grid; place-items: center; background: var(--accent); color: var(--accent-on); font-size: 12px; font-weight: 600; }
+.flow li { counter-increment: f; display: flex; align-items: center; gap: 8px; padding: 7px 14px 7px 7px; border-radius: 10px; background: var(--surface); border: 1px solid var(--line); font-size: 14.5px; color: var(--text); }
+.flow li::before { content: counter(f); width: 22px; height: 22px; border-radius: 6px; display: grid; place-items: center; background: var(--panel); border: 1px solid var(--line); color: var(--text); font-size: 12px; font-weight: 600; }
+.t-team .flow { flex: 1; margin-top: 14px; display: grid; align-items: stretch; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 10px; }
+.t-team .flow li { flex-direction: column; align-items: flex-start; justify-content: space-between; gap: 28px; padding: 18px; border-radius: 12px; font-weight: 600; min-height: 140px; }
+.t-team .flow span { display: grid; gap: 4px; line-height: 1.3; }
+.t-team .flow small { font-weight: 400; font-size: 13.5px; color: var(--muted); }
+.t-team .flow li::before { width: 26px; height: 26px; font-size: 12.5px; }
+@media (max-width: 560px) { .t-team .flow { grid-template-columns: 1fr 1fr; } .t-team .flow li { min-height: 0; gap: 16px; } }
+.brand-band p { max-width: 560px; }
+.dots { list-style: none; margin: 0; padding: 0; display: grid; gap: 6px; }
+.dots li { display: flex; align-items: center; gap: 10px; font-size: 14px; color: var(--soft); }
+.dots li::before { content: ""; flex: none; width: 6px; height: 6px; border-radius: 2px; background: var(--accent-ink); opacity: .7; }
+.platforms { list-style: none; margin: auto 0 0; padding: 12px 0 0; display: grid; grid-template-columns: 1fr 1fr; gap: 8px; }
+.platforms li { padding: 10px 12px; border-radius: 10px; background: var(--surface); border: 1px solid var(--line); font-size: 14px; font-weight: 600; color: var(--text); text-align: center; }
+.stats { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 16px; }
+.fact { margin: 0; display: flex; flex-direction: column; gap: 10px; padding: 30px; }
+.fact b { font-family: var(--font-display); font-weight: 800; font-size: clamp(40px, 4.4vw, 56px); line-height: 1; letter-spacing: -.045em; color: var(--text); }
+.fact figcaption { color: var(--soft); font-size: 16px; line-height: 1.5; }
+.fact a { margin-top: auto; padding-top: 10px; font-size: 13px; color: var(--muted); text-decoration: underline; text-underline-offset: 3px; text-decoration-color: var(--line); }
+.fact a:hover { color: var(--text); }
+.fineprint { color: var(--muted); font-size: 13.5px; margin-top: 14px; }
+.insights { margin-top: 32px; display: grid; grid-template-columns: 1fr 1fr; gap: 40px; align-items: center; padding: 36px; }
+.ins-copy h3 { font-size: 24px; letter-spacing: -.02em; } .ins-copy > p.muted { margin: 8px 0 18px; }
+.ins-copy .ticks { gap: 8px; } .ins-copy .ticks li { font-size: 15.5px; }
+.ins-panel { border: 1px solid var(--line); border-radius: 14px; background: var(--surface); padding: 20px; min-width: 0; }
+.ins-top { display: flex; justify-content: space-between; align-items: center; gap: 10px; }
+.ins-top b { color: var(--text); font-size: 15px; }
+.ins-tag { font-size: 11.5px; font-weight: 600; color: var(--muted); border: 1px solid var(--line); border-radius: 6px; padding: 2px 8px; background: var(--panel); white-space: nowrap; }
+.ins-kpis { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; margin-top: 16px; }
+.ins-kpis div { background: var(--panel); border: 1px solid var(--line); border-radius: 10px; padding: 10px 12px; display: grid; gap: 2px; }
+.ins-kpis span { font-size: 12px; color: var(--muted); } .ins-kpis b { color: var(--text); font-size: 18px; font-variant-numeric: tabular-nums; }
+.ins-bars { height: 120px; margin-top: 18px; display: grid; grid-template-columns: repeat(7, 1fr); gap: 8px; align-items: end; border-bottom: 1px solid var(--line); }
+.ins-bars i { height: var(--h); border-radius: 5px 5px 0 0; background: var(--accent); opacity: .85; }
+.ins-days { display: grid; grid-template-columns: repeat(7, 1fr); gap: 8px; margin-top: 6px; font-size: 11.5px; color: var(--muted); text-align: center; }
+.rv-card[hidden] { display: none; }
+.try { font-size: 13.5px; color: var(--muted); margin-bottom: 10px; }
+.rv-tabs button { font: inherit; color: inherit; background: none; border: 0; border-bottom: 2px solid transparent; padding: 14px 0 12px; cursor: pointer; }
+.rv-tabs button.on { color: var(--text); font-weight: 600; border-color: var(--text); }
+.rv-tabs button:hover { color: var(--text); }
+button.mini { font: 600 13px var(--font); cursor: pointer; min-height: 34px; }
+button.mini:hover { border-color: var(--hover-line); } button.mini.primary:hover { background: var(--accent-hover); }
+button.mini[disabled] { cursor: default; background: var(--good); border-color: var(--good); color: #fff; }
+.demo-note { font-size: 13.5px; color: var(--muted); min-height: 1.4em; }
+.demo-step { font-size: 12px; font-weight: 600; letter-spacing: .08em; text-transform: uppercase; color: var(--muted); }
+.looks { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; }
+.looks button { padding: 0; border: 2px solid transparent; border-radius: 12px; background: none; cursor: pointer; display: grid; gap: 6px; font: 600 12.5px var(--font); color: var(--soft); text-align: center; padding-bottom: 4px; }
+.looks img { width: 100%; aspect-ratio: 9 / 12; object-fit: cover; object-position: center 30%; border-radius: 10px; }
+.looks button[aria-checked="true"] { border-color: var(--accent); color: var(--text); }
+@media (max-width: 900px) { .stats { grid-template-columns: 1fr; } .insights { grid-template-columns: 1fr; padding: 24px; gap: 28px; } }
 /* gentle reveal on scroll: content is visible at rest; only items below the first screen start lowered, and only with motion allowed */
 .pre { opacity: 0; transform: translateY(14px); }
 .reveal { transition: opacity .6s ease, transform .6s ease; }
@@ -72,13 +119,13 @@
 .reassure { text-align: center; color: var(--muted); font-size: 14.5px; margin-top: 18px; }
 .steps { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
 .step { padding: 0; overflow: hidden; display: flex; flex-direction: column; }
-.step .shot { aspect-ratio: 16 / 10; background: var(--raised); border-bottom: 1px solid var(--line); overflow: hidden; }
+.step .shot { aspect-ratio: 16 / 10; background: var(--surface); border-bottom: 1px solid var(--line); overflow: hidden; }
 .step .shot > img { width: 100%; height: 100%; object-fit: cover; object-position: top left; }
-.step .shot.phoneish, .step .shot.mock { display: grid; place-items: center; background: linear-gradient(160deg, var(--accent-soft), var(--raised)); }
+.step .shot.phoneish, .step .shot.mock { display: grid; place-items: center; background: var(--surface); }
 .win { width: 84%; background: var(--panel); border: 1px solid var(--line); border-radius: 12px; box-shadow: var(--shadow); overflow: hidden; font-size: 12.5px; }
 .win-bar { display: flex; align-items: center; gap: 7px; padding: 8px 12px; border-bottom: 1px solid var(--line); color: var(--muted); font-weight: 600; font-size: 12px; }
 .win-bar img { width: 11px; height: 14px; }
-.drop { margin: 12px; padding: 14px 10px; border: 1.5px dashed var(--card-edge); border-radius: 10px; background: var(--bg); display: grid; justify-items: center; gap: 2px; text-align: center; }
+.drop { margin: 12px; padding: 14px 10px; border: 1.5px dashed var(--hover-line); border-radius: 10px; background: var(--surface); display: grid; justify-items: center; gap: 2px; text-align: center; }
 .drop svg { width: 22px; height: 22px; color: var(--accent); margin-bottom: 4px; } .drop b { color: var(--text); font-size: 13px; } .drop span { color: var(--muted); font-size: 11.5px; }
 .link { margin: 0 12px 12px; display: flex; align-items: center; justify-content: space-between; gap: 8px; padding: 6px 6px 6px 12px; border: 1px solid var(--line); border-radius: var(--radius-pill); color: var(--muted); }
 .link i, .rows i { font-style: normal; font-weight: 600; font-size: 11.5px; padding: 4px 11px; border-radius: var(--radius-pill); background: var(--accent); color: var(--accent-on); flex: none; }
@@ -87,14 +134,15 @@
 .rows li:last-child { border-bottom: 0; }
 .rows span { display: grid; min-width: 0; } .rows b { color: var(--text); font-weight: 600; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
 .rows em { font-style: normal; color: var(--muted); font-size: 11.5px; font-variant-numeric: tabular-nums; }
-.step .shot.phoneish img { width: 120px; height: auto; aspect-ratio: 9/16; border-radius: 14px; border: 4px solid #18181b; object-fit: cover; }
-.step .body { padding: 24px; }
-.step .n { display: inline-grid; place-items: center; width: 30px; height: 30px; border-radius: 50%; background: var(--accent); color: var(--accent-on); font-weight: 600; font-size: 14px; }
-.step h3 { font-size: 20px; margin: 14px 0 6px; }
+.step .shot.phoneish img { width: 116px; height: auto; aspect-ratio: 9/16; border-radius: 16px; border: 4px solid #0d0e12; object-fit: cover; }
+.step .body { padding: 26px 28px 30px; }
+.step .n { display: inline-block; color: var(--accent-ink); font-weight: 600; font-size: 13px; letter-spacing: .1em; font-variant-numeric: tabular-nums; }
+.step .n::before { content: "STEP 0"; }
+.step h3 { font-size: 20px; letter-spacing: -.02em; margin: 8px 0 8px; }
 .step p { color: var(--muted); font-size: 15.5px; }
 .gallery { display: grid; grid-template-columns: repeat(auto-fill, minmax(230px, 1fr)); gap: 32px 22px; }
 figure.tpl { margin: 0; }
-.tpl .frame { aspect-ratio: 9 / 16; border-radius: 16px; overflow: hidden; background: #000; box-shadow: var(--shadow); position: relative; }
+.tpl .frame { aspect-ratio: 9 / 16; border-radius: 14px; overflow: hidden; background: #000; box-shadow: var(--shadow); position: relative; }
 .tpl .frame img, .tpl .frame video { width: 100%; height: 100%; object-fit: cover; }
 .tpl .frame { cursor: pointer; padding: 0; border: 0; display: block; width: 100%; }
 .tpl .frame video { position: absolute; inset: 0; opacity: 0; transition: opacity .25s; }
@@ -104,17 +152,17 @@ figure.tpl { margin: 0; }
 .tpl .play svg { width: 16px; height: 16px; margin-left: 2px; }
 .tpl.playing .play { opacity: 0; }
 .tpl .frame:focus-visible { outline: 3px solid var(--accent); outline-offset: 3px; }
-.tpl figcaption { margin-top: 10px; font-weight: 600; color: var(--text); font-size: 15px; }
+.tpl figcaption { margin-top: 14px; font-weight: 600; color: var(--text); font-size: 15px; }
 .tpl figcaption span { display: block; font-weight: 400; color: var(--muted); font-size: 13.5px; }
 .choose { display: grid; grid-template-columns: .9fr 1.1fr; gap: 56px; align-items: center; }
 .choose h2 { font-size: clamp(30px, 3.6vw, 44px); line-height: 1.1; margin: 14px 0 14px; }
-.review { position: relative; padding: 18px 0 0 18px; }
-.rv-stack { position: absolute; inset: 0 18px 18px 0; border-radius: 18px; background: var(--panel); border: 1px solid var(--line); opacity: .6; transform: rotate(-2deg); }
-.rv { position: relative; border-radius: 18px; background: var(--panel); border: 1px solid var(--line); box-shadow: var(--shadow-lg); overflow: hidden; }
+.review { position: relative; }
+.rv-stack { display: none; }
+.rv { position: relative; border-radius: 16px; background: var(--panel); border: 1px solid var(--line); box-shadow: var(--shadow-lg); overflow: hidden; }
 .rv-tabs { display: flex; gap: 22px; padding: 0 22px; border-bottom: 1px solid var(--line); font-size: 14px; color: var(--muted); }
-.rv-tabs span { padding: 14px 0 12px; border-bottom: 2px solid transparent; } .rv-tabs .on { color: var(--text); font-weight: 600; border-color: var(--accent); }
-.rv-tabs em { font-style: normal; font-size: 12px; color: var(--accent); background: var(--accent-soft); border-radius: var(--radius-pill); padding: 1px 7px; margin-left: 4px; }
-.rv-card { margin: 18px; padding: 20px; border-radius: 14px; background: var(--bg); border: 1px solid var(--line); display: grid; gap: 14px; }
+.rv-tabs span { padding: 14px 0 12px; border-bottom: 2px solid transparent; } .rv-tabs .on { color: var(--text); font-weight: 600; border-color: var(--text); }
+.rv-tabs em { font-style: normal; font-size: 12px; color: var(--accent-ink); background: var(--accent-soft); border-radius: var(--radius-pill); padding: 1px 7px; margin-left: 4px; }
+.rv-card { margin: 18px; padding: 20px; border-radius: 12px; background: var(--surface); border: 1px solid var(--line); display: grid; gap: 14px; }
 .rv-head { display: flex; align-items: center; gap: 10px; min-width: 0; }
 .rv-n { flex: none; width: 26px; height: 26px; border-radius: 50%; display: grid; place-items: center; background: var(--accent); color: var(--accent-on); font-size: 13px; font-weight: 600; }
 .rv-head b { color: var(--text); font-size: 16.5px; min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; flex: 1; }
@@ -124,10 +172,10 @@ figure.tpl { margin: 0; }
 .rv-arc { background: var(--raised); border-radius: var(--radius-pill); padding: 3px 10px; font-size: 12.5px; }
 .rv-ends { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
 .rv-ends div { padding: 12px 14px; border-radius: 10px; background: var(--panel); border: 1px solid var(--line); }
-.rv-ends i { font-style: normal; font-size: 11.5px; font-weight: 600; letter-spacing: .06em; text-transform: uppercase; color: var(--accent); }
+.rv-ends i { font-style: normal; font-size: 11.5px; font-weight: 600; letter-spacing: .08em; text-transform: uppercase; color: var(--muted); }
 .rv-ends p { margin-top: 4px; color: var(--text); font-size: 14.5px; line-height: 1.5; }
 .rv-actions { display: flex; flex-wrap: wrap; gap: 8px; }
-@media (max-width: 560px) { .rv-ends { grid-template-columns: 1fr; } .review { padding: 10px 0 0 10px; } .rv-stack { inset: 0 10px 10px 0; } }
+@media (max-width: 560px) { .rv-ends { grid-template-columns: 1fr; } }
 .plans-teaser { max-width: 940px; margin: 0 auto; }
 @media (max-width: 960px) {
   .bento { grid-template-columns: 1fr 1fr; } .t-points, .t-team { grid-column: span 2; }
@@ -140,6 +188,7 @@ figure.tpl { margin: 0; }
 </style></head>
 <body>
 <div style="background:#18181b;color:#fff;text-align:center;font:600 13px system-ui,sans-serif;padding:8px 12px">Preview of the new design — not live yet</div>
+
 <header class="top"><div class="wrap">
   <a class="brand" href="index.html"><img src="img/logo-ink.svg" alt="">Commission Clips</a>
   <nav aria-label="Main"><a href="#how">How it works</a><a href="#templates">Templates</a><a href="plans.html">Plans</a><a href="#faq">FAQ</a></nav>
@@ -156,7 +205,7 @@ figure.tpl { margin: 0; }
       <a class="btn accent is-soon" href="#download">Download for Windows <span class="soon">Coming soon</span></a>
       <a class="btn" href="plans.html">See plans</a>
     </div>
-    <div class="promises"><span>Upload every sermon</span><span>Only finished Shorts count</span><span>Start free, no card</span></div>
+    <div class="promises"><span>Start free, no card</span><span>1080p, no watermark</span><span>Every template on every plan</span></div>
   </div>
   <div class="stage">
     <div class="phone"><video src="img/hero.mp4" poster="img/hero.jpg" autoplay muted loop playsinline></video><button type="button" class="sound" id="sound" aria-pressed="false" aria-label="Unmute"><svg class="i-off" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M11 5 6 9H3v6h3l5 4z"/><path d="M22 9l-6 6M16 9l6 6"/></svg><svg class="i-on" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M11 5 6 9H3v6h3l5 4z"/><path d="M16 9a4 4 0 0 1 0 6M19 6a8 8 0 0 1 0 12"/></svg></button></div>
@@ -182,28 +231,26 @@ figure.tpl { margin: 0; }
         <div><span class="ai-label">Every moment must</span>
           <ul class="ticks"><li>Open at the start of a thought</li><li>End after the point lands</li><li>Skip announcements, prayer and music</li><li>Have clear audio</li></ul></div>
         <div><span class="ai-label">Then it is scored on</span>
-          <ul class="chips"><li>Faithful to the sermon</li><li>Useful to the viewer</li><li>A clear arc</li><li>Clear wording</li><li>A strong ending</li></ul></div>
+          <ul class="dots"><li>Faithful to the sermon</li><li>Useful to the viewer</li><li>A clear arc</li><li>Clear wording</li><li>A strong ending</li></ul></div>
       </div>
     </article>
     <article class="card tile t-upload">
-      <h3>Only new Shorts count</h3>
-      <p>Your plan counts one thing: each new Short you export. Everything else is free to use as much as you like.</p>
-      <ul class="free" aria-label="Never counts against your plan">
-        <li>Uploading sermons</li><li>Transcribing and finding moments</li><li>Previews and edits</li><li>Downloading a Short you already exported</li>
+      <h3>Your sermons stay with you</h3>
+      <p>Transcribing and video work happen on your own computer. Nothing is shared until you post it.</p>
+      <ul class="free" aria-label="Privacy">
+        <li>No ads and no tracking</li><li>We never sell your data</li><li>Posting happens only when you press Post</li>
       </ul>
-      <div class="counts"><span>Exporting a new Short</span><b>Counts as 1</b></div>
+      <a class="more" href="privacy.html">Read the Privacy Policy</a>
     </article>
     <article class="card tile t-feeds">
       <h3>One sermon. A week of Shorts.</h3>
       <p>Commission Clips finds the complete moments in each sermon, so one message can be shared all week.</p>
-      <p class="stat"><b>200 billion</b> YouTube Shorts views a day</p>
-      <p class="src">Reported by YouTube, <a href="https://blog.youtube/news-and-events/neal-mohan-cannes-2025/" target="_blank" rel="noopener">18 June 2025</a>. A platform total, not a promise of views.</p>
-      <ul class="chips" aria-label="Made for"><li>YouTube Shorts</li><li>TikTok</li><li>Instagram Reels</li><li>Facebook Reels</li></ul>
+      <ul class="platforms" aria-label="Made for"><li>YouTube Shorts</li><li>TikTok</li><li>Instagram Reels</li><li>Facebook Reels</li></ul>
     </article>
     <article class="card tile t-team">
       <h3>Built for church teams</h3>
       <p>No editing experience needed. Four choices and the Short is ready.</p>
-      <ol class="flow"><li>Pick a moment</li><li>Write the hook</li><li>Choose a look</li><li>Export</li></ol>
+      <ol class="flow"><li><span>Pick a moment<small>Approve one it proposed</small></span></li><li><span>Write the hook<small>The card viewers see first</small></span></li><li><span>Choose a look<small>Any template, any plan</small></span></li><li><span>Export<small>A 1080p Short, no watermark</small></span></li></ol>
     </article>
   </div>
 </div></section>
@@ -235,25 +282,61 @@ figure.tpl { margin: 0; }
   <div class="gallery" id="gallery"></div>
 </div></section>
 
+<section class="band" id="outreach"><div class="wrap">
+  <div class="head"><span class="eyebrow">Outreach</span><h2>Reach people where they already are.</h2><p>Many people meet church on a screen first. Shorts carry a sermon's clearest moments into the feeds they scroll every day.</p></div>
+  <div class="stats">
+    <figure class="card fact"><b>27%</b><figcaption>of U.S. adults regularly watch religious services online or on TV.</figcaption><a href="https://www.pewresearch.org/religion/2023/06/02/online-religious-services-appeal-to-many-americans-but-going-in-person-remains-more-popular/" target="_blank" rel="noopener">Pew Research Center, 2023</a></figure>
+    <figure class="card fact"><b>1 in 10</b><figcaption>U.S. adults watch services only on a screen, without regularly attending in person.</figcaption><a href="https://www.pewresearch.org/religion/2023/06/02/online-religious-services-appeal-to-many-americans-but-going-in-person-remains-more-popular/" target="_blank" rel="noopener">Pew Research Center, 2023</a></figure>
+    <figure class="card fact"><b>200 billion</b><figcaption>YouTube Shorts views every day, across the whole platform.</figcaption><a href="https://blog.youtube/news-and-events/neal-mohan-cannes-2025/" target="_blank" rel="noopener">YouTube, June 2025</a></figure>
+  </div>
+  <p class="fineprint">Platform and survey figures, not a promise of views for any church.</p>
+  <div class="card insights">
+    <div class="ins-copy">
+      <h3>See which messages reached people</h3>
+      <p class="muted">Post from the app, then follow each Short's results in one place.</p>
+      <ul class="ticks"><li>Views, likes, comments and shares for every Short you post</li><li>All platforms together, or one at a time</li><li>Spot the moments people watched and shared, and plan next week's</li></ul>
+      <p class="fineprint">YouTube today. Facebook and Instagram once Meta approves the connection.</p>
+    </div>
+    <div class="ins-panel" aria-label="Example of the Analytics screen with sample numbers">
+      <div class="ins-top"><b>Analytics</b><span class="ins-tag">Example · sample data</span></div>
+      <div class="ins-kpis"><div><span>Views</span><b>4,812</b></div><div><span>Likes</span><b>356</b></div><div><span>Shares</span><b>41</b></div></div>
+      <div class="ins-bars" aria-hidden="true"><i style="--h:34%"></i><i style="--h:52%"></i><i style="--h:41%"></i><i style="--h:78%"></i><i style="--h:63%"></i><i style="--h:92%"></i><i style="--h:70%"></i></div>
+      <div class="ins-days" aria-hidden="true"><span>Mon</span><span>Tue</span><span>Wed</span><span>Thu</span><span>Fri</span><span>Sat</span><span>Sun</span></div>
+    </div>
+  </div>
+</div></section>
+
 <section class="band"><div class="wrap choose">
   <div>
     <span class="eyebrow">You stay in charge</span>
     <h2>It proposes. You choose.</h2>
     <p class="muted" style="font-size:18px">Read every word of a moment before you approve it. Nothing is shared until you say so.</p>
-    <ul class="ticks" style="margin-top:22px"><li>See exactly where each moment starts and ends</li><li>Trim, preview and adjust as much as you like</li><li>Unlimited drafts and previews on every plan</li></ul>
+    <ul class="ticks" style="margin-top:22px"><li>See exactly where each moment starts and ends</li><li>Trim and adjust the start and end</li><li>Preview the finished Short before you export</li></ul>
   </div>
-  <div class="review" aria-hidden="true">
-    <div class="rv-stack"></div>
-    <div class="rv">
-      <div class="rv-tabs"><span class="on">Proposed moments <em>12</em></span><span>My Shorts</span></div>
-      <div class="rv-card">
+  <div class="review">
+    <p class="try">Try it: approve the moment, choose a look, export.</p>
+    <div class="rv" id="demo">
+      <div class="rv-tabs" role="tablist" aria-label="Demo"><button type="button" role="tab" class="on" aria-selected="true" data-tab="moments">Proposed moments <em>12</em></button><button type="button" role="tab" aria-selected="false" data-tab="shorts">My Shorts <em id="demo-count" hidden>1</em></button></div>
+      <div class="rv-card" data-panel="moments">
         <div class="rv-head"><span class="rv-n">1</span><b>The truth is your song and your altar grow…</b><span class="rv-len">0:28</span></div>
         <div class="rv-meta"><span>4:13 – 4:40</span><span class="rv-badge">★ Strong · 96</span><span class="rv-arc">Text → meaning → so what</span></div>
         <div class="rv-ends">
           <div><i>Starts</i><p>“The truth is your song and your altar grow when you practice worship every day.”</p></div>
           <div><i>Ends</i><p>“Worship changes everything.”</p></div>
         </div>
-        <div class="rv-actions"><span class="mini">▶ Listen</span><span class="mini">Read all 77 words</span><span class="mini primary">Approve → Short</span></div>
+        <div class="rv-actions"><button type="button" class="mini" id="demo-skip">Skip</button><button type="button" class="mini primary" id="demo-approve">Approve → Short</button></div>
+        <p class="demo-note" id="demo-note" role="status"></p>
+      </div>
+      <div class="rv-card" data-panel="shorts" hidden>
+        <div class="rv-head"><span class="rv-n">1</span><b>The truth is your song and your altar grow…</b><span class="rv-len">0:28</span></div>
+        <p class="demo-step">Choose a look</p>
+        <div class="looks" role="radiogroup" aria-label="Template">
+          <button type="button" role="radio" aria-checked="true" data-look="clear-conviction"><img src="img/tpl-clear-conviction.jpg" alt=""><span>Clear Conviction</span></button>
+          <button type="button" role="radio" aria-checked="false" data-look="headline"><img src="img/tpl-headline.jpg" alt=""><span>Headline</span></button>
+          <button type="button" role="radio" aria-checked="false" data-look="quiet"><img src="img/tpl-quiet.jpg" alt=""><span>Quiet</span></button>
+        </div>
+        <div class="rv-actions"><button type="button" class="mini primary" id="demo-export">Export 1080p Short</button></div>
+        <p class="demo-note" id="demo-done" role="status"></p>
       </div>
     </div>
   </div>
@@ -273,7 +356,7 @@ figure.tpl { margin: 0; }
       <ul class="ticks"><li>Every template and design feature</li><li>1080p Shorts, no watermark</li><li>Upload every sermon</li></ul>
       <a class="btn accent" href="plans.html?plan=cornerstone">Choose Cornerstone</a></div>
   </div>
-  <p class="reassure">Cancel anytime. Full refund within 14 days of your first Cornerstone purchase.</p>
+  <ul class="trust" aria-label="Buying with confidence"><li>Secure checkout on Lemon Squeezy</li><li>Cancel anytime</li><li>Full refund within 14 days of your first purchase</li><li>We never sell your data or show ads</li></ul>
 </div></section>
 
 <section class="band" id="faq"><div class="wrap">
@@ -317,10 +400,25 @@ sb.addEventListener("click", () => { hv.muted = !hv.muted; if (!hv.muted) { hv.c
   sb.setAttribute("aria-pressed", String(!hv.muted)); sb.setAttribute("aria-label", hv.muted ? "Unmute" : "Mute"); });
 // Gentle reveal: only items below the first screen start lowered; nothing is hidden without motion or script.
 if ("IntersectionObserver" in window && !matchMedia("(prefers-reduced-motion: reduce)").matches) {
-  const items = [...document.querySelectorAll(".band .head, .tile, .step, .tpl, .plan, .faq details, .choose > *, .brand-band")];
+  const items = [...document.querySelectorAll(".band .head, .tile, .step, .tpl, .plan, .faq details, .choose > *, .brand-band, .fact, .insights")];
   const io = new IntersectionObserver(es => es.forEach(e => { if (e.isIntersecting) { e.target.classList.remove("pre"); io.unobserve(e.target); } }), { rootMargin: "0px 0px -8% 0px" });
   items.forEach((el, i) => { if (el.getBoundingClientRect().top > innerHeight) { el.classList.add("reveal", "pre"); el.style.transitionDelay = `${(i % 4) * 70}ms`; io.observe(el); } });
 }
+// Demo: approve, choose a look, export. Nothing is sent anywhere; it only shows how the steps and the count work.
+(() => {
+  const d = document.getElementById("demo"); if (!d) return;
+  const tabs = d.querySelectorAll("[data-tab]"), panels = d.querySelectorAll("[data-panel]");
+  const show = id => { tabs.forEach(t => { const on = t.dataset.tab === id; t.classList.toggle("on", on); t.setAttribute("aria-selected", String(on)); });
+    panels.forEach(p => p.hidden = p.dataset.panel !== id); };
+  tabs.forEach(t => t.addEventListener("click", () => show(t.dataset.tab)));
+  const note = document.getElementById("demo-note"), done = document.getElementById("demo-done"), exp = document.getElementById("demo-export");
+  document.getElementById("demo-skip").addEventListener("click", () => { note.textContent = "Skipped."; });
+  document.getElementById("demo-approve").addEventListener("click", () => { note.textContent = ""; document.getElementById("demo-count").hidden = false; show("shorts"); });
+  d.querySelectorAll("[data-look]").forEach(b => b.addEventListener("click", () => {
+    d.querySelectorAll("[data-look]").forEach(x => x.setAttribute("aria-checked", String(x === b))); }));
+  exp.addEventListener("click", () => { exp.disabled = true; exp.textContent = "Exported \u2713";
+    done.textContent = "Exported in 1080p, ready to post."; });
+})();
 // Hover (or tap / keyboard) plays a short real render; nothing downloads until someone asks for it.
 const calm = matchMedia("(prefers-reduced-motion: reduce)").matches;
 function play(btn) { const v = btn.querySelector("video"), fig = btn.closest(".tpl");
