@@ -140,20 +140,23 @@ button.mini[disabled] { cursor: default; background: var(--good); border-color: 
 .step .n::before { content: "STEP 0"; }
 .step h3 { font-size: 20px; letter-spacing: -.02em; margin: 8px 0 8px; }
 .step p { color: var(--muted); font-size: 15.5px; }
-.gallery { display: grid; grid-template-columns: repeat(auto-fill, minmax(230px, 1fr)); gap: 32px 22px; }
-figure.tpl { margin: 0; }
-.tpl .frame { aspect-ratio: 9 / 16; border-radius: 14px; overflow: hidden; background: #000; box-shadow: var(--shadow); position: relative; }
-.tpl .frame img, .tpl .frame video { width: 100%; height: 100%; object-fit: cover; }
-.tpl .frame { cursor: pointer; padding: 0; border: 0; display: block; width: 100%; }
-.tpl .frame video { position: absolute; inset: 0; opacity: 0; transition: opacity .25s; }
-.tpl.playing .frame video { opacity: 1; }
-.tpl .play { position: absolute; right: 10px; bottom: 10px; width: 38px; height: 38px; border-radius: 50%; display: grid; place-items: center;
-  background: rgba(255,255,255,.92); color: #18181b; box-shadow: 0 6px 18px rgba(0,0,0,.25); transition: opacity .2s; pointer-events: none; }
-.tpl .play svg { width: 16px; height: 16px; margin-left: 2px; }
-.tpl.playing .play { opacity: 0; }
-.tpl .frame:focus-visible { outline: 3px solid var(--accent); outline-offset: 3px; }
-.tpl figcaption { margin-top: 14px; font-weight: 600; color: var(--text); font-size: 15px; }
-.tpl figcaption span { display: block; font-weight: 400; color: var(--muted); font-size: 13.5px; }
+.picker { display: grid; grid-template-columns: minmax(0, 330px) minmax(0, 1fr); gap: 64px; align-items: center; max-width: 960px; margin: 0 auto; }
+.pk-phone { aspect-ratio: 9 / 16; border-radius: 22px; overflow: hidden; background: #000; box-shadow: var(--shadow); max-width: 100%; }
+.pk-phone video { width: 100%; height: 100%; object-fit: cover; display: block; }
+.pk-cap { margin-top: 14px; text-align: center; font-size: 14px; color: var(--muted); }
+.pk-cap b { color: var(--text); font-weight: 600; }
+.pk-step { font-size: 13px; font-weight: 600; letter-spacing: .06em; text-transform: uppercase; color: var(--muted); margin-bottom: 14px; }
+.pk-list { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 10px; position: relative; }
+.pk-opt { display: flex; align-items: center; gap: 14px; min-width: 0; padding: 9px 14px 9px 9px; border: 1px solid var(--line); border-radius: 12px;
+  background: var(--panel); color: var(--text); font: inherit; text-align: left; cursor: pointer; transition: border-color .15s, box-shadow .15s; }
+.pk-opt:hover { border-color: color-mix(in srgb, var(--text) 28%, var(--line)); }
+.pk-opt[aria-checked="true"] { border-color: var(--accent); box-shadow: inset 0 0 0 1px var(--accent); }
+.pk-opt:focus-visible { outline: 3px solid var(--accent); outline-offset: 2px; }
+.pk-opt img { width: 34px; aspect-ratio: 9 / 16; border-radius: 6px; object-fit: cover; flex: none; background: #000; }
+.pk-opt span { min-width: 0; }
+.pk-opt b { display: block; font-size: 15px; font-weight: 600; }
+.pk-opt small { display: block; color: var(--muted); font-size: 13px; }
+.pk-note { margin-top: 18px; font-size: 14px; color: var(--muted); }
 .choose { display: grid; grid-template-columns: .9fr 1.1fr; gap: 56px; align-items: center; }
 .choose h2 { font-size: clamp(30px, 3.6vw, 44px); line-height: 1.1; margin: 14px 0 14px; }
 .review { position: relative; }
@@ -184,11 +187,15 @@ figure.tpl { margin: 0; }
   .float { width: 260px; left: 0; bottom: 0; } .steps { grid-template-columns: 1fr; }
 }
 @media (max-width: 560px) { .bento { grid-template-columns: 1fr; } .t-points, .t-team { grid-column: auto; } .ai { grid-template-columns: 1fr; } .float { display: none; }
-  .gallery { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 20px 12px; } .tpl figcaption { font-size: 14px; } .tpl .play { width: 32px; height: 32px; right: 8px; bottom: 8px; } }
+  .pk-opt { gap: 10px; padding: 8px 10px 8px 8px; } .pk-opt img { width: 28px; } .pk-opt b { font-size: 14px; } .pk-opt small { font-size: 12px; } }
+@media (max-width: 820px) { .picker { grid-template-columns: minmax(0, 1fr); gap: 18px; } .pk-stage { width: min(250px, 66vw); margin: 0 auto; }
+  .pk-step { text-align: center; margin-bottom: 10px; } .pk-note { text-align: center; }
+  .pk-list { display: flex; overflow-x: auto; scroll-snap-type: x mandatory; scrollbar-width: none; margin: 0 -16px; padding: 2px 16px 6px; }
+  .pk-list::-webkit-scrollbar { display: none; }
+  .pk-opt { flex: 0 0 auto; scroll-snap-align: center; } .pk-opt small { white-space: nowrap; } }
 </style></head>
 <body>
 <div style="background:#18181b;color:#fff;text-align:center;font:600 13px system-ui,sans-serif;padding:8px 12px">Preview of the new design — not live yet</div>
-
 <header class="top"><div class="wrap">
   <a class="brand" href="index.html"><img src="img/logo-ink.svg" alt="">Commission Clips</a>
   <nav aria-label="Main"><a href="#how">How it works</a><a href="#templates">Templates</a><a href="plans.html">Plans</a><a href="#faq">FAQ</a></nav>
@@ -279,7 +286,17 @@ figure.tpl { margin: 0; }
 
 <section class="band" id="templates"><div class="wrap">
   <div class="head"><span class="eyebrow">Templates</span><h2>A look that fits your church.</h2><p>Every template, on every plan — or make your own. Each one shown on a different real moment from No Excuses Ministries.</p></div>
-  <div class="gallery" id="gallery"></div>
+  <div class="picker">
+    <div class="pk-stage">
+      <div class="pk-phone"><video id="pk-video" muted loop playsinline preload="none" poster="img/tpl-pulpit.jpg" aria-label="Preview of the selected template"></video></div>
+      <p class="pk-cap" id="pk-cap" aria-live="polite"><b>Pulpit</b> &middot; Underlined captions</p>
+    </div>
+    <div>
+      <p class="pk-step" id="pk-label">Tap a template to preview it</p>
+      <div class="pk-list" id="pk-list" role="radiogroup" aria-labelledby="pk-label"></div>
+      <p class="pk-note">Real renders from the app. Every template is on every plan.</p>
+    </div>
+  </div>
 </div></section>
 
 <section class="band" id="outreach"><div class="wrap">
@@ -388,11 +405,36 @@ figure.tpl { margin: 0; }
 const T = [["pulpit","Pulpit","Underlined captions"],["headline","Headline","Bold title, no card"],["bold-highlight","Bold Highlight","Big, high-contrast"],
   ["foundation","Foundation","Clean and modern"],["clear-conviction","Clear Conviction","Classic serif card"],["quiet","Quiet","Soft and simple"],
   ["verse-split","Verse Split","Room for the verse"],["audio-message","Audio Message","For audio-only sermons"]];
-document.getElementById("gallery").innerHTML = T.map(([id, name, sub]) =>
-  `<figure class="tpl"><button type="button" class="frame" aria-label="Play a preview of the ${name} template" data-id="${id}">
-     <img src="img/tpl-${id}.jpg" alt="" loading="lazy"><video muted loop playsinline preload="none" aria-hidden="true"></video>
-     <span class="play" aria-hidden="true"><svg viewBox="0 0 16 16"><path d="M4 2.5v11l9-5.5z" fill="currentColor"/></svg></span></button>
-   <figcaption>${name}<span>${sub}</span></figcaption></figure>`).join("");
+const pkList = document.getElementById("pk-list"), pkVideo = document.getElementById("pk-video"), pkCap = document.getElementById("pk-cap");
+const calm = matchMedia("(prefers-reduced-motion: reduce)").matches;
+pkList.innerHTML = T.map(([id, name, sub], i) =>
+  `<button type="button" class="pk-opt" role="radio" aria-checked="${i === 0}" tabindex="${i === 0 ? 0 : -1}" data-id="${id}">
+     <img src="img/tpl-${id}.jpg" alt="" loading="lazy"><span><b>${name}</b><small>${sub}</small></span></button>`).join("");
+const pkOpts = [...pkList.querySelectorAll(".pk-opt")];
+function pick(btn, play) {
+  const [id, name, sub] = T.find(t => t[0] === btn.dataset.id);
+  pkOpts.forEach(o => { const on = o === btn; o.setAttribute("aria-checked", String(on)); o.tabIndex = on ? 0 : -1; });
+  pkCap.innerHTML = `<b>${name}</b> &middot; ${sub}`;
+  pkVideo.poster = `img/tpl-${id}.jpg`; pkVideo.src = `img/tpl-${id}.mp4`;
+  if (play) pkVideo.play().catch(() => {});
+  // On phones the list is a swipe row: centre the chosen one in the row without moving the page.
+  pkList.scrollTo({ left: btn.offsetLeft - (pkList.clientWidth - btn.offsetWidth) / 2, behavior: calm ? "auto" : "smooth" });
+}
+pkOpts.forEach((o, i) => {
+  o.addEventListener("click", () => pick(o, true));
+  o.addEventListener("keydown", e => {
+    const step = { ArrowRight: 1, ArrowDown: 1, ArrowLeft: -1, ArrowUp: -1 }[e.key]; if (!step) return;
+    e.preventDefault(); const n = pkOpts[(i + step + pkOpts.length) % pkOpts.length]; n.focus(); pick(n, true);
+  });
+});
+pkVideo.addEventListener("click", () => pkVideo.paused ? pkVideo.play().catch(() => {}) : pkVideo.pause());
+// The first template starts playing once the section is on screen (still frame only with reduced motion).
+if (!calm && "IntersectionObserver" in window) {
+  const pio = new IntersectionObserver(es => es.forEach(e => {
+    if (e.isIntersecting) { if (!pkVideo.src) pick(pkOpts[0], false); pkVideo.play().catch(() => {}); } else pkVideo.pause();
+  }), { threshold: .4 });
+  pio.observe(pkVideo);
+}
 // Respect "reduce motion": the hero Short stays on its still frame until someone presses play.
 if (matchMedia("(prefers-reduced-motion: reduce)").matches) { const hv = document.querySelector(".phone video"); hv.removeAttribute("autoplay"); hv.pause(); hv.controls = true; }
 const hv = document.querySelector(".phone video"), sb = document.getElementById("sound");
@@ -400,7 +442,7 @@ sb.addEventListener("click", () => { hv.muted = !hv.muted; if (!hv.muted) { hv.c
   sb.setAttribute("aria-pressed", String(!hv.muted)); sb.setAttribute("aria-label", hv.muted ? "Unmute" : "Mute"); });
 // Gentle reveal: only items below the first screen start lowered; nothing is hidden without motion or script.
 if ("IntersectionObserver" in window && !matchMedia("(prefers-reduced-motion: reduce)").matches) {
-  const items = [...document.querySelectorAll(".band .head, .tile, .step, .tpl, .plan, .faq details, .choose > *, .brand-band, .fact, .insights")];
+  const items = [...document.querySelectorAll(".band .head, .tile, .step, .picker, .plan, .faq details, .choose > *, .brand-band, .fact, .insights")];
   const io = new IntersectionObserver(es => es.forEach(e => { if (e.isIntersecting) { e.target.classList.remove("pre"); io.unobserve(e.target); } }), { rootMargin: "0px 0px -8% 0px" });
   items.forEach((el, i) => { if (el.getBoundingClientRect().top > innerHeight) { el.classList.add("reveal", "pre"); el.style.transitionDelay = `${(i % 4) * 70}ms`; io.observe(el); } });
 }
@@ -419,16 +461,5 @@ if ("IntersectionObserver" in window && !matchMedia("(prefers-reduced-motion: re
   exp.addEventListener("click", () => { exp.disabled = true; exp.textContent = "Exported \u2713";
     done.textContent = "Exported in 1080p, ready to post."; });
 })();
-// Hover (or tap / keyboard) plays a short real render; nothing downloads until someone asks for it.
-const calm = matchMedia("(prefers-reduced-motion: reduce)").matches;
-function play(btn) { const v = btn.querySelector("video"), fig = btn.closest(".tpl");
-  if (!v.src) v.src = `img/tpl-${btn.dataset.id}.mp4`;
-  v.play().then(() => fig.classList.add("playing")).catch(() => {}); }
-function stop(btn) { const v = btn.querySelector("video"); v.pause(); v.currentTime = 0; btn.closest(".tpl").classList.remove("playing"); }
-document.querySelectorAll(".tpl .frame").forEach(btn => {
-  if (!calm) { btn.addEventListener("mouseenter", () => play(btn)); btn.addEventListener("mouseleave", () => stop(btn)); }
-  btn.addEventListener("click", () => btn.closest(".tpl").classList.contains("playing") ? stop(btn) : play(btn));
-  btn.addEventListener("blur", () => stop(btn));
-});
 </script>
 </body></html>
