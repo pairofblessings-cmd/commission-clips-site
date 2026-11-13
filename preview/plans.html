@@ -50,13 +50,13 @@
       <article class="card plan" id="plan-firm_foundation" data-plan="firm_foundation">
         <div class="plan-top"><h2>Firm Foundation</h2></div><p class="lead">Two or three a week.</p>
         <div class="price" data-price>$50<span> / month</span></div><p class="billing" data-billing>Billed monthly.</p>
-        <div class="quota"><span><strong>10 Shorts</strong> a month</span><span class="per" data-per>$5 a Short</span></div>
+        <div class="quota"><span><strong>10 Shorts</strong> a month</span></div>
         <button class="btn" data-checkout disabled>Checkout coming soon</button>
       </article>
       <article class="card plan featured" id="plan-cornerstone" data-plan="cornerstone">
         <div class="plan-top"><h2>Cornerstone</h2><span class="tag">Best value</span></div><p class="lead">About one a day.</p>
         <div class="price" data-price>$100<span> / month</span></div><p class="billing" data-billing>Billed monthly.</p>
-        <div class="quota"><span><strong>30 Shorts</strong> a month</span><span class="per" data-per>$3.33 a Short</span></div>
+        <div class="quota"><span><strong>30 Shorts</strong> a month</span></div>
         <button class="btn accent" data-checkout disabled>Checkout coming soon</button>
       </article>
     </div>
@@ -100,7 +100,6 @@ function setInterval_(int, animate) {
     card.querySelector("[data-billing]").innerHTML = yearly
       ? '<b class="save-amt">Save ' + money(Math.round((p.m - perMonth) * 100) / 100) + " a month</b><i>" + money(p.y) + " billed yearly</i>"
       : "Billed monthly.";
-    card.querySelector("[data-per]").textContent = money(Math.round(perMonth / p.n * 100) / 100) + " a Short";
     const btn = card.querySelector("[data-checkout]"), url = CHECKOUT[id][int];
     btn.disabled = !url; btn.onclick = url ? () => { location.href = url; } : null;
     btn.textContent = url ? "Choose " + p.name : "Checkout coming soon";

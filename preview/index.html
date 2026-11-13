@@ -466,11 +466,11 @@ button.mini[disabled] { cursor: default; background: var(--good); border-color: 
   <div class="plans plans-teaser">
     <div class="card plan" data-plan="firm_foundation" data-grow=".95"><div class="plan-top"><h3>Firm Foundation</h3></div><p class="lead">Two or three a week.</p>
       <div class="price" data-price>$50<span> / month</span></div><p class="billing" data-billing>Billed monthly.</p>
-      <div class="quota"><span><strong>10 Shorts</strong> a month</span><span class="per" data-per>$5 a Short</span></div>
+      <div class="quota"><span><strong>10 Shorts</strong> a month</span></div>
       <a class="btn" href="plans.html?plan=firm_foundation">Choose Firm Foundation</a></div>
     <div class="card plan featured" data-plan="cornerstone" data-grow=".95"><div class="plan-top"><h3>Cornerstone</h3><span class="tag">Best value</span></div><p class="lead">About one a day.</p>
       <div class="price" data-price>$100<span> / month</span></div><p class="billing" data-billing>Billed monthly.</p>
-      <div class="quota"><span><strong>30 Shorts</strong> a month</span><span class="per" data-per>$3.33 a Short</span></div>
+      <div class="quota"><span><strong>30 Shorts</strong> a month</span></div>
       <a class="btn accent" href="plans.html?plan=cornerstone">Choose Cornerstone</a></div>
   </div>
   <p class="all-plans">Every plan: every template &middot; 1080p &middot; no watermark &middot; upload every sermon</p>
@@ -655,7 +655,6 @@ if (!calm) {
       card.querySelector("[data-billing]").innerHTML = yearly
         ? '<b class="save-amt">Save ' + money(Math.round((p.m - perMonth) * 100) / 100) + " a month</b><i>" + money(p.y) + " billed yearly</i>"
         : "Billed monthly.";
-      card.querySelector("[data-per]").textContent = money(Math.round(perMonth / p.n * 100) / 100) + " a Short";
       if (animate) { card.classList.remove("flip"); void card.offsetWidth; card.classList.add("flip"); }
       const a = card.querySelector("a.btn"); a.href = "plans.html?plan=" + card.dataset.plan + "&interval=" + (yearly ? "annual" : "monthly");
     });

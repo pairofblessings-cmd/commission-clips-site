@@ -144,8 +144,6 @@ main.wrap section.band { background: none; border-top: 0; padding: 72px 0; }   /
 .plan.featured .btn.accent { background: #ffffff; border-color: #ffffff; color: #0d0e12; box-shadow: none; }
 .plan.featured .btn.accent:hover, .plan.featured .btn.accent[disabled]:hover { background: #eceef3; border-color: #eceef3; }
 .plan.featured .btn .soon { background: #0d0e12; color: #ffffff; }
-.per { display: inline-block; padding: 4px 10px; border-radius: 6px; background: var(--accent-soft); color: var(--accent-ink); font-size: 13.5px; font-weight: 600; white-space: nowrap; }
-.plan.featured .per { background: rgba(255, 255, 255, .1); color: #ffffff; }
 
 .price .was { font-size: .46em; font-weight: 600; color: var(--muted); margin-right: 8px; vertical-align: .35em; text-decoration-thickness: 2px; }
 .price { white-space: nowrap; }
@@ -154,10 +152,10 @@ main.wrap section.band { background: none; border-top: 0; padding: 72px 0; }   /
 .billing .save-amt { display: block; color: var(--save); font-weight: 700; }
 .plan.featured .billing .save-amt { color: #5fd08f; }
 .billing i { display: block; font-size: 13px; margin-top: 2px; }
-.plan.flip .price, .plan.flip .billing, .plan.flip .per { animation: pflip .42s cubic-bezier(.2,.8,.2,1); }
+.plan.flip .price, .plan.flip .billing { animation: pflip .42s cubic-bezier(.2,.8,.2,1); }
 @keyframes pflip { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: none; } }
 .all-plans { text-align: center; margin-top: 22px; font-size: 14.5px; color: var(--muted); }
-@media (prefers-reduced-motion: reduce) { .plan.flip .price, .plan.flip .billing, .plan.flip .per { animation: none; } }
+@media (prefers-reduced-motion: reduce) { .plan.flip .price, .plan.flip .billing { animation: none; } }
 /* Reassurance under the plan cards */
 .trust { list-style: none; margin: 28px auto 0; padding: 0; display: flex; flex-wrap: wrap; justify-content: center; gap: 10px 26px; font-size: 14px; color: var(--muted); }
 .trust li { display: inline-flex; align-items: center; gap: 8px; }
