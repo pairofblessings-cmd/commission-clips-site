@@ -244,7 +244,7 @@ button.mini[disabled] { cursor: default; background: var(--good); border-color: 
     <div class="promises"><span>Start free, no card</span><span>1080p, no watermark</span><span>Every template on every plan</span></div>
   </div>
   <div class="stage">
-    <div class="phone"><video src="img/hero.mp4" poster="img/hero.jpg" autoplay muted loop playsinline></video><button type="button" class="sound" id="sound" aria-pressed="false" aria-label="Unmute"><svg class="i-off" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M11 5 6 9H3v6h3l5 4z"/><path d="M22 9l-6 6M16 9l6 6"/></svg><svg class="i-on" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M11 5 6 9H3v6h3l5 4z"/><path d="M16 9a4 4 0 0 1 0 6M19 6a8 8 0 0 1 0 12"/></svg></button></div>
+    <div class="phone"><video src="img/hero.mp4?v=2" poster="img/hero.jpg?v=2" autoplay muted loop playsinline></video><button type="button" class="sound" id="sound" aria-pressed="false" aria-label="Unmute"><svg class="i-off" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M11 5 6 9H3v6h3l5 4z"/><path d="M22 9l-6 6M16 9l6 6"/></svg><svg class="i-on" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M11 5 6 9H3v6h3l5 4z"/><path d="M16 9a4 4 0 0 1 0 6M19 6a8 8 0 0 1 0 12"/></svg></button></div>
     <div class="float" aria-hidden="true">
       <div class="bar"><img src="img/logo-ink.svg" alt="">Proposed moment</div>
       <div class="mo">
@@ -308,7 +308,7 @@ button.mini[disabled] { cursor: default; background: var(--good); border-color: 
           <li><span><b>If your parents were mega wealthy…</b><em>Starts 18:35</em></span><i>Approve</i></li>
         </ol></div></div>
       <div class="body"><span class="n">2</span><h3>Review the moments</h3><p>Commission Clips transcribes it and proposes complete moments. Listen, read, and approve the ones that fit.</p></div></div>
-    <div class="card step"><div class="shot phoneish"><img src="img/tpl-headline.jpg" alt=""></div>
+    <div class="card step"><div class="shot phoneish"><img src="img/tpl-headline.jpg?v=2" alt=""></div>
       <div class="body"><span class="n">3</span><h3>Finish and share</h3><p>Write the hook card, choose a template, preview it, and export a 1080p Short.</p></div></div>
   </div>
 </div></section>
@@ -317,7 +317,7 @@ button.mini[disabled] { cursor: default; background: var(--good); border-color: 
   <div class="head"><span class="eyebrow">Templates</span><h2>A look that fits your church.</h2><p>Every template, on every plan — or make your own. Each one shown on a different real moment from No Excuses Ministries.</p></div>
   <div class="picker">
     <div class="pk-stage">
-      <div class="pk-phone"><video id="pk-video" muted loop playsinline preload="none" poster="img/tpl-pulpit.jpg" aria-label="Preview of the selected template"></video></div>
+      <div class="pk-phone"><video id="pk-video" muted loop playsinline preload="none" poster="img/tpl-pulpit.jpg?v=2" aria-label="Preview of the selected template"></video></div>
       <p class="pk-cap" id="pk-cap" aria-live="polite"><b>Pulpit</b> &middot; Underlined captions</p>
     </div>
     <div>
@@ -381,9 +381,9 @@ button.mini[disabled] { cursor: default; background: var(--good); border-color: 
         <div class="rv-head"><span class="rv-n">1</span><b>The truth is your song and your altar grow…</b><span class="rv-len">0:28</span></div>
         <p class="demo-step">Choose a look</p>
         <div class="looks" role="radiogroup" aria-label="Template">
-          <button type="button" role="radio" aria-checked="true" data-look="clear-conviction"><img src="img/tpl-clear-conviction.jpg" alt=""><span>Clear Conviction</span></button>
-          <button type="button" role="radio" aria-checked="false" data-look="headline"><img src="img/tpl-headline.jpg" alt=""><span>Headline</span></button>
-          <button type="button" role="radio" aria-checked="false" data-look="quiet"><img src="img/tpl-quiet.jpg" alt=""><span>Quiet</span></button>
+          <button type="button" role="radio" aria-checked="true" data-look="clear-conviction"><img src="img/tpl-clear-conviction.jpg?v=2" alt=""><span>Clear Conviction</span></button>
+          <button type="button" role="radio" aria-checked="false" data-look="headline"><img src="img/tpl-headline.jpg?v=2" alt=""><span>Headline</span></button>
+          <button type="button" role="radio" aria-checked="false" data-look="quiet"><img src="img/tpl-quiet.jpg?v=2" alt=""><span>Quiet</span></button>
         </div>
         <div class="rv-actions"><button type="button" class="mini primary" id="demo-export">Export 1080p Short</button><button type="button" class="mini primary" id="demo-post" hidden>Post to YouTube</button></div>
         <p class="demo-note" id="demo-done" role="status"></p>
@@ -447,13 +447,13 @@ const pkList = document.getElementById("pk-list"), pkVideo = document.getElement
 const calm = matchMedia("(prefers-reduced-motion: reduce)").matches;
 pkList.innerHTML = T.map(([id, name, sub], i) =>
   `<button type="button" class="pk-opt" role="radio" aria-checked="${i === 0}" tabindex="${i === 0 ? 0 : -1}" data-id="${id}">
-     <img src="img/tpl-${id}.jpg" alt="" loading="lazy"><span><b>${name}</b><small>${sub}</small></span></button>`).join("");
+     <img src="img/tpl-${id}.jpg?v=2" alt="" loading="lazy"><span><b>${name}</b><small>${sub}</small></span></button>`).join("");
 const pkOpts = [...pkList.querySelectorAll(".pk-opt")];
 function pick(btn, play) {
   const [id, name, sub] = T.find(t => t[0] === btn.dataset.id);
   pkOpts.forEach(o => { const on = o === btn; o.setAttribute("aria-checked", String(on)); o.tabIndex = on ? 0 : -1; });
   pkCap.innerHTML = `<b>${name}</b> &middot; ${sub}`;
-  pkVideo.poster = `img/tpl-${id}.jpg`; pkVideo.src = `img/tpl-${id}.mp4`;
+  pkVideo.poster = `img/tpl-${id}.jpg?v=2`; pkVideo.src = `img/tpl-${id}.mp4?v=2`;
   if (play) pkVideo.play().catch(() => {});
   // On phones the list is a swipe row: centre the chosen one in the row without moving the page.
   pkList.scrollTo({ left: btn.offsetLeft - (pkList.clientWidth - btn.offsetWidth) / 2, behavior: calm ? "auto" : "smooth" });
