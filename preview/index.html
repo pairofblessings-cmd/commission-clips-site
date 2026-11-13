@@ -10,7 +10,7 @@
 <meta name="twitter:card" content="summary_large_image">
 <meta name="theme-color" content="#f3f2ee" media="(prefers-color-scheme: light)"><meta name="theme-color" content="#0b0b0c" media="(prefers-color-scheme: dark)">
 <script src="theme.js"></script>
-<link rel="stylesheet" href="site.css?v=5">
+<link rel="stylesheet" href="site.css?v=7">
 <style>
 .hero { position: relative; overflow: hidden; padding: 72px 0 104px; }
 .hero .wrap { display: grid; grid-template-columns: 1.1fr .9fr; gap: 64px; align-items: center; }
@@ -527,7 +527,7 @@ button.mini[disabled] { cursor: default; background: var(--good); border-color: 
 
 <section class="band" id="plans"><div class="wrap">
   <div class="head center"><span class="eyebrow">Plans</span><h2>Two plans. Every feature.</h2><p>Try it free for 14 days. No card.</p></div>
-  <div class="bill-row"><div class="billing-toggle" role="group" aria-label="Billing"><button type="button" data-int="monthly" aria-pressed="true">Monthly</button><button type="button" data-int="annual" aria-pressed="false">Yearly <span class="save">12 months for the price of 10</span></button></div></div>
+  <div class="bill-row"><div class="billing-toggle" role="group" aria-label="Billing"><button type="button" data-int="monthly" aria-pressed="true">Monthly</button><button type="button" data-int="annual" aria-pressed="false">Yearly</button></div></div>
   <div class="plans plans-teaser">
     <div class="card plan" data-plan="firm_foundation" data-grow=".95"><div class="plan-top"><h3>Firm Foundation</h3></div><p class="lead">Two or three a week.</p>
       <div class="price" data-price>$50<span> / month</span></div><p class="billing" data-billing>Billed monthly.</p>
@@ -719,7 +719,7 @@ if (!calm) {
         ? '<s class="was">' + money(p.m) + '</s><b class="now">' + money(perMonth) + "</b><span> / month</span>"
         : money(p.m) + "<span> / month</span>";
       card.querySelector("[data-billing]").innerHTML = yearly
-        ? '<b class="save-amt">Save ' + money(Math.round((p.m - perMonth) * 100) / 100) + " a month</b><i>" + money(p.y) + " billed yearly</i>"
+        ? '<b class="save-amt">Save ' + money(Math.round((p.m - perMonth) * 100) / 100) + " a month <span class=\"deal\">\u00b7 12 months for the price of 10</span></b><i>" + money(p.y) + " billed yearly</i>"
         : "Billed monthly.";
       if (animate) { card.classList.remove("flip"); void card.offsetWidth; card.classList.add("flip"); }
       const a = card.querySelector("a.btn"); a.href = "plans.html?plan=" + card.dataset.plan + "&interval=" + (yearly ? "annual" : "monthly");

@@ -10,7 +10,7 @@
 <meta name="twitter:card" content="summary_large_image">
 <meta name="theme-color" content="#f3f2ee" media="(prefers-color-scheme: light)"><meta name="theme-color" content="#0b0b0c" media="(prefers-color-scheme: dark)">
 <script src="theme.js"></script>
-<link rel="stylesheet" href="site.css?v=5">
+<link rel="stylesheet" href="site.css?v=7">
 <style>
 .plans-wrap { max-width: none; }
 .toggle-row { display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 16px; margin-bottom: 24px; }
@@ -42,7 +42,7 @@
     <div class="toggle-row">
       <div class="billing-toggle" role="group" aria-label="Billing">
         <button type="button" data-int="monthly" aria-pressed="true">Monthly</button>
-        <button type="button" data-int="annual" aria-pressed="false">Yearly <span class="save">12 months for the price of 10</span></button>
+        <button type="button" data-int="annual" aria-pressed="false">Yearly</button>
       </div>
       <span class="muted" style="font-size:14px">Prices in US dollars.</span>
     </div>
@@ -99,7 +99,7 @@ function setInterval_(int, animate) {
       ? '<s class="was">' + money(p.m) + '</s><b class="now">' + money(perMonth) + "</b><span> / month</span>"
       : money(p.m) + "<span> / month</span>";
     card.querySelector("[data-billing]").innerHTML = yearly
-      ? '<b class="save-amt">Save ' + money(Math.round((p.m - perMonth) * 100) / 100) + " a month</b><i>" + money(p.y) + " billed yearly</i>"
+      ? '<b class="save-amt">Save ' + money(Math.round((p.m - perMonth) * 100) / 100) + " a month <span class=\"deal\">\u00b7 12 months for the price of 10</span></b><i>" + money(p.y) + " billed yearly</i>"
       : "Billed monthly.";
     const btn = card.querySelector("[data-checkout]"), url = CHECKOUT[id][int];
     btn.disabled = !url; btn.onclick = url ? () => { location.href = url; } : null;

@@ -152,6 +152,8 @@ main.wrap section.band { background: none; border-top: 0; padding: 72px 0; }   /
 .billing .save-amt { display: block; color: var(--save); font-weight: 700; }
 .plan.featured .billing .save-amt { color: #9db9ff; }
 .billing i { display: block; font-size: 13px; margin-top: 2px; }
+.billing .save-amt .deal { font-weight: 500; opacity: .85; white-space: nowrap; }
+@media (max-width: 560px) { .price { font-size: 44px; } }
 .plan.flip .price, .plan.flip .billing { animation: pflip .42s cubic-bezier(.2,.8,.2,1); }
 @keyframes pflip { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: none; } }
 .all-plans { text-align: center; margin-top: 22px; font-size: 14.5px; color: var(--muted); }
