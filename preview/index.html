@@ -92,12 +92,35 @@
 .ins-top { display: flex; justify-content: space-between; align-items: center; gap: 10px; }
 .ins-top b { color: var(--text); font-size: 15px; }
 .ins-tag { font-size: 11.5px; font-weight: 600; color: var(--muted); border: 1px solid var(--line); border-radius: 6px; padding: 2px 8px; background: var(--panel); white-space: nowrap; }
-.ins-kpis { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; margin-top: 16px; }
-.ins-kpis div { background: var(--panel); border: 1px solid var(--line); border-radius: 10px; padding: 10px 12px; display: grid; gap: 2px; }
+.ins-kpis { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 8px; margin-top: 16px; }
+.ins-kpis button { font: inherit; text-align: left; cursor: pointer; background: var(--panel); border: 1px solid var(--line); border-radius: 10px; padding: 10px 12px; display: grid; gap: 2px; min-width: 0; transition: border-color .15s; }
+.ins-kpis button:hover { border-color: color-mix(in srgb, var(--text) 28%, var(--line)); }
+.ins-kpis button[aria-checked="true"] { border-color: var(--accent); box-shadow: inset 0 0 0 1px var(--accent); }
 .ins-kpis span { font-size: 12px; color: var(--muted); } .ins-kpis b { color: var(--text); font-size: 18px; font-variant-numeric: tabular-nums; }
-.ins-bars { height: 120px; margin-top: 18px; display: grid; grid-template-columns: repeat(7, 1fr); gap: 8px; align-items: end; border-bottom: 1px solid var(--line); }
-.ins-bars i { height: var(--h); border-radius: 5px 5px 0 0; background: var(--accent); opacity: .85; }
-.ins-days { display: grid; grid-template-columns: repeat(7, 1fr); gap: 8px; margin-top: 6px; font-size: 11.5px; color: var(--muted); text-align: center; }
+.ins-chart { position: relative; margin-top: 18px; padding-top: 24px; }
+.ins-bars { height: 120px; display: grid; grid-template-columns: repeat(var(--n, 7), minmax(0, 1fr)); gap: var(--g, 8px); align-items: end; border-bottom: 1px solid var(--line); }
+.ins-bars button { height: var(--h); min-height: 3px; padding: 0; border: 0; border-radius: 4px 4px 0 0; background: var(--accent); opacity: .8; cursor: pointer; transition: height .35s ease, opacity .15s; }
+.ins-bars button:hover, .ins-bars button:focus-visible, .ins-bars button.on { opacity: 1; outline: none; box-shadow: 0 0 0 2px var(--panel), 0 0 0 3px var(--accent); }
+.ins-tip { position: absolute; top: 0; right: 0; font-size: 12.5px; color: var(--text); font-weight: 600; font-variant-numeric: tabular-nums; }
+.ins-days { display: flex; justify-content: space-between; margin-top: 6px; font-size: 11.5px; color: var(--muted); }
+.ins-range { display: flex; gap: 2px; padding: 2px; border: 1px solid var(--line); border-radius: 8px; background: var(--panel); }
+.ins-range button { font: 600 12px var(--font); color: var(--muted); background: none; border: 0; border-radius: 6px; padding: 4px 10px; cursor: pointer; }
+.ins-range button[aria-checked="true"] { background: var(--raised); color: var(--text); }
+.ins-list { margin-top: 16px; display: grid; grid-template-columns: minmax(0, 1fr); gap: 8px; }
+.ins-label { font-size: 11.5px; font-weight: 600; letter-spacing: .08em; text-transform: uppercase; color: var(--muted); }
+.ins-list ol { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: minmax(0, 1fr); gap: 6px; }
+.ins-list li { display: flex; align-items: center; gap: 10px; padding: 8px 12px; border-radius: 9px; background: var(--panel); border: 1px solid var(--line); font-size: 13.5px; color: var(--text); }
+.ins-list li span { flex: 1; min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.ins-list li b { font-variant-numeric: tabular-nums; font-weight: 600; }
+.ins-list li.new { border-color: var(--accent); flex-wrap: wrap; row-gap: 2px; }
+.ins-list li.new span { min-width: max-content; }
+.ins-list li small { color: var(--muted); font-size: 12px; white-space: nowrap; }
+.ins-sample { margin-top: 12px; font-size: 12px; color: var(--muted); }
+.posted { padding: 14px 16px; border-radius: 10px; background: var(--panel); border: 1px solid var(--line); display: grid; gap: 4px; font-size: 13.5px; }
+.posted[hidden] { display: none; }
+.posted b { color: var(--text); } .posted p { color: var(--muted); }
+.posted a { color: var(--accent-ink); font-weight: 600; }
+@media (max-width: 560px) { .ins-kpis { grid-template-columns: repeat(2, minmax(0, 1fr)); } .insights { padding: 22px; } }
 .rv-card[hidden] { display: none; }
 .try { font-size: 13.5px; color: var(--muted); margin-bottom: 10px; }
 .rv-tabs button { font: inherit; color: inherit; background: none; border: 0; border-bottom: 2px solid transparent; padding: 14px 0 12px; cursor: pointer; }
@@ -249,9 +272,9 @@ button.mini[disabled] { cursor: default; background: var(--good); border-color: 
     </article>
     <article class="card tile t-upload">
       <h3>Your sermons stay with you</h3>
-      <p>Transcribing and video work happen on your own computer. Nothing is shared until you post it.</p>
+      <p>Transcribing and video work happen on your own computer.</p>
       <ul class="free" aria-label="Privacy">
-        <li>No ads and no tracking</li><li>We never sell your data</li><li>Posting happens only when you press Post</li>
+        <li>No ads and no tracking</li><li>We never sell your data</li>
       </ul>
       <a class="more" href="privacy.html">Read the Privacy Policy</a>
     </article>
@@ -309,7 +332,7 @@ button.mini[disabled] { cursor: default; background: var(--good); border-color: 
   <div class="head"><span class="eyebrow">Outreach</span><h2>Reach people where they already are.</h2><p>Many people meet church on a screen first. Shorts carry a sermon's clearest moments into the feeds they scroll every day.</p></div>
   <div class="stats">
     <figure class="card fact"><b>27%</b><figcaption>of U.S. adults regularly watch religious services online or on TV.</figcaption><a href="https://www.pewresearch.org/religion/2023/06/02/online-religious-services-appeal-to-many-americans-but-going-in-person-remains-more-popular/" target="_blank" rel="noopener">Pew Research Center, 2023</a></figure>
-    <figure class="card fact"><b>1 in 10</b><figcaption>U.S. adults watch services only on a screen, without regularly attending in person.</figcaption><a href="https://www.pewresearch.org/religion/2023/06/02/online-religious-services-appeal-to-many-americans-but-going-in-person-remains-more-popular/" target="_blank" rel="noopener">Pew Research Center, 2023</a></figure>
+    <figure class="card fact"><b>1 in 5</b><figcaption>U.S. adults watch religion-focused online videos, such as on YouTube or TikTok.</figcaption><a href="https://www.pewresearch.org/religion/2023/06/02/online-religious-services-appeal-to-many-americans-but-going-in-person-remains-more-popular/" target="_blank" rel="noopener">Pew Research Center, 2023</a></figure>
     <figure class="card fact"><b>200 billion</b><figcaption>YouTube Shorts views every day, across the whole platform.</figcaption><a href="https://blog.youtube/news-and-events/neal-mohan-cannes-2025/" target="_blank" rel="noopener">YouTube, June 2025</a></figure>
   </div>
   <p class="fineprint">Platform and survey figures, not a promise of views for any church.</p>
@@ -320,11 +343,15 @@ button.mini[disabled] { cursor: default; background: var(--good); border-color: 
       <ul class="ticks"><li>Views, likes, comments and shares for every Short you post</li><li>All platforms together, or one at a time</li><li>Spot the moments people watched and shared, and plan next week's</li></ul>
       <p class="fineprint">YouTube today. Facebook and Instagram once Meta approves the connection.</p>
     </div>
-    <div class="ins-panel" aria-label="Example of the Analytics screen with sample numbers">
-      <div class="ins-top"><b>Analytics</b><span class="ins-tag">Example · sample data</span></div>
-      <div class="ins-kpis"><div><span>Views</span><b>4,812</b></div><div><span>Likes</span><b>356</b></div><div><span>Shares</span><b>41</b></div></div>
-      <div class="ins-bars" aria-hidden="true"><i style="--h:34%"></i><i style="--h:52%"></i><i style="--h:41%"></i><i style="--h:78%"></i><i style="--h:63%"></i><i style="--h:92%"></i><i style="--h:70%"></i></div>
-      <div class="ins-days" aria-hidden="true"><span>Mon</span><span>Tue</span><span>Wed</span><span>Thu</span><span>Fri</span><span>Sat</span><span>Sun</span></div>
+    <div class="ins-panel" id="analytics-demo" aria-label="Example of the Analytics screen with sample numbers">
+      <div class="ins-top"><b>Analytics</b>
+        <div class="ins-range" role="radiogroup" aria-label="Date range"><button type="button" role="radio" aria-checked="true" data-days="7">7 days</button><button type="button" role="radio" aria-checked="false" data-days="28">28 days</button></div>
+      </div>
+      <div class="ins-kpis" role="radiogroup" aria-label="Metric"></div>
+      <div class="ins-chart"><div class="ins-bars" id="ins-bars"></div><p class="ins-tip" id="ins-tip" aria-live="polite"></p></div>
+      <div class="ins-days" id="ins-days" aria-hidden="true"></div>
+      <div class="ins-list"><span class="ins-label">Top Shorts</span><ol id="ins-shorts"></ol></div>
+      <p class="ins-sample">Tap a total or a bar. Sample numbers for illustration, not a prediction.</p>
     </div>
   </div>
 </div></section>
@@ -333,11 +360,11 @@ button.mini[disabled] { cursor: default; background: var(--good); border-color: 
   <div>
     <span class="eyebrow">You stay in charge</span>
     <h2>It proposes. You choose.</h2>
-    <p class="muted" style="font-size:18px">Read every word of a moment before you approve it. Nothing is shared until you say so.</p>
+    <p class="muted" style="font-size:18px">Read every word of a moment before you approve it.</p>
     <ul class="ticks" style="margin-top:22px"><li>See exactly where each moment starts and ends</li><li>Trim and adjust the start and end</li><li>Preview the finished Short before you export</li></ul>
   </div>
   <div class="review">
-    <p class="try">Try it: approve the moment, choose a look, export.</p>
+    <p class="try">Try it: approve the moment, choose a look, export, post. It’s a practice run; nothing leaves this page.</p>
     <div class="rv" id="demo">
       <div class="rv-tabs" role="tablist" aria-label="Demo"><button type="button" role="tab" class="on" aria-selected="true" data-tab="moments">Proposed moments <em>12</em></button><button type="button" role="tab" aria-selected="false" data-tab="shorts">My Shorts <em id="demo-count" hidden>1</em></button></div>
       <div class="rv-card" data-panel="moments">
@@ -358,8 +385,13 @@ button.mini[disabled] { cursor: default; background: var(--good); border-color: 
           <button type="button" role="radio" aria-checked="false" data-look="headline"><img src="img/tpl-headline.jpg" alt=""><span>Headline</span></button>
           <button type="button" role="radio" aria-checked="false" data-look="quiet"><img src="img/tpl-quiet.jpg" alt=""><span>Quiet</span></button>
         </div>
-        <div class="rv-actions"><button type="button" class="mini primary" id="demo-export">Export 1080p Short</button></div>
+        <div class="rv-actions"><button type="button" class="mini primary" id="demo-export">Export 1080p Short</button><button type="button" class="mini primary" id="demo-post" hidden>Post to YouTube</button></div>
         <p class="demo-note" id="demo-done" role="status"></p>
+        <div class="posted" id="demo-posted" hidden>
+          <b>Practice post complete</b>
+          <p>Nothing was posted anywhere. In the app, this button sends the Short to your connected YouTube channel.</p>
+          <a href="#analytics-demo" id="demo-results">See where its results would show &darr;</a>
+        </div>
       </div>
     </div>
   </div>
@@ -379,7 +411,7 @@ button.mini[disabled] { cursor: default; background: var(--good); border-color: 
       <ul class="ticks"><li>Every template and design feature</li><li>1080p Shorts, no watermark</li><li>Upload every sermon</li></ul>
       <a class="btn accent" href="plans.html?plan=cornerstone">Choose Cornerstone</a></div>
   </div>
-  <ul class="trust" aria-label="Buying with confidence"><li>Secure checkout on Lemon Squeezy</li><li>Cancel anytime</li><li>Full refund within 14 days of your first purchase</li><li>We never sell your data or show ads</li></ul>
+  <ul class="trust" aria-label="Buying with confidence"><li>Cancel anytime</li><li>Full refund within 14 days of your first purchase</li><li>We never sell your data or show ads</li></ul>
 </div></section>
 
 <section class="band" id="faq"><div class="wrap">
@@ -464,8 +496,47 @@ if ("IntersectionObserver" in window && !matchMedia("(prefers-reduced-motion: re
   document.getElementById("demo-approve").addEventListener("click", () => { note.textContent = ""; document.getElementById("demo-count").hidden = false; show("shorts"); });
   d.querySelectorAll("[data-look]").forEach(b => b.addEventListener("click", () => {
     d.querySelectorAll("[data-look]").forEach(x => x.setAttribute("aria-checked", String(x === b))); }));
+  const post = document.getElementById("demo-post"), posted = document.getElementById("demo-posted");
   exp.addEventListener("click", () => { exp.disabled = true; exp.textContent = "Exported \u2713";
-    done.textContent = "Exported in 1080p, ready to post."; });
+    done.textContent = "Exported in 1080p, ready to post."; post.hidden = false; });
+  // A practice post: no network request, no account. It says so plainly, then points at where results would show.
+  post.addEventListener("click", () => { post.disabled = true; post.textContent = "Posting\u2026";
+    setTimeout(() => { post.hidden = true; done.textContent = ""; posted.hidden = false; window.insPosted && window.insPosted(); }, 900); });
+})();
+// Analytics example: sample numbers only, shaped like the app's Analytics screen (range, totals, daily chart, top Shorts).
+(() => {
+  const panel = document.getElementById("analytics-demo"); if (!panel) return;
+  const WEEK = { views: [412, 630, 540, 1010, 820, 1190, 210], likes: [30, 46, 40, 74, 61, 88, 17],
+                 comments: [4, 6, 5, 11, 8, 13, 2], shares: [3, 5, 4, 9, 7, 11, 2] };
+  const LABEL = { views: "Views", likes: "Likes", comments: "Comments", shares: "Shares" };
+  const DAYS = ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"], RAMP = [0.62, 0.8, 1.15, 1];
+  const SHORTS = [["Don\u2019t go back to Moab", 0.41], ["God, I never left", 0.34], ["Faith: what do you know for sure?", 0.25]];
+  const series = (m, days) => days === 7 ? WEEK[m] : RAMP.flatMap(r => WEEK[m].map((v, i) => Math.round(v * r * (0.9 + ((i * 7) % 5) / 20))));
+  const fmt = n => n.toLocaleString("en-US");
+  let metric = "views", days = 7, posted = false;
+  const kpis = panel.querySelector(".ins-kpis"), bars = document.getElementById("ins-bars"), tip = document.getElementById("ins-tip");
+  const axis = document.getElementById("ins-days"), list = document.getElementById("ins-shorts");
+  function render() {
+    kpis.innerHTML = Object.keys(LABEL).map(m => `<button type="button" role="radio" aria-checked="${m === metric}" data-m="${m}"><span>${LABEL[m]}</span><b>${fmt(series(m, days).reduce((a, b) => a + b, 0))}</b></button>`).join("");
+    const data = series(metric, days), max = Math.max(...data);
+    bars.style.setProperty("--n", data.length); bars.style.setProperty("--g", days === 7 ? "8px" : "3px");
+    bars.innerHTML = data.map((v, i) => {
+      const day = days === 7 ? DAYS[i] : `Day ${i + 1}`;
+      return `<button type="button" style="--h:${Math.round(v / max * 100)}%" data-tip="${day} \u00b7 ${fmt(v)} ${LABEL[metric].toLowerCase()}" aria-label="${day}: ${fmt(v)} ${LABEL[metric].toLowerCase()}"></button>`; }).join("");
+    axis.innerHTML = days === 7 ? DAYS.map(d => `<span>${d}</span>`).join("") : ["Week 1", "Week 2", "Week 3", "Week 4"].map(d => `<span>${d}</span>`).join("");
+    tip.textContent = "";
+    const total = data.reduce((a, b) => a + b, 0);
+    list.innerHTML = (posted ? `<li class="new"><span>Your practice post</span><small>Results appear as people watch</small></li>` : "") +
+      SHORTS.map(([t, share]) => `<li><span>${t}</span><b>${fmt(Math.round(total * share))}</b></li>`).join("");
+  }
+  kpis.addEventListener("click", e => { const b = e.target.closest("[data-m]"); if (b) { metric = b.dataset.m; render(); } });
+  panel.querySelectorAll("[data-days]").forEach(b => b.addEventListener("click", () => {
+    days = +b.dataset.days; panel.querySelectorAll("[data-days]").forEach(x => x.setAttribute("aria-checked", String(x === b))); render(); }));
+  const show = b => { bars.querySelectorAll(".on").forEach(x => x.classList.remove("on")); b.classList.add("on"); tip.textContent = b.dataset.tip; };
+  ["mouseover", "focusin", "click"].forEach(ev => bars.addEventListener(ev, e => { const b = e.target.closest("button"); if (b) show(b); }));
+  bars.addEventListener("mouseleave", () => { bars.querySelectorAll(".on").forEach(x => x.classList.remove("on")); tip.textContent = ""; });
+  window.insPosted = () => { posted = true; render(); };
+  render();
 })();
 </script>
 </body></html>
