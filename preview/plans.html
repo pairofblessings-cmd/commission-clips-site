@@ -1,18 +1,18 @@
 <!doctype html>
 <html lang="en"><head><meta charset="utf-8"><meta name="robots" content="noindex, nofollow"><meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Plans — Commission Clips</title>
-<meta name="description" content="Commission Clips plans: start free, or choose 10 or 30 finished Shorts a month. Every feature on every plan.">
+<meta name="description" content="Commission Clips plans: choose 10 or 30 finished Shorts a month. Every feature on every plan.">
 <link rel="canonical" href="https://commissionclips.com/plans.html">
 <link rel="icon" href="img/logo-ink.svg" type="image/svg+xml"><link rel="icon" href="img/favicon-32.png" sizes="32x32"><link rel="apple-touch-icon" href="img/apple-touch-icon.png">
 <meta property="og:type" content="website"><meta property="og:site_name" content="Commission Clips">
-<meta property="og:title" content="Plans — Commission Clips"><meta property="og:description" content="Commission Clips plans: start free, or choose 10 or 30 finished Shorts a month. Every feature on every plan.">
+<meta property="og:title" content="Plans — Commission Clips"><meta property="og:description" content="Commission Clips plans: choose 10 or 30 finished Shorts a month. Every feature on every plan.">
 <meta property="og:url" content="https://commissionclips.com/plans.html"><meta property="og:image" content="https://commissionclips.com/img/og.png">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="theme-color" content="#f3f2ee" media="(prefers-color-scheme: light)"><meta name="theme-color" content="#0b0b0c" media="(prefers-color-scheme: dark)">
 <script src="theme.js"></script>
 <link rel="stylesheet" href="site.css?v=3">
 <style>
-.plans-wrap { max-width: 1060px; }
+.plans-wrap { max-width: 820px; }
 .toggle-row { display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 16px; margin-bottom: 24px; }
 .from-app { display: none; align-items: center; gap: 10px; padding: 12px 16px; border-radius: var(--radius-card); background: var(--accent-soft); color: var(--text); font-size: 15px; margin-bottom: 20px; }
 .from-app.on { display: flex; }
@@ -33,7 +33,7 @@
 <main class="wrap">
   <header class="page-head">
     <span class="eyebrow">Plans</span>
-    <h1 class="page-title" style="margin-top:16px">Start free. Grow when you're ready.</h1>
+    <h1 class="page-title" style="margin-top:16px">Two plans. Every feature.</h1>
     <p class="page-desc">Every feature on every plan. Only finished Shorts count.</p>
   </header>
 
@@ -47,23 +47,17 @@
       <span class="muted" style="font-size:14px">Prices in US dollars.</span>
     </div>
     <div class="plans">
-      <article class="card plan" id="plan-foundation">
-        <div class="plan-top"><h2>Foundation</h2></div><p class="lead">Try it free.</p>
-        <div class="price">$0</div><p class="billing">Free forever. No card.</p>
-        <div class="quota"><span><strong>1 Short</strong> a month</span></div>
-        <a class="btn" href="index.html#download">Included with the app</a>
-      </article>
-      <article class="card plan" id="plan-cornerstone" data-plan="cornerstone">
-        <div class="plan-top"><h2>Cornerstone</h2></div><p class="lead">Two or three a week.</p>
+      <article class="card plan" id="plan-firm_foundation" data-plan="firm_foundation">
+        <div class="plan-top"><h2>Firm Foundation</h2></div><p class="lead">Two or three a week.</p>
         <div class="price" data-price>$50<span> / month</span></div><p class="billing" data-billing>Billed monthly.</p>
         <div class="quota"><span><strong>10 Shorts</strong> a month</span><span class="per" data-per>$5 a Short</span></div>
-        <button class="btn" data-checkout disabled>Choose Cornerstone <span class="soon">Checkout coming soon</span></button>
+        <button class="btn" data-checkout disabled>Checkout coming soon</button>
       </article>
-      <article class="card plan featured" id="plan-capstone" data-plan="capstone">
-        <div class="plan-top"><h2>Capstone</h2><span class="tag">Best value</span></div><p class="lead">About one a day.</p>
+      <article class="card plan featured" id="plan-cornerstone" data-plan="cornerstone">
+        <div class="plan-top"><h2>Cornerstone</h2><span class="tag">Best value</span></div><p class="lead">About one a day.</p>
         <div class="price" data-price>$100<span> / month</span></div><p class="billing" data-billing>Billed monthly.</p>
         <div class="quota"><span><strong>30 Shorts</strong> a month</span><span class="per" data-per>$3.33 a Short</span></div>
-        <button class="btn accent" data-checkout disabled>Choose Capstone <span class="soon">Checkout coming soon</span></button>
+        <button class="btn accent" data-checkout disabled>Checkout coming soon</button>
       </article>
     </div>
     <p class="all-plans">Every plan: every template &middot; 1080p &middot; no watermark &middot; upload every sermon</p>
@@ -76,7 +70,6 @@
     <div class="faq">
       <details><summary>Can I cancel anytime?</summary><p>Yes. Cancelling stops future charges, and you keep access until the end of the period you paid for.</p></details>
       <details><summary>How do I upgrade from the app?</summary><p>Choose a plan here. After checkout you'll receive a license key — paste it into Commission Clips → Settings.</p></details>
-      <details><summary>Is the free plan really free?</summary><p>Yes. $0, no card, every feature.</p></details>
       <details><summary>Can I switch plans?</summary><p>Yes, anytime from the app.</p></details>
       <details><summary>Questions about billing?</summary><p>Email <a href="mailto:commissionclipssupport@gmail.com" style="color:var(--accent)">commissionclipssupport@gmail.com</a>.</p></details>
     </div>
@@ -89,11 +82,11 @@
   <nav aria-label="Footer"><a href="plans.html">Plans</a><a href="support.html">Support</a><a href="privacy.html">Privacy</a><a href="terms.html">Terms</a></nav>
 </div></footer>
 <script>
-// The app opens /plans.html?from=app&plan=cornerstone|capstone&interval=annual|monthly.
+// The app opens /plans.html?from=app&plan=firm_foundation|cornerstone&interval=annual|monthly.
 const q = new URLSearchParams(location.search);
-const P = { cornerstone: { name: "Cornerstone", m: 50, y: 500, n: 10 }, capstone: { name: "Capstone", m: 100, y: 1000, n: 30 } };
+const P = { firm_foundation: { name: "Firm Foundation", m: 50, y: 500, n: 10 }, cornerstone: { name: "Cornerstone", m: 100, y: 1000, n: 30 } };
 // Store checkout links go here when the store is set up.
-const CHECKOUT = { cornerstone: { monthly: "", annual: "" }, capstone: { monthly: "", annual: "" } };
+const CHECKOUT = { firm_foundation: { monthly: "", annual: "" }, cornerstone: { monthly: "", annual: "" } };
 const money = v => "$" + (Number.isInteger(v) ? v.toLocaleString("en-US") : v.toFixed(2));
 function setInterval_(int, animate) {
   const yearly = int === "annual";
@@ -109,7 +102,7 @@ function setInterval_(int, animate) {
     card.querySelector("[data-per]").textContent = money(Math.round(perMonth / p.n * 100) / 100) + " a Short";
     const btn = card.querySelector("[data-checkout]"), url = CHECKOUT[id][int];
     btn.disabled = !url; btn.onclick = url ? () => { location.href = url; } : null;
-    btn.innerHTML = url ? "Choose " + p.name : "Choose " + p.name + ' <span class="soon">Checkout coming soon</span>';
+    btn.textContent = url ? "Choose " + p.name : "Checkout coming soon";
     if (animate) { card.classList.remove("flip"); void card.offsetWidth; card.classList.add("flip"); }
   });
 }
