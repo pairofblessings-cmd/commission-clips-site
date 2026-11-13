@@ -7,7 +7,7 @@
   color-scheme: light;
   --bg: #ffffff; --surface: #f7f7f8; --panel: #ffffff; --raised: #f1f1f3; --line: #e6e6ea; --hover-line: #cfcfd6;
   --text: #0d0e12; --soft: #393b44; --muted: #6a6d78;
-  --accent: #1f5fe0; --accent-hover: #1a52c4; --accent-on: #ffffff; --accent-soft: #eef3fe; --accent-ink: #1f5fe0; --save: #15803d;
+  --accent: #1f5fe0; --accent-hover: #1a52c4; --accent-on: #ffffff; --accent-soft: #eef3fe; --accent-ink: #1f5fe0; --save: #4f82ea;
   --card-edge: #b9cdf6; --top-line: #ececf0;
   --good: #0f754e;
   --radius-card: 14px; --radius: 10px; --radius-pill: 999px;
@@ -27,7 +27,7 @@
   color-scheme: dark;
   --bg: #09090b; --surface: #0e0e11; --panel: #121216; --raised: #1a1a1f; --line: #24242b; --hover-line: #3a3a43;
   --text: #f4f4f6; --soft: #c6c7cf; --muted: #8c8e99;
-  --accent: #3d6ef0; --accent-hover: #5180f5; --accent-on: #ffffff; --accent-soft: #141d33; --accent-ink: #84a7ff; --save: #5fd08f;
+  --accent: #3d6ef0; --accent-hover: #5180f5; --accent-on: #ffffff; --accent-soft: #141d33; --accent-ink: #84a7ff; --save: #8fb0ff;
   --card-edge: #2c4479; --top-line: #1c1c22;
   --good: #3ecf8e;
   --shadow-sm: none; --shadow: 0 1px 0 rgba(255, 255, 255, .03) inset, 0 16px 40px rgba(0, 0, 0, .45);
@@ -40,7 +40,7 @@
   color-scheme: dark;
   --bg: #09090b; --surface: #0e0e11; --panel: #121216; --raised: #1a1a1f; --line: #24242b; --hover-line: #3a3a43;
   --text: #f4f4f6; --soft: #c6c7cf; --muted: #8c8e99;
-  --accent: #3d6ef0; --accent-hover: #5180f5; --accent-on: #ffffff; --accent-soft: #141d33; --accent-ink: #84a7ff; --save: #5fd08f;
+  --accent: #3d6ef0; --accent-hover: #5180f5; --accent-on: #ffffff; --accent-soft: #141d33; --accent-ink: #84a7ff; --save: #8fb0ff;
   --card-edge: #2c4479; --top-line: #1c1c22;
   --good: #3ecf8e;
   --shadow-sm: none; --shadow: 0 1px 0 rgba(255, 255, 255, .03) inset, 0 16px 40px rgba(0, 0, 0, .45);
@@ -148,9 +148,9 @@ main.wrap section.band { background: none; border-top: 0; padding: 72px 0; }   /
 .price .was { font-size: .46em; font-weight: 600; color: var(--muted); margin-right: 8px; vertical-align: .35em; text-decoration-thickness: 2px; }
 .price { white-space: nowrap; }
 .price .now { color: var(--save); font-weight: 800; font-size: .86em; }
-.plan.featured .price .now { color: #5fd08f; } .plan.featured .price .was { color: var(--feat-soft); }
+.plan.featured .price .now { color: #9db9ff; } .plan.featured .price .was { color: var(--feat-soft); }
 .billing .save-amt { display: block; color: var(--save); font-weight: 700; }
-.plan.featured .billing .save-amt { color: #5fd08f; }
+.plan.featured .billing .save-amt { color: #9db9ff; }
 .billing i { display: block; font-size: 13px; margin-top: 2px; }
 .plan.flip .price, .plan.flip .billing { animation: pflip .42s cubic-bezier(.2,.8,.2,1); }
 @keyframes pflip { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: none; } }

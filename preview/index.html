@@ -10,7 +10,7 @@
 <meta name="twitter:card" content="summary_large_image">
 <meta name="theme-color" content="#f3f2ee" media="(prefers-color-scheme: light)"><meta name="theme-color" content="#0b0b0c" media="(prefers-color-scheme: dark)">
 <script src="theme.js"></script>
-<link rel="stylesheet" href="site.css?v=4">
+<link rel="stylesheet" href="site.css?v=5">
 <style>
 .hero { position: relative; overflow: hidden; padding: 72px 0 104px; }
 .hero .wrap { display: grid; grid-template-columns: 1.1fr .9fr; gap: 64px; align-items: center; }
@@ -271,6 +271,48 @@ button.mini[disabled] { cursor: default; background: var(--good); border-color: 
   .pk-list { display: flex; overflow-x: auto; scroll-snap-type: x mandatory; scrollbar-width: none; margin: 0 -16px; padding: 2px 16px 6px; }
   .pk-list::-webkit-scrollbar { display: none; }
   .pk-opt { flex: 0 0 auto; scroll-snap-align: center; } .pk-opt small { white-space: nowrap; } }
+/* One sermon -> a stack of Shorts */
+.result { display: grid; grid-template-columns: minmax(0, 1.25fr) 150px minmax(0, 1fr); align-items: center; gap: 12px; }
+.long { min-width: 0; }
+.long-frame { position: relative; aspect-ratio: 16 / 9; border-radius: 16px; overflow: hidden; background: #000;
+  box-shadow: 0 2px 6px rgba(13, 14, 18, .08), 0 24px 50px rgba(13, 14, 18, .16); }
+.long-frame img { width: 100%; height: 100%; object-fit: cover; display: block; }
+.long-play { position: absolute; left: 50%; top: 50%; width: 64px; height: 64px; margin: -32px 0 0 -32px; border-radius: 50%;
+  background: rgba(0, 0, 0, .55); display: grid; place-items: center; backdrop-filter: blur(4px); }
+.long-play::before { content: ""; margin-left: 5px; border-style: solid; border-width: 12px 0 12px 19px; border-color: transparent transparent transparent #fff; }
+.long-time { position: absolute; right: 10px; bottom: 10px; padding: 2px 7px; border-radius: 5px; background: rgba(0, 0, 0, .78);
+  color: #fff; font: 600 13px var(--font); font-variant-numeric: tabular-nums; }
+.long-meta { margin-top: 14px; display: grid; gap: 4px; }
+.long-meta b { font-size: 17px; color: var(--text); line-height: 1.3; }
+.long-meta span { font-size: 14px; color: var(--muted); }
+.flow-arrow { display: grid; justify-items: center; gap: 10px; color: var(--accent); text-align: center; }
+.flow-arrow svg { width: 132px; height: 48px; }
+.flow-arrow span { font-size: 13px; font-weight: 600; color: var(--accent-ink); line-height: 1.3; }
+.deck-wrap { display: grid; justify-items: center; gap: 18px; min-width: 0; }
+.deck { position: relative; width: min(250px, 62vw); aspect-ratio: 9 / 16; touch-action: pan-y; user-select: none; cursor: grab; }
+.deck:active { cursor: grabbing; }
+.dk { position: absolute; inset: 0; border-radius: 22px; overflow: hidden; background: #000; border: 5px solid #121316;
+  box-shadow: 0 18px 40px rgba(13, 14, 18, .22); transition: transform .45s cubic-bezier(.2, .8, .2, 1), opacity .45s; will-change: transform; }
+.dk video { width: 100%; height: 100%; object-fit: cover; display: block; pointer-events: none; }
+.dk[data-pos="0"] { z-index: 3; transform: none; }
+.dk[data-pos="1"] { z-index: 2; transform: translateX(26px) rotate(5deg) scale(.94); }
+.dk[data-pos="2"] { z-index: 1; transform: translateX(48px) rotate(10deg) scale(.88); }
+.dk.dragging { transition: none; }
+.dk.gone { opacity: 0; }
+.deck-ctl { display: flex; align-items: center; gap: 14px; }
+.deck-ctl button { width: 38px; height: 38px; border-radius: 50%; border: 1px solid var(--line); background: var(--panel); color: var(--text);
+  display: grid; place-items: center; cursor: pointer; font-size: 18px; line-height: 1; }
+.deck-ctl button:hover { border-color: var(--accent); color: var(--accent); }
+.deck-n { font-size: 14px; color: var(--muted); font-variant-numeric: tabular-nums; min-width: 92px; text-align: center; }
+.deck-hint { font-size: 13px; color: var(--muted); }
+@media (max-width: 900px) {
+  .result { grid-template-columns: minmax(0, 1fr); gap: 22px; justify-items: center; }
+  .long { max-width: 560px; width: 100%; }
+  .flow-arrow svg { width: 96px; height: 40px; transform: rotate(90deg); margin: 24px 0; }
+  .deck { width: min(230px, 58vw); }
+  .dk[data-pos="1"] { transform: translateX(14px) rotate(3deg) scale(.95); }
+  .dk[data-pos="2"] { transform: translateX(26px) rotate(6deg) scale(.9); } }
+@media (prefers-reduced-motion: reduce) { .dk { transition: none; } }
 </style></head>
 <body>
 <div style="background:#18181b;color:#fff;text-align:center;font:600 13px system-ui,sans-serif;padding:8px 12px">Preview of the new design — not live yet</div>
@@ -302,6 +344,29 @@ button.mini[disabled] { cursor: default; background: var(--good); border-color: 
         <ul class="ticks"><li>Starts at the setup</li><li>Ends after the point lands</li></ul>
         <div class="mo-actions"><span class="mini">Listen</span><span class="mini primary">Approve</span></div>
       </div>
+    </div>
+  </div>
+</div></section>
+
+<section class="band" id="results"><div class="wrap">
+  <div class="head center"><span class="eyebrow">One sermon in</span><h2>One sermon. A stack of Shorts.</h2><p>Three Shorts from one Sunday at No Excuses Ministries.</p></div>
+  <div class="result" data-grow=".95">
+    <figure class="long">
+      <div class="long-frame"><img src="img/sermon-long.jpg?v=1" alt="Pastor preaching at the No Excuses pulpit" loading="lazy"><span class="long-play" aria-hidden="true"></span><span class="long-time">57:07</span></div>
+      <figcaption class="long-meta"><b>If You Still Have Breath, You Still Have Purpose</b><span>No Excuses Ministries &middot; Sunday sermon</span></figcaption>
+    </figure>
+    <div class="flow-arrow" aria-hidden="true">
+      <svg class="arrow-wide" viewBox="0 0 132 48" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M4 30 C 40 6, 84 6, 122 24"/><path d="M110 14 L123 24 L108 30"/></svg>
+      <span>Commission Clips</span>
+    </div>
+    <div class="deck-wrap">
+      <div class="deck" id="deck" role="region" aria-roledescription="carousel" aria-label="Shorts from this sermon">
+        <div class="dk" data-pos="0"><video src="img/deck-1.mp4?v=1" poster="img/deck-1.jpg?v=1" muted loop playsinline preload="metadata" aria-label="Short: Ready to throw in the towel?"></video></div>
+        <div class="dk" data-pos="1"><video data-src="img/deck-2.mp4?v=1" poster="img/deck-2.jpg?v=1" muted loop playsinline preload="none" aria-label="Short: Why the enemy fights your confidence"></video></div>
+        <div class="dk" data-pos="2"><video data-src="img/deck-3.mp4?v=1" poster="img/deck-3.jpg?v=1" muted loop playsinline preload="none" aria-label="Short: Why do evil people get ahead?"></video></div>
+      </div>
+      <div class="deck-ctl"><button type="button" id="deck-prev" aria-label="Previous Short">&lsaquo;</button><span class="deck-n" id="deck-n" aria-live="polite">Short 1 of 3</span><button type="button" id="deck-next" aria-label="Next Short">&rsaquo;</button></div>
+      <span class="deck-hint">Swipe or drag the stack</span>
     </div>
   </div>
 </div></section>
@@ -462,7 +527,7 @@ button.mini[disabled] { cursor: default; background: var(--good); border-color: 
 
 <section class="band" id="plans"><div class="wrap">
   <div class="head center"><span class="eyebrow">Plans</span><h2>Two plans. Every feature.</h2><p>Try it free for 14 days. No card.</p></div>
-  <div class="bill-row"><div class="billing-toggle" role="group" aria-label="Billing"><button type="button" data-int="monthly" aria-pressed="true">Monthly</button><button type="button" data-int="annual" aria-pressed="false">Yearly <span class="save">2 months free</span></button></div></div>
+  <div class="bill-row"><div class="billing-toggle" role="group" aria-label="Billing"><button type="button" data-int="monthly" aria-pressed="true">Monthly</button><button type="button" data-int="annual" aria-pressed="false">Yearly <span class="save">12 months for the price of 10</span></button></div></div>
   <div class="plans plans-teaser">
     <div class="card plan" data-plan="firm_foundation" data-grow=".95"><div class="plan-top"><h3>Firm Foundation</h3></div><p class="lead">Two or three a week.</p>
       <div class="price" data-price>$50<span> / month</span></div><p class="billing" data-billing>Billed monthly.</p>
@@ -661,6 +726,37 @@ if (!calm) {
     });
   };
   document.querySelectorAll("#plans [data-int]").forEach(b => b.addEventListener("click", () => set(b.dataset.int, !matchMedia("(prefers-reduced-motion: reduce)").matches)));
+})();
+</script>
+<script>
+(() => {
+  const deck = document.getElementById("deck"); if (!deck) return;
+  const cards = [...deck.querySelectorAll(".dk")], n = cards.length, label = document.getElementById("deck-n");
+  const still = matchMedia("(prefers-reduced-motion: reduce)").matches;
+  let order = cards.slice(), visible = false, timer = null, drag = null;
+  const play = () => order.forEach((c, i) => {
+    const v = c.querySelector("video");
+    if (i === 0 && visible) { if (!v.getAttribute("src") && v.dataset.src) v.src = v.dataset.src; v.play().catch(() => {}); } else v.pause();
+  });
+  const layout = () => { order.forEach((c, i) => { c.dataset.pos = String(i); c.style.transform = ""; });
+    label.textContent = "Short " + (cards.indexOf(order[0]) + 1) + " of " + n; play(); };
+  const go = (dir, dx) => {
+    if (dir > 0) {
+      const top = order[0]; top.classList.add("gone"); top.style.transform = "translateX(" + (dx < 0 ? -420 : 420) + "px) rotate(" + (dx < 0 ? -18 : 18) + "deg)";
+      setTimeout(() => { top.classList.remove("gone"); order = order.slice(1).concat(top); layout(); }, still ? 0 : 280);
+    } else { order = [order[n - 1]].concat(order.slice(0, n - 1)); layout(); }
+  };
+  const restart = () => { clearInterval(timer); if (!still && visible) timer = setInterval(() => { if (!drag) go(1, 1); }, 5000); };
+  document.getElementById("deck-next").addEventListener("click", () => { go(1, 1); restart(); });
+  document.getElementById("deck-prev").addEventListener("click", () => { go(-1); restart(); });
+  deck.addEventListener("pointerdown", e => { const top = order[0]; drag = { x: e.clientX, top, dx: 0 }; top.classList.add("dragging"); deck.setPointerCapture(e.pointerId); });
+  deck.addEventListener("pointermove", e => { if (!drag) return; drag.dx = e.clientX - drag.x;
+    drag.top.style.transform = "translateX(" + drag.dx + "px) rotate(" + (drag.dx / 18) + "deg)"; });
+  const end = () => { if (!drag) return; const { top, dx } = drag; drag = null; top.classList.remove("dragging");
+    if (Math.abs(dx) > 70) go(1, dx); else top.style.transform = ""; restart(); };
+  deck.addEventListener("pointerup", end); deck.addEventListener("pointercancel", end);
+  new IntersectionObserver(es => { visible = es[0].isIntersecting; play(); restart(); }, { threshold: .35 }).observe(deck);
+  layout();
 })();
 </script>
 </body></html>
