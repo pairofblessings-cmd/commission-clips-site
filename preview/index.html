@@ -578,8 +578,8 @@ if ("IntersectionObserver" in window && !matchMedia("(prefers-reduced-motion: re
 // Analytics example: sample numbers only, shaped like the app's Analytics screen (range, totals, daily chart, top Shorts).
 (() => {
   const panel = document.getElementById("analytics-demo"); if (!panel) return;
-  const WEEK = { views: [412, 630, 540, 1010, 820, 1190, 210], likes: [30, 46, 40, 74, 61, 88, 17],
-                 comments: [4, 6, 5, 11, 8, 13, 2], shares: [3, 5, 4, 9, 7, 11, 2] };
+  const WEEK = { views: [660, 1010, 865, 1615, 1310, 1905, 335], likes: [48, 74, 64, 118, 98, 141, 27],
+                 comments: [6, 10, 8, 18, 13, 21, 3], shares: [5, 8, 6, 14, 11, 18, 3] };
   const LABEL = { views: "Views", likes: "Likes", comments: "Comments", shares: "Shares" };
   const DAYS = ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"], RAMP = [0.62, 0.8, 1.15, 1];
   const SHORTS = [["Don\u2019t go back to Moab", 0.41], ["God, I never left", 0.34], ["Faith: what do you know for sure?", 0.25]];
