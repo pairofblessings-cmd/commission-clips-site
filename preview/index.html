@@ -1,16 +1,16 @@
 <!doctype html>
 <html lang="en"><head><meta charset="utf-8"><meta name="robots" content="noindex, nofollow"><meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Commission Clips — every sermon, shared all week</title>
+<title>Commission Clips — your sermon, seen all week</title>
 <meta name="description" content="Commission Clips finds the complete teaching moments in your sermon and turns them into captioned Shorts. Start free, no card.">
 <link rel="canonical" href="https://commissionclips.com/">
 <link rel="icon" href="img/logo-ink.svg" type="image/svg+xml"><link rel="icon" href="img/favicon-32.png" sizes="32x32"><link rel="apple-touch-icon" href="img/apple-touch-icon.png">
 <meta property="og:type" content="website"><meta property="og:site_name" content="Commission Clips">
-<meta property="og:title" content="Commission Clips — every sermon, shared all week"><meta property="og:description" content="Commission Clips finds the complete teaching moments in your sermon and turns them into captioned Shorts. Start free, no card.">
+<meta property="og:title" content="Commission Clips — your sermon, seen all week"><meta property="og:description" content="Commission Clips finds the complete teaching moments in your sermon and turns them into captioned Shorts. Start free, no card.">
 <meta property="og:url" content="https://commissionclips.com/"><meta property="og:image" content="https://commissionclips.com/img/og.png">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="theme-color" content="#f3f2ee" media="(prefers-color-scheme: light)"><meta name="theme-color" content="#0b0b0c" media="(prefers-color-scheme: dark)">
 <script src="theme.js"></script>
-<link rel="stylesheet" href="site.css">
+<link rel="stylesheet" href="site.css?v=3">
 <style>
 .hero { position: relative; overflow: hidden; padding: 72px 0 104px; }
 .hero .wrap { display: grid; grid-template-columns: 1.1fr .9fr; gap: 64px; align-items: center; }
@@ -254,7 +254,10 @@ button.mini[disabled] { cursor: default; background: var(--good); border-color: 
 .rv-ends p { margin-top: 4px; color: var(--text); font-size: 14.5px; line-height: 1.5; }
 .rv-actions { display: flex; flex-wrap: wrap; gap: 8px; }
 @media (max-width: 560px) { .rv-ends { grid-template-columns: 1fr; } }
-.plans-teaser { max-width: 940px; margin: 0 auto; }
+.plans-teaser { max-width: 1060px; margin: 0 auto; }
+.bill-row { display: flex; justify-content: center; margin: -20px 0 28px; }
+.ticks.two { grid-template-columns: 1fr 1fr; gap: 10px 20px; margin-top: 6px; }
+@media (max-width: 560px) { .ticks.two { grid-template-columns: 1fr; } }
 @media (max-width: 960px) {
   .bento { grid-template-columns: 1fr 1fr; } .t-points, .t-team { grid-column: span 2; }
   .hero .wrap, .choose { grid-template-columns: 1fr; }
@@ -281,13 +284,13 @@ button.mini[disabled] { cursor: default; background: var(--good); border-color: 
 <section class="hero"><div class="wrap">
   <div>
     <span class="eyebrow">Sermon Shorts for churches</span>
-    <h1>Every sermon, <em>shared all week.</em></h1>
-    <p class="lead">Commission Clips finds the complete teaching moments in your sermon and turns them into captioned Shorts for YouTube, TikTok, Instagram and Facebook.</p>
+    <h1>Your sermon, <em>seen all week.</em></h1>
+    <p class="lead">Drop in your sermon. Get captioned Shorts of its complete points, ready to post.</p>
     <div class="ctas">
       <a class="btn accent is-soon" href="#download">Download for Windows <span class="soon">Coming soon</span></a>
-      <a class="btn" href="plans.html">See plans</a>
+      <a class="btn" href="#plans">See plans</a>
     </div>
-    <div class="promises"><span>Start free, no card</span><span>1080p, no watermark</span><span>Every template on every plan</span></div>
+    <div class="promises"><span>Free to start</span><span>No card</span><span>No watermark</span></div>
   </div>
   <div class="stage">
     <div class="phone"><video src="img/hero.mp4?v=2" poster="img/hero.jpg?v=2" autoplay muted loop playsinline></video><button type="button" class="sound" id="sound" aria-pressed="false" aria-label="Unmute"><svg class="i-off" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M11 5 6 9H3v6h3l5 4z"/><path d="M22 9l-6 6M16 9l6 6"/></svg><svg class="i-on" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M11 5 6 9H3v6h3l5 4z"/><path d="M16 9a4 4 0 0 1 0 6M19 6a8 8 0 0 1 0 12"/></svg></button></div>
@@ -307,45 +310,37 @@ button.mini[disabled] { cursor: default; background: var(--good); border-color: 
   <div class="head"><span class="eyebrow">Why churches choose it</span><h2>Short enough to watch. Whole enough to matter.</h2></div>
   <div class="bento">
     <article class="card tile t-points">
-      <h3>An AI editor that listens for the whole point</h3>
-      <p>AI speech recognition runs on your computer and times every word. Commission Clips then reviews the whole sermon and proposes every moment that passes its checks, never a quota.</p>
-      <div class="ai">
-        <div><span class="ai-label">Every moment must</span>
-          <ul class="ticks"><li>Open at the start of a thought</li><li>End after the point lands</li><li>Skip announcements, prayer and music</li><li>Have clear audio</li></ul></div>
-        <div><span class="ai-label">Then it is scored on</span>
-          <ul class="dots"><li>Faithful to the sermon</li><li>Useful to the viewer</li><li>A clear arc</li><li>Clear wording</li><li>A strong ending</li></ul></div>
-      </div>
+      <h3>Every Short is a whole point</h3>
+      <p>AI listens to the whole sermon and proposes only complete moments.</p>
+      <ul class="ticks two"><li>Starts at the setup</li><li>Ends after the point lands</li><li>Skips announcements and music</li><li>Clear audio only</li></ul>
     </article>
     <article class="card tile t-upload">
-      <h3>Your sermons stay with you</h3>
-      <p>Transcribing and video work happen on your own computer.</p>
-      <ul class="free" aria-label="Privacy">
-        <li>No ads and no tracking</li><li>We never sell your data</li>
-      </ul>
-      <a class="more" href="privacy.html">Read the Privacy Policy</a>
+      <h3>Private by default</h3>
+      <p>Your sermons are processed on your computer.</p>
+      <ul class="free" aria-label="Privacy"><li>No ads, no tracking</li><li>Never sold</li></ul>
+      <a class="more" href="privacy.html">Privacy Policy</a>
     </article>
     <article class="card tile t-feeds">
-      <h3>One sermon. A week of Shorts.</h3>
-      <p>Commission Clips finds the complete moments in each sermon, so one message can be shared all week.</p>
+      <h3>One sermon. A week of posts.</h3>
       <ul class="platforms" aria-label="Made for"><li>YouTube Shorts</li><li>TikTok</li><li>Instagram Reels</li><li>Facebook Reels</li></ul>
     </article>
     <article class="card tile t-team">
-      <h3>Built for church teams</h3>
-      <p>No editing experience needed. Four choices and the Short is ready.</p>
+      <h3>No editor needed</h3>
+      <p>Four choices. Done.</p>
       <ol class="flow"><li><span>Pick a moment<small>Approve one it proposed</small></span></li><li><span>Write the hook<small>The card viewers see first</small></span></li><li><span>Choose a look<small>Any template, any plan</small></span></li><li><span>Export<small>A 1080p Short, no watermark</small></span></li></ol>
     </article>
   </div>
 </div></section>
 
 <section class="band" id="how"><div class="wrap">
-  <div class="head"><span class="eyebrow">How it works</span><h2>From the pulpit to people's phones in three steps.</h2></div>
+  <div class="head"><span class="eyebrow">How it works</span><h2>Pulpit to phone in three steps.</h2></div>
   <div class="steps">
     <div class="card step" data-grow=".95"><div class="shot mock" aria-hidden="true">
       <div class="win"><div class="win-bar"><img src="img/logo-ink.svg" alt="">Add a sermon</div>
         <div class="drop"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 16V4M7 9l5-5 5 5"/><path d="M4 16v3a1 1 0 0 0 1 1h14a1 1 0 0 0 1-1v-3"/></svg>
           <b>Drop a video or audio file</b><span>MP4, MOV, MP3, WAV and more</span></div>
         <div class="link"><span>or paste a public sermon link</span><i>Add</i></div></div></div>
-      <div class="body"><span class="n">1</span><h3>Bring in the sermon</h3><p>Choose a video or audio file, or paste a link to a public sermon.</p></div></div>
+      <div class="body"><span class="n">1</span><h3>Add the sermon</h3><p>A video, an audio file or a public link.</p></div></div>
     <div class="card step" data-grow=".95"><div class="shot mock" aria-hidden="true">
       <div class="win"><div class="win-bar"><img src="img/logo-ink.svg" alt="">Proposed moments</div>
         <ol class="rows">
@@ -353,14 +348,14 @@ button.mini[disabled] { cursor: default; background: var(--good); border-color: 
           <li><span><b>We have greater access and closer communication…</b><em>Starts 31:35</em></span><i>Approve</i></li>
           <li><span><b>If your parents were mega wealthy…</b><em>Starts 18:35</em></span><i>Approve</i></li>
         </ol></div></div>
-      <div class="body"><span class="n">2</span><h3>Review the moments</h3><p>Commission Clips transcribes it and proposes complete moments. Listen, read, and approve the ones that fit.</p></div></div>
+      <div class="body"><span class="n">2</span><h3>Approve the moments</h3><p>Read and listen before you choose.</p></div></div>
     <div class="card step" data-grow=".95"><div class="shot phoneish"><img src="img/tpl-headline.jpg?v=2" alt=""></div>
-      <div class="body"><span class="n">3</span><h3>Finish and share</h3><p>Write the hook card, choose a template, preview it, and export a 1080p Short.</p></div></div>
+      <div class="body"><span class="n">3</span><h3>Export and post</h3><p>Captioned, 1080p, no watermark.</p></div></div>
   </div>
 </div></section>
 
 <section class="band" id="templates"><div class="wrap">
-  <div class="head"><span class="eyebrow">Templates</span><h2>A look that fits your church.</h2><p>Every template, on every plan — or make your own. Each one shown on a different real moment from No Excuses Ministries.</p></div>
+  <div class="head"><span class="eyebrow">Templates</span><h2>A look that fits your church.</h2><p>Every template on every plan. Real renders from the app.</p></div>
   <div class="picker">
     <div class="pk-stage">
       <div class="pk-phone" data-grow=".9"><video id="pk-video" muted loop playsinline preload="none" poster="img/tpl-simple.jpg?v=2" aria-label="Preview of the selected template"></video></div>
@@ -369,13 +364,12 @@ button.mini[disabled] { cursor: default; background: var(--good); border-color: 
     <div>
       <p class="pk-step" id="pk-label">Tap a template to preview it</p>
       <div class="pk-list" id="pk-list" role="radiogroup" aria-labelledby="pk-label"></div>
-      <p class="pk-note">Real renders from the app. Every template is on every plan.</p>
     </div>
   </div>
   <div class="card builder" data-grow=".95">
     <div class="bd-copy">
-      <h3>Or make your own in a minute</h3>
-      <p class="muted">Pick a font, a colour and a hook style. The app saves it as your church's template.</p>
+      <h3>Or make your own</h3>
+      <p class="muted">Font, colour, hook. Saved as your church's look.</p>
       <div class="bd-ctls" id="builder">
         <div class="bd-ctl"><span class="bd-label" id="bd-font-l">Font</span><div class="bd-seg" role="radiogroup" aria-labelledby="bd-font-l">
           <button type="button" role="radio" aria-checked="true" data-font="clean">Clean</button><button type="button" role="radio" aria-checked="false" data-font="modern">Modern</button><button type="button" role="radio" aria-checked="false" data-font="classic">Classic</button></div></div>
@@ -385,7 +379,7 @@ button.mini[disabled] { cursor: default; background: var(--good); border-color: 
           <button type="button" role="radio" aria-checked="true" data-card="title">Title</button><button type="button" role="radio" aria-checked="false" data-card="card">Card</button></div></div>
         <div class="bd-ctl"><span class="bd-label">Captions</span><div><button type="button" class="bd-switch" role="switch" aria-checked="false" id="bd-caps">ALL CAPS</button></div></div>
       </div>
-      <p class="bd-more">The app also lets you change size, position, outline, entrance and border.</p>
+      <p class="bd-more">Size, position and motion are adjustable in the app.</p>
     </div>
     <div class="bd-stage">
       <div class="bd-phone" id="bd-phone" data-font="clean" data-card="title" data-caps="0" role="img" aria-label="Preview of your template">
@@ -402,11 +396,11 @@ button.mini[disabled] { cursor: default; background: var(--good); border-color: 
   <div>
     <span class="eyebrow">You stay in charge</span>
     <h2>It proposes. You choose.</h2>
-    <p class="muted" style="font-size:18px">Read every word of a moment before you approve it.</p>
-    <ul class="ticks" style="margin-top:22px"><li>See exactly where each moment starts and ends</li><li>Trim and adjust the start and end</li><li>Preview the finished Short before you export</li></ul>
+    <p class="muted" style="font-size:18px">Read every word before you approve.</p>
+    <ul class="ticks" style="margin-top:22px"><li>Trim the start and end</li><li>Preview before you export</li></ul>
   </div>
   <div class="review">
-    <p class="try">Try it: approve the moment, choose a look, export, post. It’s a practice run; nothing leaves this page.</p>
+    <p class="try">Try it. Nothing leaves this page.</p>
     <div class="rv" id="demo" data-grow=".93">
       <div class="rv-tabs" role="tablist" aria-label="Demo"><button type="button" role="tab" class="on" aria-selected="true" data-tab="moments">Proposed moments <em>12</em></button><button type="button" role="tab" aria-selected="false" data-tab="shorts">My Shorts <em id="demo-count" hidden>1</em></button></div>
       <div class="rv-card" data-panel="moments">
@@ -440,7 +434,7 @@ button.mini[disabled] { cursor: default; background: var(--good); border-color: 
 </div></section>
 
 <section class="band" id="outreach"><div class="wrap">
-  <div class="head"><span class="eyebrow">Outreach</span><h2>Reach people where they already are.</h2><p>Many people meet church on a screen first. Shorts carry a sermon's clearest moments into the feeds they scroll every day.</p></div>
+  <div class="head"><span class="eyebrow">Outreach</span><h2>Reach people where they already are.</h2><p>Many people meet church on a screen first.</p></div>
   <div class="stats">
     <figure class="card fact" data-grow=".94"><b>27%</b><figcaption>of U.S. adults regularly watch religious services online or on TV.</figcaption><a href="https://www.pewresearch.org/religion/2023/06/02/online-religious-services-appeal-to-many-americans-but-going-in-person-remains-more-popular/" target="_blank" rel="noopener">Pew Research Center, 2023</a></figure>
     <figure class="card fact" data-grow=".94"><b>1 in 5</b><figcaption>U.S. adults watch religion-focused online videos, such as on YouTube or TikTok.</figcaption><a href="https://www.pewresearch.org/religion/2023/06/02/online-religious-services-appeal-to-many-americans-but-going-in-person-remains-more-popular/" target="_blank" rel="noopener">Pew Research Center, 2023</a></figure>
@@ -449,9 +443,8 @@ button.mini[disabled] { cursor: default; background: var(--good); border-color: 
   <p class="fineprint">Platform and survey figures, not a promise of views for any church.</p>
   <div class="card insights">
     <div class="ins-copy">
-      <h3>See which messages reached people</h3>
-      <p class="muted">Post from the app, then follow each Short's results in one place.</p>
-      <ul class="ticks"><li>Views, likes, comments and shares for every Short you post</li><li>All platforms together, or one at a time</li><li>Spot the moments people watched and shared, and plan next week's</li></ul>
+      <h3>See what reached people</h3>
+      <ul class="ticks"><li>Views, likes, comments, shares</li><li>All platforms, or one at a time</li><li>Plan next week from what worked</li></ul>
       <p class="fineprint">YouTube today. Facebook and Instagram once Meta approves the connection.</p>
     </div>
     <div class="ins-panel" id="analytics-demo" data-grow=".84" aria-label="Example of the Analytics screen with sample numbers">
@@ -468,29 +461,32 @@ button.mini[disabled] { cursor: default; background: var(--good); border-color: 
 </div></section>
 
 <section class="band" id="plans"><div class="wrap">
-  <div class="head center"><span class="eyebrow">Plans</span><h2>Start free. Share more when you're ready.</h2><p>Every plan has every feature. The only difference is how many finished Shorts you make each month.</p></div>
+  <div class="head center"><span class="eyebrow">Plans</span><h2>Start free. Grow when you're ready.</h2><p>Every feature on every plan. Plans differ only in Shorts per month.</p></div>
+  <div class="bill-row"><div class="billing-toggle" role="group" aria-label="Billing"><button type="button" data-int="monthly" aria-pressed="true">Monthly</button><button type="button" data-int="annual" aria-pressed="false">Yearly <span class="save">2 months free</span></button></div></div>
   <div class="plans plans-teaser">
-    <div class="card plan" data-grow=".95"><div class="plan-top"><h3>Foundation</h3></div><p class="lead">Start sharing something meaningful.</p>
-      <div class="price">$0<span> / forever</span></div><p class="billing">No card required.</p>
-      <div class="quota"><strong>1 finished Short</strong> every month</div>
-      <ul class="ticks"><li>Every template and design feature</li><li>1080p Shorts, no watermark</li><li>Upload every sermon</li></ul>
+    <div class="card plan" data-grow=".95"><div class="plan-top"><h3>Foundation</h3></div><p class="lead">Try it free.</p>
+      <div class="price">$0</div><p class="billing">Free forever. No card.</p>
+      <div class="quota"><span><strong>1 Short</strong> a month</span></div>
       <a class="btn" href="#download">Start free</a></div>
-    <div class="card plan featured" data-grow=".95"><div class="plan-top"><h3>Cornerstone</h3><span class="tag">More room to share</span></div><p class="lead">Keep your message reaching people.</p>
-      <div class="price">$20<span> / month</span></div><p class="billing">Or $200 a year — save $40.</p><span class="per">That’s $2 per finished Short</span>
-      <div class="quota"><strong>10 finished Shorts</strong> every month</div>
-      <ul class="ticks"><li>Every template and design feature</li><li>1080p Shorts, no watermark</li><li>Upload every sermon</li></ul>
-      <a class="btn accent" href="plans.html?plan=cornerstone">Choose Cornerstone</a></div>
+    <div class="card plan" data-plan="cornerstone" data-grow=".95"><div class="plan-top"><h3>Cornerstone</h3></div><p class="lead">Two or three a week.</p>
+      <div class="price" data-price>$50<span> / month</span></div><p class="billing" data-billing>Billed monthly.</p>
+      <div class="quota"><span><strong>10 Shorts</strong> a month</span><span class="per" data-per>$5 a Short</span></div>
+      <a class="btn" href="plans.html?plan=cornerstone">Choose Cornerstone</a></div>
+    <div class="card plan featured" data-plan="capstone" data-grow=".95"><div class="plan-top"><h3>Capstone</h3><span class="tag">Best value</span></div><p class="lead">About one a day.</p>
+      <div class="price" data-price>$100<span> / month</span></div><p class="billing" data-billing>Billed monthly.</p>
+      <div class="quota"><span><strong>30 Shorts</strong> a month</span><span class="per" data-per>$3.33 a Short</span></div>
+      <a class="btn accent" href="plans.html?plan=capstone">Choose Capstone</a></div>
   </div>
-  <ul class="trust" aria-label="Buying with confidence"><li>Cancel anytime</li><li>Full refund within 14 days of your first purchase</li><li>We never sell your data or show ads</li></ul>
+  <p class="all-plans">Every plan: every template &middot; 1080p &middot; no watermark &middot; upload every sermon</p>
 </div></section>
 
 <section class="band" id="faq"><div class="wrap">
   <div class="head"><span class="eyebrow">FAQ</span><h2>Questions churches ask.</h2></div>
   <div class="faq">
-    <details><summary>What counts as a finished Short?</summary><p>A Short counts when you export the final 1080p video. Uploading sermons, reviewing moments, drafts and previews never count.</p></details>
-    <details><summary>Does it work with audio-only sermons?</summary><p>Yes. Bring in .mp3, .wav or .m4a files and use the Audio Message template.</p></details>
-    <details><summary>What do I need to run it?</summary><p>A Windows 11 computer. Transcription and video work happen on your computer.</p></details>
-    <details><summary>Can I cancel anytime?</summary><p>Yes. Cancelling stops future charges, and you keep access until the end of the period you paid for.</p></details>
+    <details><summary>What counts as a finished Short?</summary><p>Only the final 1080p export. Uploads, drafts and previews never count.</p></details>
+    <details><summary>Does it work with audio-only sermons?</summary><p>Yes. Use .mp3, .wav or .m4a with the Audio Message template.</p></details>
+    <details><summary>What do I need to run it?</summary><p>A Windows 11 computer.</p></details>
+    <details><summary>Can I cancel anytime?</summary><p>Yes. You keep access until the paid period ends.</p></details>
   </div>
 </div></section>
 
@@ -498,7 +494,7 @@ button.mini[disabled] { cursor: default; background: var(--good); border-color: 
   <div class="brand-band">
     <img class="mark" src="img/logo.svg" alt="">
     <h2>Let Sunday keep speaking.</h2>
-    <p>Commission Clips for Windows 11. Start free — no card required.</p>
+    <p>Free to start. No card.</p>
     <span class="btn accent is-soon">Download for Windows <span class="soon">Coming soon</span></span>
   </div>
 </div></section>
@@ -645,5 +641,29 @@ if (!calm) {
   growers.forEach(([el, min]) => el.style.setProperty("--g-s", min));
   addEventListener("scroll", queue, { passive: true }); addEventListener("resize", queue); grow();
 }
+</script>
+<script>
+(() => {
+  const P = { cornerstone: { m: 50, y: 500, n: 10 }, capstone: { m: 100, y: 1000, n: 30 } };
+  const money = v => "$" + (Number.isInteger(v) ? v.toLocaleString("en-US") : v.toFixed(2));
+  const set = (int, animate) => {
+    const yearly = int === "annual";
+    document.querySelectorAll("#plans [data-int]").forEach(b => b.setAttribute("aria-pressed", String(b.dataset.int === int)));
+    document.querySelectorAll("#plans [data-plan]").forEach(card => {
+      const p = P[card.dataset.plan], perMonth = yearly ? Math.round(p.y / 12 * 100) / 100 : p.m;
+      const price = card.querySelector("[data-price]");
+      price.innerHTML = yearly
+        ? '<s class="was">' + money(p.m) + '</s><b class="now">' + money(perMonth) + "</b><span> / month</span>"
+        : money(p.m) + "<span> / month</span>";
+      card.querySelector("[data-billing]").innerHTML = yearly
+        ? '<b class="save-amt">Save ' + money(Math.round((p.m - perMonth) * 100) / 100) + " a month</b><i>" + money(p.y) + " billed yearly</i>"
+        : "Billed monthly.";
+      card.querySelector("[data-per]").textContent = money(Math.round(perMonth / p.n * 100) / 100) + " a Short";
+      if (animate) { card.classList.remove("flip"); void card.offsetWidth; card.classList.add("flip"); }
+      const a = card.querySelector("a.btn"); a.href = "plans.html?plan=" + card.dataset.plan + "&interval=" + (yearly ? "annual" : "monthly");
+    });
+  };
+  document.querySelectorAll("#plans [data-int]").forEach(b => b.addEventListener("click", () => set(b.dataset.int, !matchMedia("(prefers-reduced-motion: reduce)").matches)));
+})();
 </script>
 </body></html>
