@@ -119,18 +119,18 @@ main.wrap section.band { background: none; border-top: 0; padding: 72px 0; }   /
 .billing-toggle button { border: 0; background: transparent; border-radius: 8px; padding: 8px 16px; font: 600 14.5px var(--font); color: var(--muted); cursor: pointer; }
 .billing-toggle button[aria-pressed="true"] { background: var(--panel); color: var(--text); box-shadow: 0 1px 2px rgba(13, 14, 18, .08), 0 0 0 1px var(--line); }
 .billing-toggle .save { color: var(--accent-ink); font-size: 12.5px; margin-left: 6px; }
-.plans { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 20px; align-items: stretch; }
-.plan { padding: 32px; display: flex; flex-direction: column; }
+.plans { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 24px; align-items: stretch; }
+.plan { padding: 44px 48px; display: flex; flex-direction: column; border-radius: 22px; }
 .plan-top { display: flex; justify-content: space-between; align-items: center; gap: 12px; }
-.plan h2, .plan h3 { font-family: var(--font-display); font-weight: 800; letter-spacing: -.03em; font-size: 24px; }
+.plan h2, .plan h3 { font-family: var(--font-display); font-weight: 800; letter-spacing: -.03em; font-size: 28px; }
 .tag { font-size: 12.5px; font-weight: 600; color: var(--accent-ink); background: var(--accent-soft); border-radius: 6px; padding: 4px 9px; white-space: nowrap; }
-.plan .lead { color: var(--muted); margin-top: 6px; font-size: 16px; }
-.price { font-family: var(--font-display); font-weight: 800; color: var(--text); font-size: 46px; line-height: 1; letter-spacing: -.04em; margin-top: 24px; font-variant-numeric: tabular-nums; }
-.price span { font: 400 16px var(--font); letter-spacing: 0; color: var(--muted); }
+.plan .lead { color: var(--muted); margin-top: 6px; font-size: 17px; }
+.price { font-family: var(--font-display); font-weight: 800; color: var(--text); font-size: 60px; line-height: 1; letter-spacing: -.04em; margin-top: 30px; font-variant-numeric: tabular-nums; }
+.price span { font: 400 17px var(--font); letter-spacing: 0; color: var(--muted); }
 .billing { color: var(--muted); font-size: 14px; margin-top: 10px; min-height: 42px; }
-.quota { display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 8px; margin: 22px 0 26px; padding: 14px 0; border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); color: var(--soft); }
+.quota { margin: 26px 0 24px; padding: 18px 0; border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); color: var(--soft); font-size: 18px; }
 .quota strong { color: var(--text); }
-.plan .ticks { font-size: 15.5px; margin-bottom: 32px; }
+.plan .ticks { font-size: 16px; gap: 12px; margin-bottom: 36px; }
 .plan .btn { margin-top: auto; width: 100%; }
 
 /* Cornerstone: a solid ink card (near-black in light mode, raised graphite in dark mode). */
@@ -193,7 +193,7 @@ footer a { transition: color .15s; } footer a:hover { color: var(--text); }
   section.band { padding: 80px 0; }
   .head { margin-bottom: 40px; }
   .brand-band { padding: 56px 24px; border-radius: 18px; }
-  .plan { padding: 28px; }
+  .plan { padding: 30px 26px; }
 }
 @media (max-width: 560px) { footer nav { margin-left: 0; } .page-head { padding: 64px 0 36px; } }
 
