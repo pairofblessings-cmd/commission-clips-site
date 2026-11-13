@@ -98,7 +98,7 @@
 .ins-kpis button[aria-checked="true"] { border-color: var(--accent); box-shadow: inset 0 0 0 1px var(--accent); }
 .ins-kpis span { font-size: 12px; color: var(--muted); } .ins-kpis b { color: var(--text); font-size: 18px; font-variant-numeric: tabular-nums; }
 .ins-chart { position: relative; margin-top: 18px; padding-top: 24px; }
-#analytics-demo { transform: scale(var(--ins-s, 1)); transform-origin: center top; will-change: transform; }
+[data-grow] { scale: var(--g-s, 1); transform-origin: center top; }
 .ins-bars button { transform: scaleY(var(--grow, 1)); transform-origin: bottom; }
 .ins-bars { height: 120px; display: grid; grid-template-columns: repeat(var(--n, 7), minmax(0, 1fr)); gap: var(--g, 8px); align-items: end; border-bottom: 1px solid var(--line); }
 .ins-bars button { height: var(--h); min-height: 3px; padding: 0; border: 0; border-radius: 4px 4px 0 0; background: var(--accent); opacity: .8; cursor: pointer; transition: height .35s ease, opacity .15s; }
@@ -296,13 +296,13 @@ button.mini[disabled] { cursor: default; background: var(--good); border-color: 
 <section class="band" id="how"><div class="wrap">
   <div class="head"><span class="eyebrow">How it works</span><h2>From the pulpit to people's phones in three steps.</h2></div>
   <div class="steps">
-    <div class="card step"><div class="shot mock" aria-hidden="true">
+    <div class="card step" data-grow=".95"><div class="shot mock" aria-hidden="true">
       <div class="win"><div class="win-bar"><img src="img/logo-ink.svg" alt="">Add a sermon</div>
         <div class="drop"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 16V4M7 9l5-5 5 5"/><path d="M4 16v3a1 1 0 0 0 1 1h14a1 1 0 0 0 1-1v-3"/></svg>
           <b>Drop a video or audio file</b><span>MP4, MOV, MP3, WAV and more</span></div>
         <div class="link"><span>or paste a public sermon link</span><i>Add</i></div></div></div>
       <div class="body"><span class="n">1</span><h3>Bring in the sermon</h3><p>Choose a video or audio file, or paste a link to a public sermon.</p></div></div>
-    <div class="card step"><div class="shot mock" aria-hidden="true">
+    <div class="card step" data-grow=".95"><div class="shot mock" aria-hidden="true">
       <div class="win"><div class="win-bar"><img src="img/logo-ink.svg" alt="">Proposed moments</div>
         <ol class="rows">
           <li><span><b>The gifts of the Holy Spirit belong to…</b><em>Starts 13:41</em></span><i>Approve</i></li>
@@ -310,7 +310,7 @@ button.mini[disabled] { cursor: default; background: var(--good); border-color: 
           <li><span><b>If your parents were mega wealthy…</b><em>Starts 18:35</em></span><i>Approve</i></li>
         </ol></div></div>
       <div class="body"><span class="n">2</span><h3>Review the moments</h3><p>Commission Clips transcribes it and proposes complete moments. Listen, read, and approve the ones that fit.</p></div></div>
-    <div class="card step"><div class="shot phoneish"><img src="img/tpl-headline.jpg?v=2" alt=""></div>
+    <div class="card step" data-grow=".95"><div class="shot phoneish"><img src="img/tpl-headline.jpg?v=2" alt=""></div>
       <div class="body"><span class="n">3</span><h3>Finish and share</h3><p>Write the hook card, choose a template, preview it, and export a 1080p Short.</p></div></div>
   </div>
 </div></section>
@@ -319,7 +319,7 @@ button.mini[disabled] { cursor: default; background: var(--good); border-color: 
   <div class="head"><span class="eyebrow">Templates</span><h2>A look that fits your church.</h2><p>Every template, on every plan — or make your own. Each one shown on a different real moment from No Excuses Ministries.</p></div>
   <div class="picker">
     <div class="pk-stage">
-      <div class="pk-phone"><video id="pk-video" muted loop playsinline preload="none" poster="img/tpl-pulpit.jpg?v=2" aria-label="Preview of the selected template"></video></div>
+      <div class="pk-phone" data-grow=".9"><video id="pk-video" muted loop playsinline preload="none" poster="img/tpl-pulpit.jpg?v=2" aria-label="Preview of the selected template"></video></div>
       <p class="pk-cap" id="pk-cap" aria-live="polite"><b>Pulpit</b> &middot; Underlined captions</p>
     </div>
     <div>
@@ -333,9 +333,9 @@ button.mini[disabled] { cursor: default; background: var(--good); border-color: 
 <section class="band" id="outreach"><div class="wrap">
   <div class="head"><span class="eyebrow">Outreach</span><h2>Reach people where they already are.</h2><p>Many people meet church on a screen first. Shorts carry a sermon's clearest moments into the feeds they scroll every day.</p></div>
   <div class="stats">
-    <figure class="card fact"><b>27%</b><figcaption>of U.S. adults regularly watch religious services online or on TV.</figcaption><a href="https://www.pewresearch.org/religion/2023/06/02/online-religious-services-appeal-to-many-americans-but-going-in-person-remains-more-popular/" target="_blank" rel="noopener">Pew Research Center, 2023</a></figure>
-    <figure class="card fact"><b>1 in 5</b><figcaption>U.S. adults watch religion-focused online videos, such as on YouTube or TikTok.</figcaption><a href="https://www.pewresearch.org/religion/2023/06/02/online-religious-services-appeal-to-many-americans-but-going-in-person-remains-more-popular/" target="_blank" rel="noopener">Pew Research Center, 2023</a></figure>
-    <figure class="card fact"><b>200 billion</b><figcaption>YouTube Shorts views every day, across the whole platform.</figcaption><a href="https://blog.youtube/news-and-events/neal-mohan-cannes-2025/" target="_blank" rel="noopener">YouTube, June 2025</a></figure>
+    <figure class="card fact" data-grow=".94"><b>27%</b><figcaption>of U.S. adults regularly watch religious services online or on TV.</figcaption><a href="https://www.pewresearch.org/religion/2023/06/02/online-religious-services-appeal-to-many-americans-but-going-in-person-remains-more-popular/" target="_blank" rel="noopener">Pew Research Center, 2023</a></figure>
+    <figure class="card fact" data-grow=".94"><b>1 in 5</b><figcaption>U.S. adults watch religion-focused online videos, such as on YouTube or TikTok.</figcaption><a href="https://www.pewresearch.org/religion/2023/06/02/online-religious-services-appeal-to-many-americans-but-going-in-person-remains-more-popular/" target="_blank" rel="noopener">Pew Research Center, 2023</a></figure>
+    <figure class="card fact" data-grow=".94"><b>200 billion</b><figcaption>YouTube Shorts views every day, across the whole platform.</figcaption><a href="https://blog.youtube/news-and-events/neal-mohan-cannes-2025/" target="_blank" rel="noopener">YouTube, June 2025</a></figure>
   </div>
   <p class="fineprint">Platform and survey figures, not a promise of views for any church.</p>
   <div class="card insights">
@@ -345,7 +345,7 @@ button.mini[disabled] { cursor: default; background: var(--good); border-color: 
       <ul class="ticks"><li>Views, likes, comments and shares for every Short you post</li><li>All platforms together, or one at a time</li><li>Spot the moments people watched and shared, and plan next week's</li></ul>
       <p class="fineprint">YouTube today. Facebook and Instagram once Meta approves the connection.</p>
     </div>
-    <div class="ins-panel" id="analytics-demo" aria-label="Example of the Analytics screen with sample numbers">
+    <div class="ins-panel" id="analytics-demo" data-grow=".84" aria-label="Example of the Analytics screen with sample numbers">
       <div class="ins-top"><b>Analytics</b>
         <div class="ins-range" role="radiogroup" aria-label="Date range"><button type="button" role="radio" aria-checked="true" data-days="7">7 days</button><button type="button" role="radio" aria-checked="false" data-days="28">28 days</button></div>
       </div>
@@ -367,7 +367,7 @@ button.mini[disabled] { cursor: default; background: var(--good); border-color: 
   </div>
   <div class="review">
     <p class="try">Try it: approve the moment, choose a look, export, post. It’s a practice run; nothing leaves this page.</p>
-    <div class="rv" id="demo">
+    <div class="rv" id="demo" data-grow=".93">
       <div class="rv-tabs" role="tablist" aria-label="Demo"><button type="button" role="tab" class="on" aria-selected="true" data-tab="moments">Proposed moments <em>12</em></button><button type="button" role="tab" aria-selected="false" data-tab="shorts">My Shorts <em id="demo-count" hidden>1</em></button></div>
       <div class="rv-card" data-panel="moments">
         <div class="rv-head"><span class="rv-n">1</span><b>The truth is your song and your altar grow…</b><span class="rv-len">0:28</span></div>
@@ -402,12 +402,12 @@ button.mini[disabled] { cursor: default; background: var(--good); border-color: 
 <section class="band" id="plans"><div class="wrap">
   <div class="head center"><span class="eyebrow">Plans</span><h2>Start free. Share more when you're ready.</h2><p>Every plan has every feature. The only difference is how many finished Shorts you make each month.</p></div>
   <div class="plans plans-teaser">
-    <div class="card plan"><div class="plan-top"><h3>Foundation</h3></div><p class="lead">Start sharing something meaningful.</p>
+    <div class="card plan" data-grow=".95"><div class="plan-top"><h3>Foundation</h3></div><p class="lead">Start sharing something meaningful.</p>
       <div class="price">$0<span> / forever</span></div><p class="billing">No card required.</p>
       <div class="quota"><strong>1 finished Short</strong> every month</div>
       <ul class="ticks"><li>Every template and design feature</li><li>1080p Shorts, no watermark</li><li>Upload every sermon</li></ul>
       <a class="btn" href="#download">Start free</a></div>
-    <div class="card plan featured"><div class="plan-top"><h3>Cornerstone</h3><span class="tag">More room to share</span></div><p class="lead">Keep your message reaching people.</p>
+    <div class="card plan featured" data-grow=".95"><div class="plan-top"><h3>Cornerstone</h3><span class="tag">More room to share</span></div><p class="lead">Keep your message reaching people.</p>
       <div class="price">$20<span> / month</span></div><p class="billing">Or $200 a year — save $40.</p><span class="per">That’s $2 per finished Short</span>
       <div class="quota"><strong>10 finished Shorts</strong> every month</div>
       <ul class="ticks"><li>Every template and design feature</li><li>1080p Shorts, no watermark</li><li>Upload every sermon</li></ul>
@@ -539,17 +539,27 @@ if ("IntersectionObserver" in window && !matchMedia("(prefers-reduced-motion: re
   bars.addEventListener("mouseleave", () => { bars.querySelectorAll(".on").forEach(x => x.classList.remove("on")); tip.textContent = ""; });
   window.insPosted = () => { posted = true; render(); };
   render();
-  // Scroll-linked growth: the panel scales up and the bars rise as it comes into view (reverses on the way back).
-  if (!calm) {
-    const ease = t => t * t * (3 - 2 * t), clamp = t => Math.min(1, Math.max(0, t));
-    let queued = false;
-    const grow = () => { queued = false;
-      const p = clamp((innerHeight - panel.getBoundingClientRect().top) / (innerHeight * 0.75));
-      panel.style.setProperty("--ins-s", (0.84 + 0.16 * ease(p)).toFixed(3));
-      bars.style.setProperty("--grow", ease(clamp((p - 0.25) / 0.75)).toFixed(3)); };
-    const queue = () => { if (!queued) { queued = true; requestAnimationFrame(grow); } };
-    addEventListener("scroll", queue, { passive: true }); addEventListener("resize", queue); grow();
-  }
+  // The bars rise as the panel scrolls into view (the panel itself grows with the other [data-grow] blocks).
+  window.insGrow = p => bars.style.setProperty("--grow", growEase(Math.min(1, Math.max(0, (p - 0.25) / 0.75))).toFixed(3));
 })();
+// Scroll-linked growth: each [data-grow] block scales from its value up to full size as it comes into view,
+// and back down on the way up. Off entirely with "reduce motion".
+function growEase(t) { return t * t * (3 - 2 * t); }
+if (!calm) {
+  const growers = [...document.querySelectorAll("[data-grow]")].map(el => [el, +el.dataset.grow]);
+  const analytics = document.getElementById("analytics-demo");
+  let queued = false;
+  const grow = () => { queued = false;
+    growers.forEach(([el, min]) => {
+      const top = el.getBoundingClientRect().top;
+      if (top > innerHeight * 1.2 || top < -innerHeight) return;
+      const p = Math.min(1, Math.max(0, (innerHeight - top) / (innerHeight * 0.75)));
+      el.style.setProperty("--g-s", (min + (1 - min) * growEase(p)).toFixed(3));
+      if (el === analytics && window.insGrow) window.insGrow(p);
+    }); };
+  const queue = () => { if (!queued) { queued = true; requestAnimationFrame(grow); } };
+  growers.forEach(([el, min]) => el.style.setProperty("--g-s", min));
+  addEventListener("scroll", queue, { passive: true }); addEventListener("resize", queue); grow();
+}
 </script>
 </body></html>
