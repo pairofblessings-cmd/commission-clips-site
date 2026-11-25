@@ -63,8 +63,8 @@ h1, h2 { font-family: var(--font-display); font-weight: 800; color: var(--text);
 h3 { font-family: var(--font); font-weight: 600; color: var(--text); letter-spacing: -.01em; margin: 0; }
 p { margin: 0; }
 .muted { color: var(--muted); }
-/* Section label: plain small caps in the accent, no pill. */
-.eyebrow { display: inline-block; color: var(--accent-ink); font-weight: 600; font-size: 13px; letter-spacing: .1em; text-transform: uppercase; }
+.muted a { color: var(--accent-ink); }
+[id] { scroll-margin-top: 96px; }
 
 /* Buttons: .accent (sapphire), .primary (ink), default (outline). */
 .btn { display: inline-flex; align-items: center; justify-content: center; gap: 10px; min-height: 48px; padding: 12px 22px;
@@ -97,7 +97,6 @@ p { margin: 0; }
 
 /* Page head (inner pages) */
 .page-head { padding: 88px 0 48px; }
-.page-head .eyebrow + .page-title { margin-top: 14px !important; }
 .page-title { font-size: clamp(38px, 5vw, 56px); line-height: 1.04; }
 .page-desc { color: var(--muted); font-size: 19px; max-width: 620px; margin-top: 16px; }
 
@@ -107,7 +106,7 @@ section.band + section.band { border-top: 1px solid var(--top-line); }
 section.band:nth-of-type(even) { background: var(--surface); }
 main.wrap section.band { background: none; border-top: 0; padding: 72px 0; }   /* bands inside a page column stay unboxed */
 .head { max-width: 680px; margin-bottom: 52px; }
-.head h2 { font-size: clamp(32px, 3.8vw, 46px); line-height: 1.06; margin-top: 14px; }
+.head h2 { font-size: clamp(32px, 3.8vw, 46px); line-height: 1.06; margin-top: 0; }
 .head p { color: var(--muted); font-size: 18px; margin-top: 16px; }
 .center { text-align: center; margin-left: auto; margin-right: auto; }
 .ticks { list-style: none; margin: 0; padding: 0; display: grid; gap: 10px; }
