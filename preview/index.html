@@ -241,17 +241,11 @@ button.mini[disabled] { cursor: default; background: var(--good); border-color: 
 .gl-phone { position: relative; display: block; aspect-ratio: 9 / 16; max-width: 100%; margin-bottom: 14px; border-radius: 22px; overflow: hidden; background: #000;
   box-shadow: var(--shadow-sm); outline: 2px solid transparent; outline-offset: 5px; transition: transform .35s cubic-bezier(.2,.7,.2,1), box-shadow .35s, outline-color .2s; }
 .gl-phone video { width: 100%; height: 100%; object-fit: cover; display: block; transition: filter .3s; }
-.gl-opt[aria-checked="false"] video { filter: brightness(.8); }
 .gl-opt:hover .gl-phone { transform: translateY(-6px); box-shadow: var(--shadow); }
-.gl-opt[aria-checked="true"] .gl-phone, .gl-opt:focus-visible .gl-phone { outline-color: var(--accent); box-shadow: var(--shadow); }
-.gl-play { position: absolute; right: 14px; bottom: 14px; width: 44px; height: 44px; border-radius: 50%; background: rgba(255,255,255,.92);
-  box-shadow: 0 6px 20px rgba(0,0,0,.25); transition: opacity .25s, scale .25s; }
-.gl-play::after { content: ""; position: absolute; left: 55%; top: 50%; translate: -50% -50%; border-style: solid; border-width: 8px 0 8px 13px; border-color: transparent transparent transparent #111; }
-.gl-opt:hover .gl-play { scale: 1.08; }
-.gl-opt[aria-checked="true"] .gl-play { opacity: 0; scale: .7; }
+.gl-opt:focus-visible .gl-phone { outline-color: var(--accent); box-shadow: var(--shadow); }
 .gl-opt b { font-size: 17px; font-weight: 600; letter-spacing: -.01em; }
 .gl-opt small { color: var(--muted); font-size: 14.5px; line-height: 1.4; }
-@media (prefers-reduced-motion: reduce) { .gl-phone, .gl-play, .gl-phone video { transition: none; } }
+@media (prefers-reduced-motion: reduce) { .gl-phone, .gl-phone video { transition: none; } }
 /* Build-your-own: the same fonts, sizes and placement as the app's preset templates (assets/presets/*.json) */
 @font-face { font-family: "CC Inter"; src: url("fonts/Inter-SemiBold.woff2") format("woff2"); font-weight: 600; font-display: swap; }
 @font-face { font-family: "CC Inter"; src: url("fonts/Inter-Bold.woff2") format("woff2"); font-weight: 700; font-display: swap; }
@@ -682,7 +676,7 @@ button.mini[disabled] { cursor: default; background: var(--good); border-color: 
 
 <section class="band" id="templates"><div class="wrap">
   <div class="head"><h2>A look that fits your church.</h2><p>Every template on every plan. Real renders from the app.</p></div>
-  <div class="gallery" id="pk-list" role="radiogroup" aria-label="Templates. Choose one to play its preview."></div>
+  <div class="gallery" id="pk-list" role="group" aria-label="Templates, each playing a real render"></div>
   <div class="card builder" data-grow=".95">
     <div class="bd-copy">
       <h3>Or make your own</h3>
@@ -889,27 +883,13 @@ const T = [["simple","Simple","Clean font, the spoken word in gold"],["headline"
 const pkList = document.getElementById("pk-list");
 const calm = matchMedia("(prefers-reduced-motion: reduce)").matches;
 pkList.innerHTML = T.map(([id, name, sub], i) =>
-  `<button type="button" class="gl-opt" role="radio" aria-checked="${i === 0}" tabindex="${i === 0 ? 0 : -1}" data-id="${id}">
-     <span class="gl-phone"><video muted loop playsinline preload="none" poster="img/tpl-${id}.jpg?v=5" data-src="img/tpl-${id}.mp4?v=5"></video><span class="gl-play" aria-hidden="true"></span></span>
+  `<button type="button" class="gl-opt" data-id="${id}" aria-label="${name} template preview. Press to pause or play.">
+     <span class="gl-phone"><video muted loop playsinline preload="none" poster="img/tpl-${id}.jpg?v=5" data-src="img/tpl-${id}.mp4?v=5"></video></span>
      <b>${name}</b><small>${sub}</small></button>`).join("");
 const pkOpts = [...pkList.querySelectorAll(".gl-opt")];
-// Only the chosen template plays; the rest stay on their still frame.
-function pick(btn, play) {
-  pkOpts.forEach(o => { const on = o === btn, v = o.querySelector("video");
-    o.setAttribute("aria-checked", String(on)); o.tabIndex = on ? 0 : -1;
-    if (on) { if (!v.src) v.src = v.dataset.src; if (play) v.play().catch(() => {}); } else v.pause(); });
-  // On phones the row swipes: centre the chosen one without moving the page.
-  if (pkList.scrollWidth > pkList.clientWidth) pkList.scrollTo({ left: btn.offsetLeft - (pkList.clientWidth - btn.offsetWidth) / 2, behavior: calm ? "auto" : "smooth" });
-}
-pkOpts.forEach((o, i) => {
-  // Tapping the playing one pauses or resumes it; tapping another switches to it.
-  o.addEventListener("click", () => { const v = o.querySelector("video");
-    if (o.getAttribute("aria-checked") === "true" && v.src) { if (v.paused) v.play().catch(() => {}); else v.pause(); } else pick(o, true); });
-  o.addEventListener("keydown", e => {
-    const step = { ArrowRight: 1, ArrowDown: 1, ArrowLeft: -1, ArrowUp: -1 }[e.key]; if (!step) return;
-    e.preventDefault(); const n = pkOpts[(i + step + pkOpts.length) % pkOpts.length]; n.focus(); pick(n, true);
-  });
-});
+// All four play by themselves while on screen (Nicholas, 25 Nov 2026); tapping one pauses or resumes it.
+pkOpts.forEach(o => o.addEventListener("click", () => { const v = o.querySelector("video"); if (!v.src) v.src = v.dataset.src;
+  if (v.paused) { o.dataset.held = ""; v.play().catch(() => {}); } else { o.dataset.held = "1"; v.pause(); } }));
 // "Reach people" figures count up and their pictures fill in once the cards are on screen. Final values stay in the HTML, so no-JS and "reduce motion" see them as is.
 if (!calm && "IntersectionObserver" in window) {
   const facts = [...document.querySelectorAll(".fact")];
@@ -935,13 +915,13 @@ if (!calm && "IntersectionObserver" in window) {
     bio.observe(bm); }
 }
 
-// The first template starts playing once the section is on screen (still frame only with reduced motion).
+// Each template plays while it is on screen and pauses when it leaves (on phones, only the ones in view).
+// With reduced motion they stay on their still frames until tapped.
 if (!calm && "IntersectionObserver" in window) {
-  const pio = new IntersectionObserver(es => es.forEach(e => {
-    const cur = pkOpts.find(o => o.getAttribute("aria-checked") === "true");
-    if (e.isIntersecting) pick(cur, true); else pkOpts.forEach(o => o.querySelector("video").pause());
-  }), { threshold: .4 });
-  pio.observe(pkList);
+  const pio = new IntersectionObserver(es => es.forEach(e => { const v = e.target.querySelector("video");
+    if (e.isIntersecting && !e.target.dataset.held) { if (!v.src) v.src = v.dataset.src; v.play().catch(() => {}); } else if (!e.isIntersecting) v.pause();
+  }), { threshold: .5 });
+  pkOpts.forEach(o => pio.observe(o));
 }
 // Respect "reduce motion": the hero Short stays on its still frame until someone presses play.
 if (matchMedia("(prefers-reduced-motion: reduce)").matches) { const hv = document.querySelector(".phone video"); hv.removeAttribute("autoplay"); hv.pause(); hv.controls = true; }
