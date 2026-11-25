@@ -18,6 +18,20 @@
 .hero h1 em { font-style: normal; color: var(--accent); }
 .hero .lead { font-size: 20px; line-height: 1.6; color: var(--muted); max-width: 540px; }
 .hero .ctas { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 36px; }
+#download { scroll-margin-top: 72px; }
+.download-panel { padding: clamp(32px, 6vw, 64px) clamp(18px, 5vw, 40px); }
+.download-panel h2 { font-size: clamp(28px, 4vw, 42px); }
+.download-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 190px), 1fr)); gap: 16px; margin: 24px auto 0; max-width: 460px; }
+.download-grid .btn { width: 100%; }
+.download-panel .download-compat { margin: 7px 0 0; font-size: 14px; }
+.download-panel .download-note a { color: inherit; text-decoration: underline; }
+.download-panel .download-note { margin: 20px auto 0; font-size: 14px; }
+.download-details { margin: 4px auto 0; max-width: 460px; font-size: 14px; }
+.download-details summary { width: fit-content; margin: 0 auto; padding: 10px 4px; min-height: 44px; cursor: pointer; }
+.download-details dl { margin: 0; text-align: left; }
+.download-details dt { color: #fff; font-weight: 700; margin-top: 12px; }
+.download-details dd { margin: 4px 0 0; }
+.download-details code { display: block; margin-top: 4px; overflow-wrap: anywhere; }
 .promises { display: flex; flex-wrap: wrap; gap: 8px 20px; margin-top: 28px; font-size: 14.5px; color: var(--muted); }
 .promises span { display: inline-flex; align-items: center; gap: 7px; }
 .promises span::before { content: ""; width: 16px; height: 16px; background: var(--tick) center/16px no-repeat; }
@@ -507,7 +521,7 @@ button.mini[disabled] { cursor: default; background: var(--good); border-color: 
 @media (prefers-reduced-motion: reduce) { .pick-row button, .pick-row button::after, .month i { transition: none; } .stepper output b.bump { animation: none; } }
 </style></head>
 <body>
-<div style="background:#18181b;color:#fff;text-align:center;font:600 13px system-ui,sans-serif;padding:8px 12px">Preview of the new design — not live yet</div>
+<div style="background:#18181b;color:#fff;text-align:center;font:600 13px system-ui,sans-serif;padding:8px 12px">Private download preview</div>
 <header class="top"><div class="wrap">
   <a class="brand" href="index.html"><img src="img/logo-ink.svg" alt="">Commission Clips</a>
   <nav aria-label="Main"><a href="#how">How it works</a><a href="#templates">Templates</a><a href="#numbers">Your numbers</a><a href="plans.html">Plans</a><a href="#faq">FAQ</a></nav>
@@ -520,10 +534,10 @@ button.mini[disabled] { cursor: default; background: var(--good); border-color: 
     <h1>Your sermon, <em>seen all week.</em></h1>
     <p class="lead">Drop in your sermon. Get captioned Shorts of its complete points, ready to post.</p>
     <div class="ctas">
-      <a class="btn accent is-soon" href="#download">Download for Windows <span class="soon">Coming soon</span></a>
+      <a class="btn accent" href="#download">Test downloads</a>
       <a class="btn" href="#plans">See plans</a>
     </div>
-    <div class="promises"><span>14-day free trial</span><span>No card</span><span>No watermark</span></div>
+    <div class="promises"><span>Local transcription</span><span>1080p export</span><span>No watermark</span></div>
   </div>
   <div class="stage">
     <div class="phone"><video src="img/hero.mp4?v=2" poster="img/hero.jpg?v=2" autoplay muted loop playsinline></video><button type="button" class="sound" id="sound" aria-pressed="false" aria-label="Unmute"><svg class="i-off" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M11 5 6 9H3v6h3l5 4z"/><path d="M22 9l-6 6M16 9l6 6"/></svg><svg class="i-on" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M11 5 6 9H3v6h3l5 4z"/><path d="M16 9a4 4 0 0 1 0 6M19 6a8 8 0 0 1 0 12"/></svg></button></div>
@@ -582,7 +596,7 @@ button.mini[disabled] { cursor: default; background: var(--good); border-color: 
     <article class="card tile t-upload">
       <h3>Private by default</h3>
       <p>Your sermons are processed on your computer.</p>
-      <ul class="free" aria-label="Privacy"><li>No ads, no tracking</li><li>Never sold</li></ul>
+      <ul class="free" aria-label="Privacy"><li>No ads</li><li>We don’t sell your data</li></ul>
       <a class="more" href="privacy.html">Privacy Policy</a>
     </article>
     <article class="card tile t-feeds">
@@ -806,7 +820,7 @@ button.mini[disabled] { cursor: default; background: var(--good); border-color: 
 </div></section>
 
 <section class="band" id="plans"><div class="wrap">
-  <div class="head center"><h2>Two plans. Every feature.</h2><p>Try it free for 14 days. No card.</p></div>
+  <div class="head center"><h2>Two plans. Every feature.</h2><p>Paid checkout is coming soon.</p></div>
   <div class="bill-row"><div class="billing-toggle" role="group" aria-label="Billing"><button type="button" data-int="monthly" aria-pressed="true">Monthly</button><button type="button" data-int="annual" aria-pressed="false">Yearly</button></div></div>
   <div class="plans plans-teaser">
     <div class="card plan" data-plan="firm_foundation" data-grow=".95"><div class="plan-top"><h3>Firm Foundation</h3></div><p class="lead">Two or three a week.</p>
@@ -825,21 +839,39 @@ button.mini[disabled] { cursor: default; background: var(--good); border-color: 
 <section class="band" id="faq"><div class="wrap">
   <div class="head"><h2>Questions churches ask.</h2></div>
   <div class="faq">
-    <details><summary>How does the free trial work?</summary><p>14 days, up to 10 finished Shorts, no card. Then choose a plan to keep exporting.</p></details>
+    <details><summary>How does the free trial work?</summary><p>14 days, up to 10 finished Shorts, no card. Available in the Windows Shorts-only test build. Paid checkout is coming soon.</p></details>
     <details><summary>What counts as a finished Short?</summary><p>Only the final 1080p export. Uploads, drafts and previews never count.</p></details>
     <details><summary>Does it work with audio-only sermons?</summary><p>Yes. Use .mp3, .wav or .m4a with the Audio Message template.</p></details>
-    <details><summary>What do I need to run it?</summary><p>A Windows 11 computer.</p></details>
+    <details><summary>What do I need to run it?</summary><p>The test downloads support Windows 11 x64 and Macs with Apple silicon. The Mac pilot was tested on macOS 15 and 26.</p></details>
     <details><summary>Can I cancel anytime?</summary><p>Yes. You keep access until the paid period ends.</p></details>
   </div>
 </div></section>
 
 <section class="band" id="download"><div class="wrap">
-  <div class="brand-band">
-    <img class="mark" src="img/logo.svg" alt="">
-    <h2>Let Sunday keep speaking.</h2>
-    <p>14 days free. No card.</p>
-    <span class="btn accent is-soon">Download for Windows <span class="soon">Coming soon</span></span>
-    <p class="muted">Windows 11. Windows will ask before running a new app: <a href="support.html#install">see how to install</a>.</p>
+  <div class="brand-band download-panel">
+    <h2>Download Commission Clips</h2>
+    <div class="download-grid">
+      <div>
+        <a class="btn accent" href="https://github.com/pairofblessings-cmd/commission-clips-app/releases/download/private-preview-0.1.13-20261125/CommissionClips-0.1.13-Setup.exe" aria-describedby="windows-compat">Download for Windows</a>
+        <p id="windows-compat" class="download-compat">Windows 11 · x64</p>
+      </div>
+      <div>
+        <a class="btn accent" href="https://github.com/pairofblessings-cmd/commission-clips-app/releases/download/private-preview-0.1.13-20261125/Commission-Clips-0.1.13-Apple-Silicon-test-45551833618.dmg" aria-describedby="mac-compat">Download for Mac</a>
+        <p id="mac-compat" class="download-compat">Apple silicon · M-series</p>
+      </div>
+    </div>
+    <p class="download-note">Unsigned test builds · <a href="https://github.com/pairofblessings-cmd/commission-clips-app/releases/tag/private-preview-0.1.13-20261125">GitHub access required</a></p>
+    <details class="download-details">
+      <summary>Build and install details</summary>
+      <dl>
+        <dt>Windows</dt>
+        <dd>0.1.13 Shorts-only pilot · 412 MB. Use a fresh Windows test profile. SmartScreen may show a warning.</dd>
+        <dd>SHA-256 <code>eb1b4546ca72ab375dfdc3e3f950fc223157063ff79abc7393a10cb5f62bc4e5</code></dd>
+        <dt>Mac</dt>
+        <dd>0.1.13 pilot · 169 MB. Tested on macOS 15 and 26. macOS may block this unnotarized build.</dd>
+        <dd>SHA-256 <code>c822c4bf82c61637e0e08bbbb1049fc6ea535dbc3489ca00173f67a12bc15ee6</code></dd>
+      </dl>
+    </details>
   </div>
 </div></section>
 </main>

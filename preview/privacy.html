@@ -13,7 +13,7 @@
 <link rel="stylesheet" href="site.css?v=9">
 </head>
 <body>
-<div style="background:#18181b;color:#fff;text-align:center;font:600 13px system-ui,sans-serif;padding:8px 12px">Preview of the new design — not live yet</div>
+<div style="background:#18181b;color:#fff;text-align:center;font:600 13px system-ui,sans-serif;padding:8px 12px">Private download preview</div>
 <header class="top"><div class="wrap">
   <a class="brand" href="index.html"><img src="img/logo-ink.svg" alt="">Commission Clips</a>
   <nav aria-label="Main"><a href="index.html#how">How it works</a><a href="index.html#templates">Templates</a><a href="index.html#numbers">Your numbers</a><a href="plans.html">Plans</a><a href="index.html#faq">FAQ</a></nav>
@@ -27,22 +27,22 @@
   </header>
 <div class="card summary"><p><strong>In short:</strong> Commission Clips is a desktop app that turns sermons into short videos on your own
 computer. Your sermons, transcripts and videos stay on your computer unless <em>you</em> choose to post a video to a social
-account you connected. We do not sell data, show ads, or track you.</p></div>
+account you connected. We do not sell data or show ads. Some bundled tools can send diagnostic or usage metrics as described below.</p></div>
 
 <h2>Who we are</h2>
 <p>Commission Clips is owned and operated by <strong>Nicholas Josiah Tassiello</strong>, an individual in
 Oklahoma, USA ("we", "us"). Contact: <a href="mailto:commissionclipssupport@gmail.com">commissionclipssupport@gmail.com</a>.</p>
 
 <h2>What stays on your computer</h2>
-<p>Sermon files, transcripts, projects, Shorts and exports are processed and stored only on your computer. We have no
-account system, no telemetry, no analytics tracking and no crash reporting. Error logs are kept locally and are never
-uploaded automatically.</p>
+<p>Sermon files, transcripts, projects, Shorts and exports are processed and stored on your computer. Commission Clips
+keeps its own error logs locally. The bundled tools listed below have separate diagnostic and usage data practices.</p>
 
 <h2>When the app connects to the internet</h2>
 <table><thead>
 <tr><th>When</th><th>Who it talks to</th><th>What is sent</th></tr></thead><tbody>
 <tr><td>Activating or checking a license (about once a week)</td><td>Our store provider, Lemon Squeezy</td><td>Your license key, an activation identifier for this computer, and a label made of your computer's name and a short code, so you can tell your activated computers apart.</td></tr>
 <tr><td>First transcription, and optional features that need a model</td><td>huggingface.co</td><td>A request to download that model. No account, no sermon data.</td></tr>
+<tr><td>Using face or hand detection in builds that include MediaPipe</td><td>Google, through MediaPipe Tasks</td><td>MediaPipe can send performance and usage metrics to Google. Google says the input images, videos and audio stay on your computer. See the <a href="https://github.com/google-ai-edge/mediapipe#privacy-notice">MediaPipe privacy notice</a>.</td></tr>
 <tr><td>While the app is open</td><td>Microsoft, through the Edge WebView2 Runtime the app uses to draw its window</td><td>Commission Clips includes Microsoft Defender SmartScreen, which collects and sends information to Microsoft as disclosed in the <a href="https://aka.ms/privacy">Microsoft Privacy Statement</a> and the <a href="https://learn.microsoft.com/en-us/microsoft-edge/privacy-whitepaper#smartscreen">Microsoft Edge Privacy Whitepaper</a>. Microsoft may also receive diagnostic data. Your sermons are not sent.</td></tr>
 <tr><td>Checking for updates</td><td>Our update feed on GitHub</td><td>Requests for the update list and installer. No sermon data.</td></tr>
 <tr><td>Connecting a social account (optional)</td><td>That platform (Google/YouTube, TikTok, Meta for Instagram and Facebook)</td><td>You sign in on the platform's own page in your browser. The app receives a permission token for that account.</td></tr>

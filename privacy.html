@@ -1,6 +1,7 @@
 <!doctype html>
 <html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Privacy Policy — Commission Clips</title>
+<link rel="icon" href="img/logo-ink.svg" type="image/svg+xml">
 <style>
 :root { --bg: #0b0b0c; --panel: #151517; --line: #2c2c30; --text: #ffffff; --soft: #d4d4d8; --muted: #a6a6ad; --accent: #4c8dff; }
 body { margin: 0; background: var(--bg); color: var(--soft); font: 16px/1.65 system-ui, "Segoe UI", Inter, sans-serif; }
@@ -12,20 +13,18 @@ th { color: var(--text); } .box { background: var(--panel); border: 1px solid va
 </style></head>
 <body><main>
 <h1>Privacy Policy</h1>
-<p class="muted">Commission Clips · Effective October 15, 2026</p>
+<p class="muted">Commission Clips · Effective November 25, 2026</p>
 
 <div class="box"><p><strong>In short:</strong> Commission Clips is a desktop app that turns sermons into short videos on your own
 computer. Your sermons, transcripts and videos stay on your computer unless <em>you</em> choose to post a video to a social
-account you connected. We do not sell data, show ads, or track you.</p></div>
+account you connected. We do not sell data or show ads. Certain bundled tools can send the metrics described below.</p></div>
 
 <h2>Who we are</h2>
 <p>Commission Clips is owned and operated by <strong>Nicholas Josiah Tassiello</strong>, an individual in
 Oklahoma, USA ("we", "us"). Contact: <a href="mailto:commissionclipssupport@gmail.com">commissionclipssupport@gmail.com</a>.</p>
 
 <h2>What stays on your computer</h2>
-<p>Sermon files, transcripts, projects, Shorts and exports are processed and stored only on your computer. We have no
-account system, no telemetry, no analytics tracking and no crash reporting. Error logs are kept locally and are never
-uploaded automatically.</p>
+<p>Sermon files, transcripts, projects, Shorts and exports are processed and stored only on your computer. Commission Clips keeps its own error logs locally. The bundled tools listed below have separate diagnostic and usage data practices.</p>
 
 <h2>When the app connects to the internet</h2>
 <table>
@@ -33,6 +32,8 @@ uploaded automatically.</p>
 <tr><td>Activating or checking a license</td><td>Our store provider (Gumroad or Lemon Squeezy)</td><td>Your license key and an activation identifier for this computer.</td></tr>
 <tr><td>Importing a sermon from a link</td><td>The website in the link (for example YouTube)</td><td>Anonymous requests to download that public video. No sign-in, cookies or account tokens.</td></tr>
 <tr><td>First transcription</td><td>huggingface.co</td><td>A request to download the speech-recognition model. No account.</td></tr>
+<tr><td>Face or hand detection in builds that include MediaPipe</td><td>Google, through MediaPipe Tasks</td><td>MediaPipe can send performance and usage metrics. Google says media inputs stay on your computer. See <a href="https://github.com/google-ai-edge/mediapipe#privacy-notice">MediaPipe’s privacy notice</a>.</td></tr>
+<tr><td>Using the Windows app</td><td>Microsoft, through the bundled WebView2 runtime</td><td>WebView2 and Microsoft Defender SmartScreen may send diagnostic and security data as explained in the <a href="https://aka.ms/privacy">Microsoft Privacy Statement</a>.</td></tr>
 <tr><td>Checking for updates</td><td>Our update feed on GitHub</td><td>Requests for the update list and installer. No sermon data.</td></tr>
 <tr><td>Connecting a social account (optional)</td><td>That platform (Google/YouTube, TikTok, Meta for Instagram and Facebook)</td><td>You sign in on the platform's own page in your browser. The app receives a permission token for that account.</td></tr>
 <tr><td>Posting a Short (only when you press Post or a schedule you set)</td><td>The platform(s) you choose</td><td>The video file, its caption and the settings you picked, uploaded directly from your computer.</td></tr>
